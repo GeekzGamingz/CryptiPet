@@ -152,6 +152,11 @@ target_position = Vector2(-7.5, 0)
 
 [node name="Timers" type="Node2D" parent="." unique_id=217649096]
 
+[node name="Morph" type="Timer" parent="Timers" unique_id=577512442]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
 [node name="Movement" type="Timer" parent="Timers" unique_id=1088803928]
 wait_time = 2.5
 one_shot = true
@@ -187,3 +192,5 @@ uppercase = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1706723827]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_a1j8a")
+
+[connection signal="timeout" from="Timers/Morph" to="Scripts/Concept" method="_on_morph_timeout"]

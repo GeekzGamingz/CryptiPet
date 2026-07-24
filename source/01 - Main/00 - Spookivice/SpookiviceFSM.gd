@@ -13,6 +13,7 @@ func _ready() -> void:
 	state_add("standby")
 	state_add("powering_on")
 	state_add("idle")
+	state_add("waiting")
 	state_add("powering_off")
 	state_add("off")
 	call_deferred("state_set", states.standby)
@@ -30,7 +31,10 @@ func transitions(delta):
 		states.powering_on:
 			if !outputs.powered_on: return states.powering_off
 			if outputs.spawned: return states.idle
-		states.idle: if !outputs.powered_on: return states.powering_off
+		states.idle:
+			if !outputs.powered_on: return states.powering_off
+			if outputs.waiting: return states.waiting
+		states.waiting: if !outputs.powered_on: return states.powering_off
 		states.powering_off: if !outputs.spawned: return states.off
 	return null
 # Enter State
@@ -40,8 +44,13 @@ func state_enter(new_state, old_state):
 		states.standby: outputs.disable_buttons(true)
 		states.powering_on:
 			outputs.bottom_screen.phase = "On"
+			spookivice.texture_player.play("alert")
 			spookivice.notifier.add_message("Powering [On]", 2.5, true)
 		states.idle: pass
+		states.waiting:
+			outputs.disable_buttons(true)
+			outputs.disable_choice(false)
+			spookivice.texture_player.play("alert")
 		states.powering_off:
 			outputs.disable_buttons(true)
 			spookivice.notifier.add_message("Powering [Off]", 2.5, true)
@@ -60,4 +69,8 @@ func state_enter(new_state, old_state):
 func state_exit(old_state, new_state):
 	match(old_state):
 		states.standby: outputs.disable_buttons(false)
+		states.powering_on: spookivice.texture_player.play("standby")
+		states.waiting:
+			outputs.disable_buttons(false)
+			spookivice.texture_player.play("standby")
 		states.idle: pass

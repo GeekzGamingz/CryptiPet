@@ -11,9 +11,11 @@ var dragPoint = null
 # Exported Variables
 @export var border: Polygon2D
 # OnReady Variables
+@onready var outputs: Node2D = $Outputs
 @onready var buttons: Control = $Buttons
 @onready var toggles: Control = $Toggles
 @onready var notifier: Control = $Notifier
+@onready var texture_player: AnimationPlayer = $Players/Animations/Spookivice
 #------------------------------------------------------------------------------#
 # Functions
 # Process

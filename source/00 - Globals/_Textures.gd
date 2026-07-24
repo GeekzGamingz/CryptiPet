@@ -5,6 +5,11 @@ extends Node
 #------------------------------------------------------------------------------#
 # Global Variables
 # Global Dictionaries
+## Stores the Spookivice [Texture2D]s to a Global [Dictionary]
+var DEVICE: Dictionary = {
+	"STANDBY": preload("uid://4250jyv0a3f7"),
+	"ALERT": preload("uid://d4k1sw56dkn5x")
+}
 ## Stores the Location Background [Texture2D]s to a Global [Dictionary]
 var LOCATIONS: Dictionary = {
 	"Off": preload("uid://wnc2m06npfqg"),

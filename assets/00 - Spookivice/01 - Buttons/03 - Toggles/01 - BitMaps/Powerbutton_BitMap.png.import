@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dcwoprhg7byi8"
+path="res://.godot/imported/Powerbutton_BitMap.png-89882c60be74dfdb90c39a57c491b2f2.res"
+
+[deps]
+
+source_file="res://assets/00 - Spookivice/01 - Buttons/03 - Toggles/01 - BitMaps/Powerbutton_BitMap.png"
+dest_files=["res://.godot/imported/Powerbutton_BitMap.png-89882c60be74dfdb90c39a57c491b2f2.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

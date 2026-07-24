@@ -27,3 +27,22 @@ extends Node2D
 # OnReady Variables
 # Local Nodes
 @onready var cryptid: Cryptid = $"../.."
+@onready var morph: Timer = cryptid.get_node("Timers/Morph")
+@onready var spookivice: Control = get_tree().get_root().get_node("Spookivice")
+#------------------------------------------------------------------------------#
+# Functions
+# Ready Functions
+func _ready() -> void:
+	spookivice.buttons.connect("cross_pressed", cancel)
+	spookivice.buttons.connect("circle_pressed", metamorph)
+#------------------------------------------------------------------------------#
+# Signaled Functions
+# Morph Timeout
+func _on_morph_timeout() -> void:
+	spookivice.outputs.waiting = true
+	match(stage):
+		"Essence": spookivice.notifier.add_message("Rumors are spreading... Allow them?", INF, true)
+		"Rumor": spookivice.notifier.add_message("They caught a Glimpse! Let them live?", INF, true)
+#------------------------------------------------------------------------------#
+func metamorph(): if spookivice.outputs.waiting: stage = "Rumor" #Change to be modular
+func cancel(): if spookivice.outputs.waiting: print("Canceling Morph")

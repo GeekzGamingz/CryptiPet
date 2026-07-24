@@ -2,16 +2,22 @@
 
 [ext_resource type="Texture2D" uid="uid://wnc2m06npfqg" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/00 - Backgrounds/_TopOff.png" id="1_w0rnr"]
 [ext_resource type="Script" uid="uid://dmiw3ydbb01nx" path="res://source/01 - Main/01 - Screens/00 - Top/_TopScreen.gd" id="2_oq06h"]
-[ext_resource type="Texture2D" uid="uid://sbyshnwyimx7" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/Food_Icon.png" id="3_cxf82"]
-[ext_resource type="Texture2D" uid="uid://b10bnbldg2sf3" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/Icon_Brackets.png" id="4_43lvc"]
-[ext_resource type="Texture2D" uid="uid://cq11gbecr75po" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/Daytime_Icon.png" id="4_egaxy"]
-[ext_resource type="Texture2D" uid="uid://xs87vlci0md2" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/Nighttime_Icon.png" id="5_43lvc"]
-[ext_resource type="Texture2D" uid="uid://vgufmsk78mtc" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/Games_Icon.png" id="6_fxyhf"]
-[ext_resource type="Texture2D" uid="uid://r1fae6mprck" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/Chat_Icon.png" id="7_3fnx7"]
+[ext_resource type="Texture2D" uid="uid://sbyshnwyimx7" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/Food_Icon.png" id="3_cxf82"]
+[ext_resource type="Texture2D" uid="uid://b10bnbldg2sf3" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/Icon_Brackets.png" id="4_43lvc"]
+[ext_resource type="Texture2D" uid="uid://cq11gbecr75po" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/Daytime_Icon.png" id="4_egaxy"]
+[ext_resource type="Texture2D" uid="uid://bmb88blfwff7y" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/00 - Disabled/Food_Icon_Disabled.png" id="4_q165l"]
+[ext_resource type="Texture2D" uid="uid://xs87vlci0md2" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/Nighttime_Icon.png" id="5_43lvc"]
+[ext_resource type="Texture2D" uid="uid://vgufmsk78mtc" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/Games_Icon.png" id="6_fxyhf"]
+[ext_resource type="Texture2D" uid="uid://r1fae6mprck" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/Chat_Icon.png" id="7_3fnx7"]
 [ext_resource type="Script" uid="uid://dafgdosjyiplc" path="res://source/01 - Main/01 - Screens/00 - Top/00 - Menu/Time.gd" id="8_fxyhf"]
-[ext_resource type="Texture2D" uid="uid://csogxk3da8m8r" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/FirstAid_Icon.png" id="8_rkajd"]
-[ext_resource type="Texture2D" uid="uid://bje2k8sibenxw" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/Cleanup_Icon.png" id="9_ncl7e"]
+[ext_resource type="Texture2D" uid="uid://b03u4gg6b12m2" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/00 - Disabled/Daytime_Icon_Disabled.png" id="8_g2lt3"]
+[ext_resource type="Texture2D" uid="uid://csogxk3da8m8r" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/FirstAid_Icon.png" id="8_rkajd"]
+[ext_resource type="Texture2D" uid="uid://bje2k8sibenxw" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/Cleanup_Icon.png" id="9_ncl7e"]
+[ext_resource type="Texture2D" uid="uid://cmoimkx7yok64" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/00 - Disabled/Games_Icon_Disabled.png" id="11_sxnri"]
 [ext_resource type="Script" uid="uid://deu7lwgorrcxh" path="res://source/01 - Main/01 - Screens/00 - Top/Orphanage.gd" id="12_oq06h"]
+[ext_resource type="Texture2D" uid="uid://bqu8ypanprjqy" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/00 - Disabled/Chat_Icon_Disabled.png" id="13_75skj"]
+[ext_resource type="Texture2D" uid="uid://dxi25crscs1k0" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/00 - Disabled/FirstAid_Icon_Disabled.png" id="15_cq6xi"]
+[ext_resource type="Texture2D" uid="uid://cnlihssum1s10" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/00 - Disabled/Cleanup_Icon_Disabled.png" id="17_uad0v"]
 
 [node name="TopScreen" type="TextureRect" unique_id=1668624340]
 offset_right = 281.0
@@ -40,6 +46,7 @@ layout_mode = 2
 focus_next = NodePath("../Time")
 focus_previous = NodePath("../Cleanup")
 texture_normal = ExtResource("3_cxf82")
+texture_disabled = ExtResource("4_q165l")
 texture_focused = ExtResource("4_43lvc")
 
 [node name="Time" type="TextureButton" parent="MenuContainer" unique_id=450420656]
@@ -49,6 +56,7 @@ focus_previous = NodePath("../Feed")
 toggle_mode = true
 texture_normal = ExtResource("4_egaxy")
 texture_pressed = ExtResource("5_43lvc")
+texture_disabled = ExtResource("8_g2lt3")
 texture_focused = ExtResource("4_43lvc")
 script = ExtResource("8_fxyhf")
 
@@ -57,6 +65,7 @@ layout_mode = 2
 focus_next = NodePath("../Chat")
 focus_previous = NodePath("../Time")
 texture_normal = ExtResource("6_fxyhf")
+texture_disabled = ExtResource("11_sxnri")
 texture_focused = ExtResource("4_43lvc")
 
 [node name="Chat" type="TextureButton" parent="MenuContainer" unique_id=1617306956]
@@ -64,6 +73,7 @@ layout_mode = 2
 focus_next = NodePath("../Heal")
 focus_previous = NodePath("../Play")
 texture_normal = ExtResource("7_3fnx7")
+texture_disabled = ExtResource("13_75skj")
 texture_focused = ExtResource("4_43lvc")
 
 [node name="Heal" type="TextureButton" parent="MenuContainer" unique_id=1234981683]
@@ -71,6 +81,7 @@ layout_mode = 2
 focus_next = NodePath("../Cleanup")
 focus_previous = NodePath("../Chat")
 texture_normal = ExtResource("8_rkajd")
+texture_disabled = ExtResource("15_cq6xi")
 texture_focused = ExtResource("4_43lvc")
 
 [node name="Cleanup" type="TextureButton" parent="MenuContainer" unique_id=66788965]
@@ -78,6 +89,7 @@ layout_mode = 2
 focus_next = NodePath("../Feed")
 focus_previous = NodePath("../Heal")
 texture_normal = ExtResource("9_ncl7e")
+texture_disabled = ExtResource("17_uad0v")
 texture_focused = ExtResource("4_43lvc")
 
 [node name="Orphanage" type="Marker2D" parent="." unique_id=682031323 node_paths=PackedStringArray("top_screen")]
