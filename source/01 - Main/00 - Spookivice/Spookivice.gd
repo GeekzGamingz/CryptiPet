@@ -12,6 +12,8 @@ var dragPoint = null
 @export var border: Polygon2D
 # OnReady Variables
 @onready var outputs: Node2D = $Outputs
+@onready var top_screen: TextureRect = $Screens/TopScreen
+@onready var bottom_screen: TextureRect = $Screens/BottomScreen
 @onready var buttons: Control = $Buttons
 @onready var toggles: Control = $Toggles
 @onready var notifier: Control = $Notifier

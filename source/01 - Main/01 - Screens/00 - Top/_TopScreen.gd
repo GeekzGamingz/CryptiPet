@@ -22,6 +22,7 @@ extends TextureRect
 @onready var menu_container: HBoxContainer = $MenuContainer
 @onready var button_feed: TextureButton = $MenuContainer/Feed
 @onready var button_time: TextureButton = $MenuContainer/Time
+@onready var orphanage: Marker2D = $Orphanage
 #------------------------------------------------------------------------------#
 # Functions
 # Ready

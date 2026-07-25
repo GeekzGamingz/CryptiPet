@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dhb4rr62ffxjv"]
 
+[ext_resource type="Theme" uid="uid://5hdiyrqlevro" path="res://assets/Base_Theme.tres" id="1_g2lt3"]
 [ext_resource type="Texture2D" uid="uid://wnc2m06npfqg" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/00 - Backgrounds/_TopOff.png" id="1_w0rnr"]
 [ext_resource type="Script" uid="uid://dmiw3ydbb01nx" path="res://source/01 - Main/01 - Screens/00 - Top/_TopScreen.gd" id="2_oq06h"]
 [ext_resource type="Texture2D" uid="uid://sbyshnwyimx7" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/Food_Icon.png" id="3_cxf82"]
@@ -23,6 +24,7 @@
 offset_right = 281.0
 offset_bottom = 265.0
 mouse_filter = 2
+theme = ExtResource("1_g2lt3")
 texture = ExtResource("1_w0rnr")
 script = ExtResource("2_oq06h")
 metadata/_edit_vertical_guides_ = [85.0, 196.0, 141.0]

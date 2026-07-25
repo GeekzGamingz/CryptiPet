@@ -6,30 +6,69 @@
 [ext_resource type="Texture2D" uid="uid://qpyjhqi82uow" path="res://assets/00 - Spookivice/00 - Screens/01 - Bottom/Screen_Arrow_Left.png" id="3_vh150"]
 [ext_resource type="Texture2D" uid="uid://ccq0wpkeppief" path="res://assets/00 - Spookivice/00 - Screens/01 - Bottom/Screen_Empty_Slot.png" id="4_ve3ph"]
 [ext_resource type="Texture2D" uid="uid://dgb0rb13ooxgl" path="res://assets/00 - Spookivice/00 - Screens/01 - Bottom/Screen_Arrow_Right.png" id="5_5tyya"]
+[ext_resource type="Script" uid="uid://dkf8ivxrdhcfd" path="res://source/01 - Main/01 - Screens/00 - Top/Countdown.gd" id="7_ve3ph"]
 
-[node name="BottomScreen" type="TextureRect" unique_id=1570758406]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a1j8a"]
+
+[node name="BottomScreen" type="TextureRect" unique_id=1570758406 node_paths=PackedStringArray("menu_container", "countdown_container", "countdown")]
 offset_right = 281.0
 offset_bottom = 265.0
 mouse_filter = 2
 theme = ExtResource("1_1xxqn")
 texture = ExtResource("1_8somu")
 script = ExtResource("3_ve3ph")
+menu_container = NodePath("TabContainer/MenuContainer")
+countdown_container = NodePath("TabContainer/CountdownContainer")
+countdown = NodePath("TabContainer/CountdownContainer/PanelContainer/Countdown")
 
-[node name="MenuContainer" type="HBoxContainer" parent="." unique_id=685332943]
+[node name="TabContainer" type="TabContainer" parent="." unique_id=69238754]
 visible = false
 layout_mode = 0
 offset_left = 101.0
 offset_top = 211.0
 offset_right = 180.0
 offset_bottom = 236.0
-alignment = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_a1j8a")
+current_tab = 0
+clip_tabs = false
+tabs_visible = false
+switch_on_drag_hover = false
+tab_focus_mode = 0
 
-[node name="Left" type="TextureButton" parent="MenuContainer" unique_id=1314818470]
+[node name="CountdownContainer" type="MarginContainer" parent="TabContainer" unique_id=1297050741]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+metadata/_tab_index = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="TabContainer/CountdownContainer" unique_id=1193578404]
+layout_mode = 2
+
+[node name="Countdown" type="RichTextLabel" parent="TabContainer/CountdownContainer/PanelContainer" unique_id=1296234615]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.9411765, 0.92156863, 0.92156863, 1)
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "00:00"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_ve3ph")
+
+[node name="MenuContainer" type="HBoxContainer" parent="TabContainer" unique_id=685332943]
+visible = false
+layout_mode = 2
+alignment = 1
+metadata/_tab_index = 1
+
+[node name="Left" type="TextureButton" parent="TabContainer/MenuContainer" unique_id=1314818470]
 layout_mode = 2
 size_flags_vertical = 4
 texture_normal = ExtResource("3_vh150")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MenuContainer" unique_id=1044059174]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/MenuContainer" unique_id=1044059174]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -37,24 +76,28 @@ theme_override_constants/scrollbar_v_separation = 2
 vertical_scroll_mode = 0
 scroll_horizontal_by_default = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MenuContainer/ScrollContainer" unique_id=1615719104]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/MenuContainer/ScrollContainer" unique_id=1615719104]
 layout_mode = 2
 theme_override_constants/separation = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MenuContainer/ScrollContainer/HBoxContainer" unique_id=100945842]
+[node name="TextureRect" type="TextureRect" parent="TabContainer/MenuContainer/ScrollContainer/HBoxContainer" unique_id=100945842]
 layout_mode = 2
 texture = ExtResource("4_ve3ph")
 
-[node name="TextureRect2" type="TextureRect" parent="MenuContainer/ScrollContainer/HBoxContainer" unique_id=731002783]
+[node name="TextureRect2" type="TextureRect" parent="TabContainer/MenuContainer/ScrollContainer/HBoxContainer" unique_id=731002783]
 layout_mode = 2
 texture = ExtResource("4_ve3ph")
 
-[node name="TextureRect3" type="TextureRect" parent="MenuContainer/ScrollContainer/HBoxContainer" unique_id=1906969174]
+[node name="TextureRect3" type="TextureRect" parent="TabContainer/MenuContainer/ScrollContainer/HBoxContainer" unique_id=1906969174]
 layout_mode = 2
 texture = ExtResource("4_ve3ph")
 
-[node name="Right" type="TextureButton" parent="MenuContainer" unique_id=1415794876]
+[node name="TextureRect4" type="TextureRect" parent="TabContainer/MenuContainer/ScrollContainer/HBoxContainer" unique_id=1147528439]
+layout_mode = 2
+texture = ExtResource("4_ve3ph")
+
+[node name="Right" type="TextureButton" parent="TabContainer/MenuContainer" unique_id=1415794876]
 layout_mode = 2
 size_flags_vertical = 4
 texture_normal = ExtResource("5_5tyya")

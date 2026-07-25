@@ -4,6 +4,7 @@ extends Node2D
 ## This node manages the [Cryptid]'s Concept and how strong it has become.
 #------------------------------------------------------------------------------#
 # Variables
+var time_transitioning: bool = false
 # Exported Variables
 @export var base_time: float = 60.0
 # Exported Enums
@@ -34,10 +35,13 @@ extends Node2D
 # Functions
 # Ready Functions
 func _ready() -> void:
-	spookivice.buttons.connect("cross_pressed", cancel)
+	# Connections
+	spookivice.buttons.connect("cross_pressed", reset.bind(true))
 	spookivice.buttons.connect("circle_pressed", metamorph)
+	# Get Global Times
 	morph_timer.wait_time = Globals.CONCEPT_TIME
-	print("New Morph Time: [%s]" % morph_timer.wait_time)
+	morph_timer.start()
+	print("New Morph Time: [%ss]" % morph_timer.wait_time)
 #------------------------------------------------------------------------------#
 # Signaled Functions
 # Morph Timeout
@@ -46,28 +50,41 @@ func _on_morph_timeout() -> void:
 	match(stage):
 		"Essence": spookivice.notifier.add_message("Rumors are spreading... Allow them?", INF, true)
 		"Rumor": spookivice.notifier.add_message("They caught a Glimpse! Let them live?", INF, true)
+	if spookivice.top_screen.time == "Day": spookivice.top_screen.orphanage.switch_time("Night")
 #------------------------------------------------------------------------------#
 func metamorph():
 	if spookivice.outputs.waiting:
+		time_transitioning = true
 		match(stage):
 			"Essence":
-				stage = "Rumor"
 				Globals.CONCEPT = "Rumor"
 				Globals.CONCEPT_TIME = base_time * 5
+				stage = "Rumor"
 			"Rumor":
-				stage = "Glimpse"
 				Globals.CONCEPT = "Glimpse"
 				Globals.CONCEPT_TIME = base_time * 10
+				stage = "Glimpse"
 			"Glimpse":
-				stage = "Revealed"
 				Globals.CONCEPT = "Revealed"
 				Globals.CONCEPT_TIME = base_time * 15
+				stage = "Revealed"
 			"Revealed":
-				stage = "Manifested"
 				Globals.CONCEPT = "Manifested"
 				Globals.CONCEPT_TIME = base_time * 30
+				stage = "Manifested"
 			"Manifested": pass
+		reset(false)
+func reset(canceling: bool):
+	if spookivice.outputs.waiting:
+		if canceling:
+			match(stage):
+				"Essence": Globals.CONCEPT_TIME = base_time
+				"Rumor": Globals.CONCEPT_TIME = base_time * 5
+				"Glimpse": Globals.CONCEPT_TIME = base_time * 10
+				"Revealed": Globals.CONCEPT_TIME = base_time * 15
+				"Manifested": Globals.CONCEPT_TIME = base_time * 30
+		morph_timer.wait_time = Globals.CONCEPT_TIME
+		morph_timer.start()
 		spookivice.notifier.clear_messages()
 		spookivice.outputs.waiting = false
-func cancel():
-	if spookivice.outputs.waiting: print("Canceling Morph")
+		print("Resetting Morph: [%ss]" % morph_timer.wait_time)

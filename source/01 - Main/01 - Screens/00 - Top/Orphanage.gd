@@ -18,19 +18,31 @@ func _ready() -> void:
 #------------------------------------------------------------------------------#
 # Custom Functions
 func awaken():
+	# Remove Other Children & Add New
 	if get_child_count() > 0: for child in get_children(): child.queue_free()
 	var cryptid_scene = CRYPTID.instantiate()
 	add_child(cryptid_scene)
+	# Set Scene Attributes
 	cryptid_scene.concept.stage = Globals.CONCEPT
 	top_screen.location = Globals.LOCATION
+	cryptid_scene.concept.morph_timer.wait_time = Globals.CONCEPT_TIME
+	cryptid_scene.concept.morph_timer.start()
+	top_screen.spookivice.bottom_screen.countdown.morph_timer = cryptid_scene.concept.morph_timer
+	# Await & Signal
 	await cryptid_scene.sprite_player.animation_finished
 	emit_signal("cryptid_spawned", true)
 func sleep(): if get_child_count() != 0:
+	# Identify Cryptid & Hide
 	var cryptid = get_child(0)
 	cryptid.hiding = true
+	# Check Time Transition
+	if !cryptid.concept.time_transitioning:
+		if cryptid.concept.morph_timer.time_left > 0.0:
+			Globals.CONCEPT_TIME = snappedf(cryptid.concept.morph_timer.time_left, 0.01)
+		else: printerr("Timer Expired! Write Contigency")
+	else: print("Metamorphosis Detected! Skipping Time Check!")
+	# Await Animation, Free, & Signal
 	await cryptid.sprite_player.animation_finished
-	if cryptid.concept.morph_timer.time_left > 0.0:
-		Globals.CONCEPT_TIME = snappedf(cryptid.concept.morph_timer.time_left, 0.01)
 	cryptid.queue_free()
 	emit_signal("cryptid_spawned", false)
 #------------------------------------------------------------------------------#

@@ -4,4 +4,4 @@ extends Node
 var LOCATION: String = "Graveyard"
 # Cryptid Attibutes
 var CONCEPT: String = "Essence"
-var CONCEPT_TIME: float = 60.0
+var CONCEPT_TIME: float = 60
