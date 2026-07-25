@@ -34,7 +34,9 @@ func transitions(delta):
 		states.idle:
 			if !outputs.powered_on: return states.powering_off
 			if outputs.waiting: return states.waiting
-		states.waiting: if !outputs.powered_on: return states.powering_off
+		states.waiting:
+			if !outputs.powered_on: return states.powering_off
+			if !outputs.waiting: return states.idle
 		states.powering_off: if !outputs.spawned: return states.off
 	return null
 # Enter State

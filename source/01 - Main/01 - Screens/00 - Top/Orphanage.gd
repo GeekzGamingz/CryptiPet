@@ -17,7 +17,8 @@ func _ready() -> void:
 	top_screen.button_time.connect("switch_time", switch_time)
 #------------------------------------------------------------------------------#
 # Custom Functions
-func awaken(): if get_child_count() == 0:
+func awaken():
+	if get_child_count() > 0: for child in get_children(): child.queue_free()
 	var cryptid_scene = CRYPTID.instantiate()
 	add_child(cryptid_scene)
 	cryptid_scene.concept.stage = Globals.CONCEPT
@@ -28,6 +29,8 @@ func sleep(): if get_child_count() != 0:
 	var cryptid = get_child(0)
 	cryptid.hiding = true
 	await cryptid.sprite_player.animation_finished
+	if cryptid.concept.morph_timer.time_left > 0.0:
+		Globals.CONCEPT_TIME = snappedf(cryptid.concept.morph_timer.time_left, 0.01)
 	cryptid.queue_free()
 	emit_signal("cryptid_spawned", false)
 #------------------------------------------------------------------------------#
