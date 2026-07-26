@@ -10,12 +10,14 @@ const _BOTTOM_ON = preload("uid://dm5alueyt0wj8")
 	set(new_phase):
 		phase = new_phase
 		update_screen()
-## References the Menu Container [HBoxContainer]
+## References the Menu Container [HBoxContainer].
 @export var menu_container: HBoxContainer
-## References the Countdown [PanelContainer]
+## References the Countdown [PanelContainer].
 @export var countdown_container: MarginContainer
-## References the Countdown [RichTextLabel]
+## References the Countdown [RichTextLabel].
 @export var countdown: RichTextLabel
+## References the Slot Container [HBoxContainer].
+@export var slot_container: HBoxContainer
 # OnReady Variables
 # Main Nodes
 @onready var spookivice: Control = get_tree().get_root().get_node("Spookivice")
@@ -24,6 +26,7 @@ const _BOTTOM_ON = preload("uid://dm5alueyt0wj8")
 func _ready() -> void:
 	await get_tree().process_frame
 	spookivice.fsm.connect("start_game_mode", spawn_games)
+	spookivice.buttons.connect("cross_pressed", cross_pressed)
 #------------------------------------------------------------------------------#
 # Custom Functions
 func update_screen():
@@ -34,9 +37,23 @@ func update_screen():
 		"Off":
 			texture = _BOTTOM_OFF
 			$TabContainer.set_deferred("visible", false)
-#------------------------------------------------------------------------------#
-# Custom Signaled Functions
+# Spawn Games
 func spawn_games(to_spawn: bool) -> void:
 	match(to_spawn):
-		true: print("Spawn Games: [%s]" % to_spawn)
-		false: print("Delete Games: [%s]" % !to_spawn)
+		true: for slot in Games.GAME_SLOTS:
+			# Instantiate/Add Slots
+			var game_slot = Games.GAME_SLOTS[slot].instantiate()
+			game_slot.game = slot
+			game_slot.top_screen = spookivice.top_screen
+			slot_container.add_child(game_slot)
+			# Await One Frame to Grab Focus
+			await get_tree().process_frame
+			if slot_container.get_child_count() > 0:
+				var first_slot = slot_container.get_child(0)
+				var first_button = first_slot.get_node("SlotButton")
+				first_button.grab_focus()
+		false: for slot in slot_container.get_children(): slot.queue_free()
+#------------------------------------------------------------------------------#
+# Custom Signaled Functions
+# Cross Pressed
+func cross_pressed(): spawn_games(false)

@@ -19,6 +19,7 @@ extends TextureRect
 		update_location()
 # OnReady Variables
 # Local Nodes
+@onready var spooki_fsm: Node2D = spookivice.get_node("StateMachine")
 @onready var menu_container: HBoxContainer = $MenuContainer
 @onready var button_feed: TextureButton = $MenuContainer/Feed
 @onready var button_time: TextureButton = $MenuContainer/Time
@@ -38,8 +39,8 @@ func power_toggled(toggled_on: bool):
 	match(toggled_on):
 		true: location = Globals.LOCATION
 # Main Arrows
-func left_pressed(): change_focus("Previous")
-func right_pressed(): change_focus("Next")
+func left_pressed(): if [spooki_fsm.states.idle].has(spooki_fsm.state): change_focus("Previous")
+func right_pressed(): if [spooki_fsm.states.idle].has(spooki_fsm.state): change_focus("Next")
 # Grab Focus
 func change_focus(arrow: String):
 	var focused: bool = false

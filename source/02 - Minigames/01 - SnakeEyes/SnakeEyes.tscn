@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1yaypmywbw3e"]
 
-[ext_resource type="Script" uid="uid://cpdy2nucghngr" path="res://source/02 - Minigames/SnakeEyes.gd" id="1_okgsl"]
+[ext_resource type="Script" uid="uid://cpdy2nucghngr" path="res://source/02 - Minigames/01 - SnakeEyes/SnakeEyes.gd" id="1_okgsl"]
 
 [node name="SnakeEyes" type="Node2D" unique_id=245765932]
 script = ExtResource("1_okgsl")
