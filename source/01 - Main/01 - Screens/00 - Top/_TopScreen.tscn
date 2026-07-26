@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cmoimkx7yok64" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/00 - Disabled/Games_Icon_Disabled.png" id="11_sxnri"]
 [ext_resource type="Script" uid="uid://deu7lwgorrcxh" path="res://source/01 - Main/01 - Screens/00 - Top/Orphanage.gd" id="12_oq06h"]
 [ext_resource type="Texture2D" uid="uid://bqu8ypanprjqy" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/00 - Disabled/Chat_Icon_Disabled.png" id="13_75skj"]
+[ext_resource type="Script" uid="uid://b33cynyrjctak" path="res://source/01 - Main/01 - Screens/00 - Top/Play.gd" id="13_sxnri"]
 [ext_resource type="Texture2D" uid="uid://dxi25crscs1k0" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/00 - Disabled/FirstAid_Icon_Disabled.png" id="15_cq6xi"]
 [ext_resource type="Texture2D" uid="uid://cnlihssum1s10" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/00 - Disabled/Cleanup_Icon_Disabled.png" id="17_uad0v"]
 
@@ -69,6 +70,7 @@ focus_previous = NodePath("../Time")
 texture_normal = ExtResource("6_fxyhf")
 texture_disabled = ExtResource("11_sxnri")
 texture_focused = ExtResource("4_43lvc")
+script = ExtResource("13_sxnri")
 
 [node name="Chat" type="TextureButton" parent="MenuContainer" unique_id=1617306956]
 layout_mode = 2
@@ -100,3 +102,4 @@ script = ExtResource("12_oq06h")
 top_screen = NodePath("..")
 
 [connection signal="toggled" from="MenuContainer/Time" to="MenuContainer/Time" method="_on_toggled"]
+[connection signal="button_up" from="MenuContainer/Play" to="MenuContainer/Play" method="_on_button_up"]

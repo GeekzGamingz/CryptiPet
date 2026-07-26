@@ -1,6 +1,9 @@
 # Inherits StateMachine Code
 extends StateMachine
 #------------------------------------------------------------------------------#
+# Signals
+signal start_game_mode
+#------------------------------------------------------------------------------#
 # Variables
 # OnReady Variables
 @onready var spookivice: Control = $".."
@@ -14,6 +17,7 @@ func _ready() -> void:
 	state_add("powering_on")
 	state_add("idle")
 	state_add("waiting")
+	state_add("game_mode")
 	state_add("powering_off")
 	state_add("off")
 	call_deferred("state_set", states.standby)
@@ -34,6 +38,7 @@ func transitions(delta):
 		states.idle:
 			if !outputs.powered_on: return states.powering_off
 			if outputs.waiting: return states.waiting
+			if outputs.game_mode: return states.game_mode
 		states.waiting:
 			if !outputs.powered_on: return states.powering_off
 			if !outputs.waiting: return states.idle
@@ -53,6 +58,11 @@ func state_enter(new_state, old_state):
 			outputs.disable_buttons(true)
 			outputs.disable_choice(false)
 			spookivice.texture_player.play("alert")
+		states.game_mode:
+			outputs.disable_menu(true)
+			outputs.bottom_screen.menu_container.show()
+			outputs.orphanage.sleep()
+			emit_signal("start_game_mode", true)
 		states.powering_off:
 			outputs.disable_buttons(true)
 			spookivice.notifier.add_message("Powering [Off]", 2.5, true)

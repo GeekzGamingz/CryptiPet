@@ -16,6 +16,14 @@ const _BOTTOM_ON = preload("uid://dm5alueyt0wj8")
 @export var countdown_container: MarginContainer
 ## References the Countdown [RichTextLabel]
 @export var countdown: RichTextLabel
+# OnReady Variables
+# Main Nodes
+@onready var spookivice: Control = get_tree().get_root().get_node("Spookivice")
+#------------------------------------------------------------------------------#
+# Ready
+func _ready() -> void:
+	await get_tree().process_frame
+	spookivice.fsm.connect("start_game_mode", spawn_games)
 #------------------------------------------------------------------------------#
 # Custom Functions
 func update_screen():
@@ -26,3 +34,9 @@ func update_screen():
 		"Off":
 			texture = _BOTTOM_OFF
 			$TabContainer.set_deferred("visible", false)
+#------------------------------------------------------------------------------#
+# Custom Signaled Functions
+func spawn_games(to_spawn: bool) -> void:
+	match(to_spawn):
+		true: print("Spawn Games: [%s]" % to_spawn)
+		false: print("Delete Games: [%s]" % !to_spawn)

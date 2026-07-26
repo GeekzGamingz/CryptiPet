@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://qpyjhqi82uow" path="res://assets/00 - Spookivice/00 - Screens/01 - Bottom/Screen_Arrow_Left.png" id="3_vh150"]
 [ext_resource type="Texture2D" uid="uid://ccq0wpkeppief" path="res://assets/00 - Spookivice/00 - Screens/01 - Bottom/Screen_Empty_Slot.png" id="4_ve3ph"]
 [ext_resource type="Texture2D" uid="uid://dgb0rb13ooxgl" path="res://assets/00 - Spookivice/00 - Screens/01 - Bottom/Screen_Arrow_Right.png" id="5_5tyya"]
+[ext_resource type="Texture2D" uid="uid://ctc1wgqbopvcr" path="res://assets/00 - Spookivice/00 - Screens/01 - Bottom/00 - Games/Game_Snake.png" id="7_5tyya"]
 [ext_resource type="Script" uid="uid://dkf8ivxrdhcfd" path="res://source/01 - Main/01 - Screens/00 - Top/Countdown.gd" id="7_ve3ph"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a1j8a"]
@@ -81,21 +82,25 @@ layout_mode = 2
 theme_override_constants/separation = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/MenuContainer/ScrollContainer/HBoxContainer" unique_id=100945842]
+[node name="Slot" type="TextureRect" parent="TabContainer/MenuContainer/ScrollContainer/HBoxContainer" unique_id=100945842]
 layout_mode = 2
 texture = ExtResource("4_ve3ph")
 
-[node name="TextureRect2" type="TextureRect" parent="TabContainer/MenuContainer/ScrollContainer/HBoxContainer" unique_id=731002783]
-layout_mode = 2
-texture = ExtResource("4_ve3ph")
-
-[node name="TextureRect3" type="TextureRect" parent="TabContainer/MenuContainer/ScrollContainer/HBoxContainer" unique_id=1906969174]
-layout_mode = 2
-texture = ExtResource("4_ve3ph")
-
-[node name="TextureRect4" type="TextureRect" parent="TabContainer/MenuContainer/ScrollContainer/HBoxContainer" unique_id=1147528439]
-layout_mode = 2
-texture = ExtResource("4_ve3ph")
+[node name="SnakeEyes" type="TextureButton" parent="TabContainer/MenuContainer/ScrollContainer/HBoxContainer/Slot" unique_id=276145396]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.5
+offset_top = -8.5
+offset_right = 8.5
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("7_5tyya")
+stretch_mode = 3
 
 [node name="Right" type="TextureButton" parent="TabContainer/MenuContainer" unique_id=1415794876]
 layout_mode = 2

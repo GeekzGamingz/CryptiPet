@@ -53,8 +53,6 @@ func _on_morph_timeout() -> void:
 		"Glimpse": spookivice.notifier.add_message("It's about to be Revealed! Make it so?", INF, true)
 		"Revealed": spookivice.notifier.add_message("Allow your Cryptid to be Manifested?", INF, true)
 	if spookivice.top_screen.time == "Day": spookivice.top_screen.orphanage.switch_time("Night")
-	for button in spookivice.top_screen.menu_container.get_children():
-		if button.has_focus(): button.release_focus()
 #------------------------------------------------------------------------------#
 func metamorph():
 	if spookivice.outputs.waiting:

@@ -33,3 +33,4 @@ var hiding: bool = false
 @onready var ray_west: RayCast2D = $Raycasts/West
 # Animation Players
 @onready var sprite_player: AnimationPlayer = $Players/Animation/Sprites
+#------------------------------------------------------------------------------#

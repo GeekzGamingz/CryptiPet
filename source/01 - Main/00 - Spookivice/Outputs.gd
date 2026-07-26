@@ -4,6 +4,7 @@ extends Node2D
 var powered_on: bool = false
 var spawned: bool = false
 var waiting: bool = false
+var game_mode: bool = false
 # OnReady Variables
 @onready var spookivice: Control = $".."
 @onready var toggles: Control = $"../Toggles"
@@ -24,7 +25,9 @@ func disable_buttons(disabled: bool):
 	disable_menu(disabled)
 # Disable Menu
 func disable_menu(disabled: bool):
-	for button in top_screen.menu_container.get_children(): button.disabled = disabled
+	for button in top_screen.menu_container.get_children():
+		button.disabled = disabled
+		if button.has_focus: button.release_focus()
 # Enable Choice
 func disable_choice(disabled: bool):
 	spookivice.buttons.cross.disabled = disabled

@@ -11,6 +11,7 @@ var dragPoint = null
 # Exported Variables
 @export var border: Polygon2D
 # OnReady Variables
+@onready var fsm: StateMachine = $StateMachine
 @onready var outputs: Node2D = $Outputs
 @onready var top_screen: TextureRect = $Screens/TopScreen
 @onready var bottom_screen: TextureRect = $Screens/BottomScreen
