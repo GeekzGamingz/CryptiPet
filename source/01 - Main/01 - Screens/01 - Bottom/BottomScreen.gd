@@ -16,27 +16,45 @@ const _BOTTOM_ON = preload("uid://dm5alueyt0wj8")
 @export var countdown_container: MarginContainer
 ## References the Countdown [RichTextLabel].
 @export var countdown: RichTextLabel
+## References the Clock [Panel Container].
+@export var clock_container: MarginContainer
+## References the [ScrollContainer].
+@export var scroll_container: ScrollContainer
 ## References the Slot Container [HBoxContainer].
 @export var slot_container: HBoxContainer
 # OnReady Variables
 # Main Nodes
 @onready var spookivice: Control = get_tree().get_root().get_node("Spookivice")
+@onready var spooki_fsm: Node2D = spookivice.get_node("StateMachine")
+# Local Nodes
+@onready var tab_container: TabContainer = $MenuContainer/TabContainer
 #------------------------------------------------------------------------------#
 # Ready
 func _ready() -> void:
 	await get_tree().process_frame
-	spookivice.fsm.connect("start_game_mode", spawn_games)
+	spookivice.fsm.connect("start_game_mode", spawn_games.bind(true))
 	spookivice.buttons.connect("cross_pressed", cross_pressed)
+#------------------------------------------------------------------------------#
+# Signaled Functions
+# Left/Right Buttons Pressed
+func _on_left_button_up() -> void: toggle_time()
+func _on_right_button_up() -> void: toggle_time()
 #------------------------------------------------------------------------------#
 # Custom Functions
 func update_screen():
 	match(phase):
 		"On":
 			texture = _BOTTOM_ON
-			$TabContainer.set_deferred("visible", true)
+			menu_container.set_deferred("visible", true)
 		"Off":
 			texture = _BOTTOM_OFF
-			$TabContainer.set_deferred("visible", false)
+			menu_container.set_deferred("visible", false)
+# Custom Functions
+func toggle_time():
+	if ![spooki_fsm.states.game_mode].has(spooki_fsm.state):
+		if !countdown_container.visible: countdown_container.show()
+		else: clock_container.show()
+	else: print("Game Mode Select")
 # Spawn Games
 func spawn_games(to_spawn: bool) -> void:
 	match(to_spawn):
@@ -52,7 +70,9 @@ func spawn_games(to_spawn: bool) -> void:
 				var first_slot = slot_container.get_child(0)
 				var first_button = first_slot.get_node("SlotButton")
 				first_button.grab_focus()
-		false: for slot in slot_container.get_children(): slot.queue_free()
+		false:
+			for slot in slot_container.get_children(): slot.queue_free()
+			spookivice.outputs.game_mode = false
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
 # Cross Pressed

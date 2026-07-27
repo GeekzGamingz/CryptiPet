@@ -42,7 +42,9 @@ func transitions(delta):
 		states.waiting:
 			if !outputs.powered_on: return states.powering_off
 			if !outputs.waiting: return states.idle
-		states.game_mode: if !outputs.powered_on: return states.powering_off
+		states.game_mode:
+			if !outputs.powered_on: return states.powering_off
+			if !outputs.game_mode: return states.idle
 		states.powering_off: if !outputs.spawned: return states.off
 	return null
 # Enter State
@@ -62,9 +64,9 @@ func state_enter(new_state, old_state):
 		states.game_mode:
 			outputs.top_screen.menu_container.hide()
 			outputs.disable_menu(true)
-			outputs.bottom_screen.menu_container.show()
+			outputs.bottom_screen.scroll_container.show()
 			outputs.orphanage.sleep()
-			emit_signal("start_game_mode", true)
+			emit_signal("start_game_mode")
 		states.powering_off:
 			outputs.disable_buttons(true)
 			spookivice.notifier.add_message("Powering [Off]", 2.5, true)
@@ -87,5 +89,9 @@ func state_exit(old_state, new_state):
 		states.waiting:
 			outputs.disable_buttons(false)
 			spookivice.texture_player.play("standby")
-		states.game_mode: outputs.top_screen.menu_container.show()
+		states.game_mode:
+			outputs.top_screen.menu_container.show()
+			outputs.disable_menu(false)
+			outputs.bottom_screen.scroll_container.hide()
+			if new_state == states.idle: outputs.orphanage.awaken()
 		states.idle: pass

@@ -5,37 +5,57 @@
 [ext_resource type="Script" uid="uid://ce1vetm46c2x3" path="res://source/01 - Main/01 - Screens/01 - Bottom/BottomScreen.gd" id="3_ve3ph"]
 [ext_resource type="Texture2D" uid="uid://qpyjhqi82uow" path="res://assets/00 - Spookivice/00 - Screens/01 - Bottom/Screen_Arrow_Left.png" id="3_vh150"]
 [ext_resource type="Texture2D" uid="uid://dgb0rb13ooxgl" path="res://assets/00 - Spookivice/00 - Screens/01 - Bottom/Screen_Arrow_Right.png" id="5_5tyya"]
+[ext_resource type="Script" uid="uid://bkkukfrnsr2nk" path="res://source/01 - Main/01 - Screens/01 - Bottom/Clock.gd" id="6_ve3ph"]
 [ext_resource type="Script" uid="uid://dkf8ivxrdhcfd" path="res://source/01 - Main/01 - Screens/00 - Top/00 - Scripts/Countdown.gd" id="7_ve3ph"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a1j8a"]
 
-[node name="BottomScreen" type="TextureRect" unique_id=1570758406 node_paths=PackedStringArray("menu_container", "countdown_container", "countdown", "slot_container")]
+[node name="BottomScreen" type="TextureRect" unique_id=1570758406 node_paths=PackedStringArray("menu_container", "countdown_container", "countdown", "clock_container", "scroll_container", "slot_container")]
 offset_right = 281.0
 offset_bottom = 265.0
 mouse_filter = 2
 theme = ExtResource("1_1xxqn")
 texture = ExtResource("1_8somu")
 script = ExtResource("3_ve3ph")
-menu_container = NodePath("TabContainer/MenuContainer")
-countdown_container = NodePath("TabContainer/CountdownContainer")
-countdown = NodePath("TabContainer/CountdownContainer/PanelContainer/Countdown")
-slot_container = NodePath("TabContainer/MenuContainer/ScrollContainer/SlotContainer")
+menu_container = NodePath("MenuContainer")
+countdown_container = NodePath("MenuContainer/TabContainer/CountdownContainer")
+countdown = NodePath("MenuContainer/TabContainer/CountdownContainer/PanelContainer/Countdown")
+clock_container = NodePath("MenuContainer/TabContainer/ClockContainer")
+scroll_container = NodePath("MenuContainer/TabContainer/ScrollContainer")
+slot_container = NodePath("MenuContainer/TabContainer/ScrollContainer/SlotContainer")
 
-[node name="TabContainer" type="TabContainer" parent="." unique_id=69238754]
+[node name="MenuContainer" type="HBoxContainer" parent="." unique_id=685332943]
 visible = false
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 101.0
 offset_top = 211.0
-offset_right = 180.0
-offset_bottom = 236.0
+offset_right = -101.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Left" type="TextureButton" parent="MenuContainer" unique_id=1314818470]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+texture_normal = ExtResource("3_vh150")
+
+[node name="TabContainer" type="TabContainer" parent="MenuContainer" unique_id=69238754]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_a1j8a")
+tab_alignment = 1
 current_tab = 0
 clip_tabs = false
 tabs_visible = false
 switch_on_drag_hover = false
 tab_focus_mode = 0
 
-[node name="CountdownContainer" type="MarginContainer" parent="TabContainer" unique_id=1297050741]
+[node name="ClockContainer" type="MarginContainer" parent="MenuContainer/TabContainer" unique_id=266663372]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 2
@@ -43,10 +63,33 @@ theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 2
 metadata/_tab_index = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="TabContainer/CountdownContainer" unique_id=1193578404]
+[node name="PanelContainer" type="PanelContainer" parent="MenuContainer/TabContainer/ClockContainer" unique_id=1132124453]
 layout_mode = 2
 
-[node name="Countdown" type="RichTextLabel" parent="TabContainer/CountdownContainer/PanelContainer" unique_id=1296234615]
+[node name="Clock" type="RichTextLabel" parent="MenuContainer/TabContainer/ClockContainer/PanelContainer" unique_id=2054444483]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.9411765, 0.92156863, 0.92156863, 1)
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "00:00"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_ve3ph")
+
+[node name="CountdownContainer" type="MarginContainer" parent="MenuContainer/TabContainer" unique_id=1297050741]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+metadata/_tab_index = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MenuContainer/TabContainer/CountdownContainer" unique_id=1193578404]
+layout_mode = 2
+
+[node name="Countdown" type="RichTextLabel" parent="MenuContainer/TabContainer/CountdownContainer/PanelContainer" unique_id=1296234615]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.9411765, 0.92156863, 0.92156863, 1)
 theme_override_font_sizes/normal_font_size = 15
@@ -57,31 +100,28 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("7_ve3ph")
 
-[node name="MenuContainer" type="HBoxContainer" parent="TabContainer" unique_id=685332943]
+[node name="ScrollContainer" type="ScrollContainer" parent="MenuContainer/TabContainer" unique_id=1044059174]
 visible = false
-layout_mode = 2
-alignment = 1
-metadata/_tab_index = 1
-
-[node name="Left" type="TextureButton" parent="TabContainer/MenuContainer" unique_id=1314818470]
-layout_mode = 2
-size_flags_vertical = 4
-texture_normal = ExtResource("3_vh150")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/MenuContainer" unique_id=1044059174]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_constants/scrollbar_v_separation = 2
 vertical_scroll_mode = 0
 scroll_horizontal_by_default = true
+metadata/_tab_index = 2
 
-[node name="SlotContainer" type="HBoxContainer" parent="TabContainer/MenuContainer/ScrollContainer" unique_id=1615719104]
+[node name="SlotContainer" type="HBoxContainer" parent="MenuContainer/TabContainer/ScrollContainer" unique_id=1615719104]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
 theme_override_constants/separation = 2
 alignment = 1
 
-[node name="Right" type="TextureButton" parent="TabContainer/MenuContainer" unique_id=1415794876]
+[node name="Right" type="TextureButton" parent="MenuContainer" unique_id=1415794876]
 layout_mode = 2
 size_flags_vertical = 4
+focus_mode = 0
 texture_normal = ExtResource("5_5tyya")
+
+[connection signal="button_up" from="MenuContainer/Left" to="." method="_on_left_button_up"]
+[connection signal="button_up" from="MenuContainer/Right" to="." method="_on_right_button_up"]

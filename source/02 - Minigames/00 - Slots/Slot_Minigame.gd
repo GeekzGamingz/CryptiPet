@@ -15,3 +15,6 @@ func _ready() -> void:
 # On Button Focused
 func _on_button_focus_entered() -> void:
 	top_screen.texture = Games.GAME_PREVIEWS[game]
+	top_screen.spookivice.notifier.add_message(
+		"[color=853a4c]X[/color] = Back | Play = [color=18372a]O[/color]", 5, false
+	)

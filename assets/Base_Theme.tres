@@ -65,6 +65,7 @@ HScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_wkjul")
 HScrollBar/styles/scroll = SubResource("StyleBoxTexture_iennx")
 Panel/styles/panel = SubResource("StyleBoxTexture_43fak")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_a1j8a")
+RichTextLabel/font_sizes/normal_font_size = 15
 RichTextLabel/fonts/bold_font = ExtResource("4_tcib6")
 RichTextLabel/fonts/italics_font = ExtResource("5_o8fqx")
 RichTextLabel/fonts/normal_font = ExtResource("6_33u5s")
