@@ -4,7 +4,7 @@ extends Node2D
 var powered_on: bool = false
 var spawned: bool = false
 var waiting: bool = false
-var game_mode: bool = false
+var game_select: bool = false
 # OnReady Variables
 @onready var spookivice: Control = $".."
 @onready var toggles: Control = $"../Toggles"

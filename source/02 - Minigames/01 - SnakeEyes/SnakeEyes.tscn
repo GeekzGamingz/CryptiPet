@@ -1,6 +1,75 @@
 [gd_scene format=3 uid="uid://c1yaypmywbw3e"]
 
+[ext_resource type="Theme" uid="uid://5hdiyrqlevro" path="res://assets/Base_Theme.tres" id="1_bsdfc"]
 [ext_resource type="Script" uid="uid://cpdy2nucghngr" path="res://source/02 - Minigames/01 - SnakeEyes/SnakeEyes.gd" id="1_okgsl"]
+[ext_resource type="Texture2D" uid="uid://clxx74hqxojcw" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/00 - UserInterface/-bet.png" id="3_kwhxj"]
+[ext_resource type="Texture2D" uid="uid://bp4wla64x1ax1" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/00 - UserInterface/+bet.png" id="4_h6yv3"]
 
-[node name="SnakeEyes" type="Node2D" unique_id=245765932]
+[node name="SnakeEyes" type="Control" unique_id=153930210 node_paths=PackedStringArray("amount_label")]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_bsdfc")
 script = ExtResource("1_okgsl")
+amount_label = NodePath("BetOptions/BetContainer/Amount")
+
+[node name="BetOptions" type="HBoxContainer" parent="." unique_id=1474764773]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 179.0
+offset_right = 196.0
+offset_bottom = 194.0
+theme_override_constants/separation = 28
+alignment = 1
+
+[node name="Decrease" type="TextureRect" parent="BetOptions" unique_id=414415232]
+layout_mode = 2
+size_flags_vertical = 8
+texture = ExtResource("3_kwhxj")
+
+[node name="BetContainer" type="PanelContainer" parent="BetOptions" unique_id=904546770]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Amount" type="RichTextLabel" parent="BetOptions/BetContainer" unique_id=589667015]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "0
+"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Increase" type="TextureRect" parent="BetOptions" unique_id=1171177869]
+layout_mode = 2
+size_flags_vertical = 8
+texture = ExtResource("4_h6yv3")
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=954353227]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 171.0
+offset_right = 171.0
+offset_bottom = 186.0
+size_flags_vertical = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Bet"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Increment" type="Timer" parent="." unique_id=5209845]
+wait_time = 0.1
+
+[connection signal="timeout" from="Increment" to="." method="_on_increment_timeout"]

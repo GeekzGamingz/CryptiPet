@@ -1,0 +1,70 @@
+[gd_resource type="AnimatedTexture" format=3 uid="uid://dtnrkc8mjslnf"]
+
+[ext_resource type="Texture2D" uid="uid://ceeya60uoc0kg" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes2.png" id="1_i3ld4"]
+[ext_resource type="Texture2D" uid="uid://bouf0y0ahknh3" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes3.png" id="2_w76qa"]
+[ext_resource type="Texture2D" uid="uid://bbel6nckq4hfc" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes12.png" id="3_1wnp3"]
+[ext_resource type="Texture2D" uid="uid://ddkfnamwyfjvl" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes13.png" id="4_0rvrv"]
+[ext_resource type="Texture2D" uid="uid://bdt0rpl1nty5j" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes14.png" id="5_wwkrh"]
+[ext_resource type="Texture2D" uid="uid://bfyx03qqkmuhx" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes15.png" id="6_mp2ew"]
+[ext_resource type="Texture2D" uid="uid://cm36uxe87abc5" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes16.png" id="7_six2f"]
+[ext_resource type="Texture2D" uid="uid://nj7qe8ninn3e" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes17.png" id="8_iwcl7"]
+[ext_resource type="Texture2D" uid="uid://duglihlhg26ul" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes18.png" id="9_qf5xh"]
+[ext_resource type="Texture2D" uid="uid://d334ham34cq5v" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes19.png" id="10_iafes"]
+[ext_resource type="Texture2D" uid="uid://6884k62csaou" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes20.png" id="11_ikd4t"]
+[ext_resource type="Texture2D" uid="uid://b441hixxu3lqt" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes21.png" id="12_yrg1x"]
+[ext_resource type="Texture2D" uid="uid://bs5yvhlli4nc0" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes4.png" id="13_go7cl"]
+[ext_resource type="Texture2D" uid="uid://bnxpdquehui0" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes22.png" id="14_poeyh"]
+[ext_resource type="Texture2D" uid="uid://b2gsfjq1wjgx8" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes5.png" id="15_xn4uw"]
+[ext_resource type="Texture2D" uid="uid://bqbesuwvl7yfd" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes6.png" id="16_ixfn0"]
+[ext_resource type="Texture2D" uid="uid://c33cw0svk157j" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes7.png" id="17_62pus"]
+[ext_resource type="Texture2D" uid="uid://c8p4pfu0byu0y" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes8.png" id="18_0aetf"]
+[ext_resource type="Texture2D" uid="uid://c5seeb622dugi" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes9.png" id="19_lxsye"]
+[ext_resource type="Texture2D" uid="uid://dtr02iax5qcy7" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes10.png" id="20_bs6j7"]
+[ext_resource type="Texture2D" uid="uid://dlbaa1kp018xi" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/00 - Roll/Snakeyes11.png" id="21_riei2"]
+
+[resource]
+frames = 21
+pause = true
+one_shot = true
+frame_0/texture = ExtResource("1_i3ld4")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("2_w76qa")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("13_go7cl")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("15_xn4uw")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("16_ixfn0")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("17_62pus")
+frame_5/duration = 0.1
+frame_6/texture = ExtResource("18_0aetf")
+frame_6/duration = 0.1
+frame_7/texture = ExtResource("19_lxsye")
+frame_7/duration = 0.1
+frame_8/texture = ExtResource("20_bs6j7")
+frame_8/duration = 0.1
+frame_9/texture = ExtResource("21_riei2")
+frame_9/duration = 0.1
+frame_10/texture = ExtResource("3_1wnp3")
+frame_10/duration = 0.1
+frame_11/texture = ExtResource("4_0rvrv")
+frame_11/duration = 0.1
+frame_12/texture = ExtResource("5_wwkrh")
+frame_12/duration = 0.1
+frame_13/texture = ExtResource("6_mp2ew")
+frame_13/duration = 0.1
+frame_14/texture = ExtResource("7_six2f")
+frame_14/duration = 0.1
+frame_15/texture = ExtResource("8_iwcl7")
+frame_15/duration = 0.1
+frame_16/texture = ExtResource("9_qf5xh")
+frame_16/duration = 0.1
+frame_17/texture = ExtResource("10_iafes")
+frame_17/duration = 0.1
+frame_18/texture = ExtResource("11_ikd4t")
+frame_18/duration = 0.1
+frame_19/texture = ExtResource("12_yrg1x")
+frame_19/duration = 0.1
+frame_20/texture = ExtResource("14_poeyh")
+frame_20/duration = 0.1

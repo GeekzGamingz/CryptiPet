@@ -2,7 +2,7 @@
 extends StateMachine
 #------------------------------------------------------------------------------#
 # Signals
-signal start_game_mode
+signal start_game_select
 #------------------------------------------------------------------------------#
 # Variables
 # OnReady Variables
@@ -17,7 +17,7 @@ func _ready() -> void:
 	state_add("powering_on")
 	state_add("idle")
 	state_add("waiting")
-	state_add("game_mode")
+	state_add("game_select")
 	state_add("powering_off")
 	state_add("off")
 	call_deferred("state_set", states.standby)
@@ -38,13 +38,13 @@ func transitions(delta):
 		states.idle:
 			if !outputs.powered_on: return states.powering_off
 			if outputs.waiting: return states.waiting
-			if outputs.game_mode: return states.game_mode
+			if outputs.game_select: return states.game_select
 		states.waiting:
 			if !outputs.powered_on: return states.powering_off
 			if !outputs.waiting: return states.idle
-		states.game_mode:
+		states.game_select:
 			if !outputs.powered_on: return states.powering_off
-			if !outputs.game_mode: return states.idle
+			if !outputs.game_select: return states.idle
 		states.powering_off: if !outputs.spawned: return states.off
 	return null
 # Enter State
@@ -61,12 +61,12 @@ func state_enter(new_state, old_state):
 			outputs.disable_buttons(true)
 			outputs.disable_choice(false)
 			spookivice.texture_player.play("alert")
-		states.game_mode:
+		states.game_select:
 			outputs.top_screen.menu_container.hide()
 			outputs.disable_menu(true)
 			outputs.bottom_screen.scroll_container.show()
 			outputs.orphanage.sleep()
-			emit_signal("start_game_mode")
+			emit_signal("start_game_select")
 		states.powering_off:
 			outputs.disable_buttons(true)
 			spookivice.notifier.add_message("Powering [Off]", 2.5, true)
@@ -89,7 +89,7 @@ func state_exit(old_state, new_state):
 		states.waiting:
 			outputs.disable_buttons(false)
 			spookivice.texture_player.play("standby")
-		states.game_mode:
+		states.game_select:
 			outputs.top_screen.menu_container.show()
 			outputs.disable_menu(false)
 			outputs.bottom_screen.scroll_container.hide()

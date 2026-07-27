@@ -32,7 +32,7 @@ const _BOTTOM_ON = preload("uid://dm5alueyt0wj8")
 # Ready
 func _ready() -> void:
 	await get_tree().process_frame
-	spookivice.fsm.connect("start_game_mode", spawn_games.bind(true))
+	spookivice.fsm.connect("start_game_select", spawn_games.bind(true))
 	spookivice.buttons.connect("cross_pressed", cross_pressed)
 #------------------------------------------------------------------------------#
 # Signaled Functions
@@ -51,7 +51,7 @@ func update_screen():
 			menu_container.set_deferred("visible", false)
 # Custom Functions
 func toggle_time():
-	if ![spooki_fsm.states.game_mode].has(spooki_fsm.state):
+	if ![spooki_fsm.states.game_select].has(spooki_fsm.state):
 		if !countdown_container.visible: countdown_container.show()
 		else: clock_container.show()
 	else: print("Game Mode Select")
@@ -72,7 +72,7 @@ func spawn_games(to_spawn: bool) -> void:
 				first_button.grab_focus()
 		false:
 			for slot in slot_container.get_children(): slot.queue_free()
-			spookivice.outputs.game_mode = false
+			spookivice.outputs.game_select = false
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
 # Cross Pressed

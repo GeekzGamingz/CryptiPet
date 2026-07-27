@@ -18,3 +18,16 @@ func _on_button_focus_entered() -> void:
 	top_screen.spookivice.notifier.add_message(
 		"[color=853a4c]X[/color] = Back | Play = [color=18372a]O[/color]", 5, false
 	)
+# On Button Up
+func _on_slot_button_up() -> void:
+	var game_scene = Games.GAMES[game].instantiate()
+	clear_games()
+	await get_tree().process_frame
+	game_scene.name = game
+	Games.add_child(game_scene)
+#------------------------------------------------------------------------------#
+# Custom Functions
+# Clear Active Games
+func clear_games() -> void:
+	if Games.get_child_count() > 0:
+		for game_instance in Games.get_children(): game_instance.queue_free()
