@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dgb0rb13ooxgl" path="res://assets/00 - Spookivice/00 - Screens/01 - Bottom/Screen_Arrow_Right.png" id="5_5tyya"]
 [ext_resource type="Script" uid="uid://bkkukfrnsr2nk" path="res://source/01 - Main/01 - Screens/01 - Bottom/Clock.gd" id="6_ve3ph"]
 [ext_resource type="Script" uid="uid://dkf8ivxrdhcfd" path="res://source/01 - Main/01 - Screens/00 - Top/00 - Scripts/Countdown.gd" id="7_ve3ph"]
+[ext_resource type="Script" uid="uid://c4x3n7rkd1yjv" path="res://source/01 - Main/01 - Screens/01 - Bottom/Currency.gd" id="7_y1vpw"]
+[ext_resource type="Texture2D" uid="uid://fjskg7j0pf8h" path="res://assets/04 - Food/Currency.png" id="8_1a3dm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a1j8a"]
 
@@ -100,6 +102,40 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("7_ve3ph")
 
+[node name="CurrencyContainer" type="MarginContainer" parent="MenuContainer/TabContainer" unique_id=1250697204]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 2
+metadata/_tab_index = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MenuContainer/TabContainer/CurrencyContainer" unique_id=742614840]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuContainer/TabContainer/CurrencyContainer/PanelContainer" unique_id=1940127789]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Currency" type="RichTextLabel" parent="MenuContainer/TabContainer/CurrencyContainer/PanelContainer/HBoxContainer" unique_id=637418323]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.9411765, 0.92156863, 0.92156863, 1)
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "999"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_y1vpw")
+
+[node name="TextureRect" type="TextureRect" parent="MenuContainer/TabContainer/CurrencyContainer/PanelContainer/HBoxContainer" unique_id=706520110]
+layout_mode = 2
+texture = ExtResource("8_1a3dm")
+expand_mode = 2
+stretch_mode = 3
+
 [node name="ScrollContainer" type="ScrollContainer" parent="MenuContainer/TabContainer" unique_id=1044059174]
 visible = false
 layout_mode = 2
@@ -108,7 +144,7 @@ size_flags_vertical = 4
 theme_override_constants/scrollbar_v_separation = 2
 vertical_scroll_mode = 0
 scroll_horizontal_by_default = true
-metadata/_tab_index = 2
+metadata/_tab_index = 3
 
 [node name="SlotContainer" type="HBoxContainer" parent="MenuContainer/TabContainer/ScrollContainer" unique_id=1615719104]
 layout_mode = 2

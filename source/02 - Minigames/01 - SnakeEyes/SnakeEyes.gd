@@ -34,7 +34,7 @@ func _ready() -> void:
 # Signaled Functions
 func _on_increment_timeout() -> void:
 	if bet_increase:
-		if current_bet < Globals.COINS && current_bet < 999: current_bet += 1
+		if current_bet < Globals.CURRENCY && current_bet < 999: current_bet += 1
 	elif bet_descrease && current_bet > 0: current_bet -= 1
 	amount_label.text = str(current_bet)
 #------------------------------------------------------------------------------#
@@ -61,11 +61,11 @@ func alter_bet(increment, is_pressed):
 	match(increment):
 		"Decrease":
 			bet_descrease = is_pressed
-			if current_bet < Globals.COINS && current_bet > 0:
+			if current_bet < Globals.CURRENCY && current_bet > 0:
 				current_bet -= 1 if !is_pressed else 0
 		"Increase":
 			bet_increase = is_pressed
-			if current_bet < Globals.COINS && current_bet < 999:
+			if current_bet < Globals.CURRENCY && current_bet < 999:
 				current_bet += 1 if !is_pressed else 0
 	match(is_pressed):
 		true: increment_timer.start()

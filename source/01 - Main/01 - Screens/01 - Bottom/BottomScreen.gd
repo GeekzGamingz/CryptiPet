@@ -37,8 +37,8 @@ func _ready() -> void:
 #------------------------------------------------------------------------------#
 # Signaled Functions
 # Left/Right Buttons Pressed
-func _on_left_button_up() -> void: toggle_time()
-func _on_right_button_up() -> void: toggle_time()
+func _on_left_button_up() -> void: switch_tabs("Previous")
+func _on_right_button_up() -> void: switch_tabs("Next")
 #------------------------------------------------------------------------------#
 # Custom Functions
 func update_screen():
@@ -49,12 +49,14 @@ func update_screen():
 		"Off":
 			texture = _BOTTOM_OFF
 			menu_container.set_deferred("visible", false)
-# Custom Functions
-func toggle_time():
-	if ![spooki_fsm.states.game_select].has(spooki_fsm.state):
-		if !countdown_container.visible: countdown_container.show()
-		else: clock_container.show()
-	else: print("Game Mode Select")
+# Switch Tabs
+func switch_tabs(direction: String) -> void:
+	var tab_size: int = tab_container.get_child_count() - 2 # -1 Aligns Arrays, -1 Excludes [ScrollContainer]
+	var shown_tab: int = tab_container.current_tab
+	match(direction):
+		"Previous": tab_container.current_tab = tab_size if shown_tab == 0 else shown_tab - 1
+		"Next": tab_container.current_tab = 0 if shown_tab == tab_size else shown_tab + 1
+	print("[%s] Tab: [%s]" % [direction, tab_container.get_current_tab_control().name])
 # Spawn Games
 func spawn_games(to_spawn: bool) -> void:
 	match(to_spawn):
