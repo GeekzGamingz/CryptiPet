@@ -32,13 +32,15 @@ const _BOTTOM_ON = preload("uid://dm5alueyt0wj8")
 # Ready
 func _ready() -> void:
 	await get_tree().process_frame
-	spookivice.fsm.connect("start_game_select", spawn_games.bind(true))
+	spooki_fsm.connect("start_game_select", spawn_games.bind(true))
 	spookivice.buttons.connect("cross_pressed", cross_pressed)
 #------------------------------------------------------------------------------#
 # Signaled Functions
 # Left/Right Buttons Pressed
-func _on_left_button_up() -> void: switch_tabs("Previous")
-func _on_right_button_up() -> void: switch_tabs("Next")
+func _on_left_button_up() -> void:
+	if [spooki_fsm.states.idle].has(spooki_fsm.state): switch_tabs("Previous")
+func _on_right_button_up() -> void:
+	if [spooki_fsm.states.idle].has(spooki_fsm.state): switch_tabs("Next")
 #------------------------------------------------------------------------------#
 # Custom Functions
 func update_screen():
@@ -65,6 +67,7 @@ func spawn_games(to_spawn: bool) -> void:
 			var game_slot = Games.GAME_SLOTS[slot].instantiate()
 			game_slot.game = slot
 			game_slot.top_screen = spookivice.top_screen
+			game_slot.bottom_screen = spookivice.bottom_screen
 			slot_container.add_child(game_slot)
 			# Await One Frame to Grab Focus
 			await get_tree().process_frame
@@ -78,4 +81,7 @@ func spawn_games(to_spawn: bool) -> void:
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
 # Cross Pressed
-func cross_pressed(): spawn_games(false)
+func cross_pressed():
+	spawn_games(false)
+	spookivice.outputs.game_active = false
+	for game in Games.get_children(): game.queue_free()

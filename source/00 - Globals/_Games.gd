@@ -22,3 +22,7 @@ var GAME_ICONS: Dictionary = {
 var GAME_PREVIEWS: Dictionary = {
 	"SnakeEyes": preload("uid://buaspksrlmgm1")
 }
+# Game Bottom Screens
+var GAME_BOTTOMS: Dictionary = {
+	"SnakeEyes": preload("uid://cryb4iwfxhine")
+}

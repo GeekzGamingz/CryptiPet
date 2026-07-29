@@ -1,30 +1,32 @@
 [gd_scene format=3 uid="uid://6i70xf67afgl"]
 
-[ext_resource type="Texture2D" uid="uid://bxfc0scnwywwb" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/Dice_Results.png" id="2_xnlp3"]
+[ext_resource type="Script" uid="uid://xn205fbdf2b2" path="res://source/02 - Minigames/01 - SnakeEyes/Slot_Dice.gd" id="1_1wi1n"]
+[ext_resource type="Texture2D" uid="uid://bxfc0scnwywwb" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/Dice_Results.png" id="1_cf7o7"]
 
-[node name="bScreen_SnakeEyes" type="HBoxContainer" unique_id=258811156]
-offset_right = 19.0
-offset_bottom = 19.0
+[node name="Slot_Dice" type="HBoxContainer" unique_id=258811156]
+offset_right = 50.0
+offset_bottom = 24.0
 size_flags_vertical = 4
 alignment = 1
+script = ExtResource("1_1wi1n")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=209010924]
+[node name="D1Container" type="MarginContainer" parent="." unique_id=209010924]
 layout_mode = 2
 theme_override_constants/margin_left = 23
 theme_override_constants/margin_top = 24
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer" unique_id=1547995512]
-texture = ExtResource("2_xnlp3")
+[node name="Die1" type="Sprite2D" parent="D1Container" unique_id=1547995512]
+texture = ExtResource("1_cf7o7")
 centered = false
 hframes = 6
 
-[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=233757305]
+[node name="D2Container" type="MarginContainer" parent="." unique_id=233757305]
 layout_mode = 2
 theme_override_constants/margin_left = 23
 theme_override_constants/margin_top = 24
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer2" unique_id=137291486]
-texture = ExtResource("2_xnlp3")
+[node name="Die2" type="Sprite2D" parent="D2Container" unique_id=137291486]
+texture = ExtResource("1_cf7o7")
 centered = false
 flip_h = true
 hframes = 6

@@ -47,6 +47,8 @@ func transitions(delta):
 			if !outputs.powered_on: return states.powering_off
 			if !outputs.game_select: return states.idle
 			if outputs.game_active: return states.game_active
+		states.game_active:
+			if !outputs.game_active: return states.game_select
 		states.powering_off: if !outputs.spawned: return states.off
 	return null
 # Enter State
@@ -95,5 +97,7 @@ func state_exit(old_state, new_state):
 			outputs.top_screen.menu_container.show()
 			outputs.disable_menu(false)
 			outputs.bottom_screen.scroll_container.hide()
+			outputs.bottom_screen.spawn_games(false)
+			outputs.bottom_screen.texture = outputs.bottom_screen._BOTTOM_ON
 			if new_state == states.idle: outputs.orphanage.awaken()
 		states.idle: pass
