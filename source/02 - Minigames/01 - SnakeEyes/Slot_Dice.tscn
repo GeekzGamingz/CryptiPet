@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://6i70xf67afgl"]
+
+[ext_resource type="Texture2D" uid="uid://bxfc0scnwywwb" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/Dice_Results.png" id="2_xnlp3"]
+
+[node name="bScreen_SnakeEyes" type="HBoxContainer" unique_id=258811156]
+offset_right = 19.0
+offset_bottom = 19.0
+size_flags_vertical = 4
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=209010924]
+layout_mode = 2
+theme_override_constants/margin_left = 23
+theme_override_constants/margin_top = 24
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer" unique_id=1547995512]
+texture = ExtResource("2_xnlp3")
+centered = false
+hframes = 6
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=233757305]
+layout_mode = 2
+theme_override_constants/margin_left = 23
+theme_override_constants/margin_top = 24
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer2" unique_id=137291486]
+texture = ExtResource("2_xnlp3")
+centered = false
+flip_h = true
+hframes = 6

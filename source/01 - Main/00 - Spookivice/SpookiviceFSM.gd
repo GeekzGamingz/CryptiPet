@@ -18,6 +18,7 @@ func _ready() -> void:
 	state_add("idle")
 	state_add("waiting")
 	state_add("game_select")
+	state_add("game_active")
 	state_add("powering_off")
 	state_add("off")
 	call_deferred("state_set", states.standby)
@@ -45,6 +46,7 @@ func transitions(delta):
 		states.game_select:
 			if !outputs.powered_on: return states.powering_off
 			if !outputs.game_select: return states.idle
+			if outputs.game_active: return states.game_active
 		states.powering_off: if !outputs.spawned: return states.off
 	return null
 # Enter State

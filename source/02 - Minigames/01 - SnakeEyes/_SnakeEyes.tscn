@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c1yaypmywbw3e"]
 
 [ext_resource type="Theme" uid="uid://5hdiyrqlevro" path="res://assets/Base_Theme.tres" id="1_bsdfc"]
-[ext_resource type="Script" uid="uid://cpdy2nucghngr" path="res://source/02 - Minigames/01 - SnakeEyes/SnakeEyes.gd" id="1_okgsl"]
+[ext_resource type="Script" uid="uid://cpdy2nucghngr" path="res://source/02 - Minigames/01 - SnakeEyes/_SnakeEyes.gd" id="1_okgsl"]
 [ext_resource type="Texture2D" uid="uid://clxx74hqxojcw" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/00 - UserInterface/-bet.png" id="3_kwhxj"]
 [ext_resource type="Texture2D" uid="uid://bp4wla64x1ax1" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/00 - UserInterface/+bet.png" id="4_h6yv3"]
 

@@ -41,6 +41,7 @@ func _on_increment_timeout() -> void:
 # Custom Functions
 # Roll Dice
 func roll_dice() -> int:
+	spookivice.notifier.add_message("Rolling Your Fate!", 2.5, false)
 	spookivice.top_screen.texture = _ROLL
 	spookivice.top_screen.texture.current_frame = 0
 	spookivice.top_screen.texture.pause = false
