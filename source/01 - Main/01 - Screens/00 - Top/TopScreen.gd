@@ -49,20 +49,20 @@ func power_toggled(toggled_on: bool):
 func left_pressed(): if [spooki_fsm.states.idle].has(spooki_fsm.state): change_focus("Previous")
 func right_pressed(): if [spooki_fsm.states.idle].has(spooki_fsm.state): change_focus("Next")
 # Grab Focus
-func change_focus(arrow: String):
-	var focused: bool = false
-	for button: TextureButton in menu_container.get_children():
-		if button.has_focus():
-			var button_to_focus: TextureButton
-			match(arrow):
-				"Previous": button_to_focus = button.get_node(button.focus_previous)
-				"Next": button_to_focus = button.get_node(button.focus_next)
-			spookivice.notifier.add_message(button_to_focus.name, 1, false)
-			button_to_focus.grab_focus()
-			focused = true
-			break
-	if !focused:
-		print("Nothing Focused: Switching to [%s]" % button_feed.name)
+func change_focus(direction: String) -> void:
+	var current_focus: Control = get_viewport().gui_get_focus_owner()
+	if current_focus && menu_container.is_ancestor_of(current_focus):
+		var target_path: NodePath
+		match(direction):
+			"Previous": target_path = current_focus.focus_previous
+			"Next": target_path = current_focus.focus_next
+		if !target_path.is_empty():
+			var button_to_focus: TextureButton = current_focus.get_node(target_path)
+			if button_to_focus:
+				button_to_focus.grab_focus()
+				spookivice.notifier.add_message(button_to_focus.name, 1, false)
+				return
+	else:
 		spookivice.notifier.add_message(button_feed.name, 1, false)
 		button_feed.grab_focus()
 #------------------------------------------------------------------------------#
