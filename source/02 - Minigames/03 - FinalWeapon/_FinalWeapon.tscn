@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://72qciadle74d"]
 
+[ext_resource type="Script" uid="uid://b75iv1uik7gje" path="res://source/02 - Minigames/03 - FinalWeapon/_FinalWeapon.gd" id="1_qkgro"]
+
 [node name="FinalWeapon" type="Control" unique_id=2091795925]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +9,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qkgro")

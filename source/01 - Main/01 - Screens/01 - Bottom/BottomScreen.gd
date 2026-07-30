@@ -62,3 +62,16 @@ func switch_tabs(direction: String) -> void:
 		"Previous": tab_container.current_tab = tab_size if shown_tab == 0 else shown_tab - 1
 		"Next": tab_container.current_tab = 0 if shown_tab == tab_size else shown_tab + 1
 	print("[%s] Tab: [%s]" % [direction, tab_container.get_current_tab_control().name])
+#Establish Neighbors
+func establish_neighbors():
+	var slots: Array[Node] = slot_container.get_children()
+	var total_slots: int = slots.size()
+	if total_slots <= 1: return
+	for index in range(total_slots):
+		var current_button: TextureButton = slots[index].get_node("SlotButton")
+		var next_index: int = (index + 1) % total_slots
+		var previous_index: int = (index - 1 + total_slots) % total_slots
+		var next_button: TextureButton = slots[next_index].get_node("SlotButton")
+		var previous_button: TextureButton = slots[previous_index].get_node("SlotButton")
+		current_button.focus_next = current_button.get_path_to(next_button)
+		current_button.focus_previous = current_button.get_path_to(previous_button)

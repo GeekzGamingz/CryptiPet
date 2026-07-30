@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://crj3nao3qfxdp"]
 
+[ext_resource type="Script" uid="uid://e6r5w2e2shb2" path="res://source/02 - Minigames/02 - MothMatch/_MothMatch.gd" id="1_fk8y2"]
+
 [node name="MothMatch" type="Control" unique_id=2091795925]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +9,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_fk8y2")

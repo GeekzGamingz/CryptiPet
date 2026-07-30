@@ -48,7 +48,8 @@ func transitions(delta):
 			if !outputs.game_select: return states.idle
 			if outputs.game_active: return states.game_active
 		states.game_active:
-			if !outputs.game_active: return states.game_select
+			if !outputs.powered_on: return states.powering_off
+			if !outputs.game_active: return states.idle
 		states.powering_off: if !outputs.spawned: return states.off
 	return null
 # Enter State
@@ -93,7 +94,7 @@ func state_exit(old_state, new_state):
 		states.waiting:
 			outputs.disable_buttons(false)
 			spookivice.texture_player.play("standby")
-		states.game_select:
+		states.game_select, states.game_active:
 			if new_state != states.game_active:
 				outputs.top_screen.menu_container.show()
 				outputs.disable_menu(false)

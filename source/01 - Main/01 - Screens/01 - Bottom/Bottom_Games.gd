@@ -27,23 +27,10 @@ func spawn_games(to_spawn: bool) -> void:
 				var first_slot = slot_container.get_child(0)
 				var first_button = first_slot.get_node("SlotButton")
 				first_button.grab_focus()
-		establish_neighbors()
+		bottom_screen.establish_neighbors()
 	else:
-		for slot in slot_container.get_children(): slot.queue_free()
+		for slot in slot_container.get_children(): slot.free()
 		bottom_screen.spookivice.outputs.game_select = false
-#Establish Neighbors
-func establish_neighbors():
-	var slots: Array[Node] = bottom_screen.slot_container.get_children()
-	var total_slots: int = slots.size()
-	if total_slots <= 1: return
-	for index in range(total_slots):
-		var current_button: TextureButton = slots[index].get_node("SlotButton")
-		var next_index: int = (index + 1) % total_slots
-		var previous_index: int = (index - 1 + total_slots) % total_slots
-		var next_button: TextureButton = slots[next_index].get_node("SlotButton")
-		var previous_button: TextureButton = slots[previous_index].get_node("SlotButton")
-		current_button.focus_next = current_button.get_path_to(next_button)
-		current_button.focus_previous = current_button.get_path_to(previous_button)
 # Grab Focus
 func select_game(direction: String):
 	var slot_container: HBoxContainer = bottom_screen.slot_container
