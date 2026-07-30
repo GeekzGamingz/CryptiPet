@@ -10,10 +10,11 @@ const SLOT_DICE = preload("uid://6i70xf67afgl")
 #------------------------------------------------------------------------------#
 # Variables
 # Bools
-var bet_descrease: bool = false
+var bet_decrease: bool = false
 var bet_increase: bool = false
 # Integers
 var current_bet: int = 0
+var last_result: int
 # Exported Variables
 ## References the Amount [RichTextLabel] Node.
 @export var amount_label: RichTextLabel
@@ -30,22 +31,26 @@ func _ready() -> void:
 	spookivice.buttons.connect("minus_released", alter_bet.bind("Decrease", false))
 	spookivice.buttons.connect("plus_pressed", alter_bet.bind("Increase", true))
 	spookivice.buttons.connect("plus_released", alter_bet.bind("Increase", false))
-	print("Returned Value: ", await roll_dice())
+	last_result = await roll_dice()
+	show_result(last_result)
 #------------------------------------------------------------------------------#
 # Signaled Functions
 func _on_increment_timeout() -> void:
 	if bet_increase:
 		if current_bet < Globals.CURRENCY && current_bet < 999: current_bet += 1
-	elif bet_descrease && current_bet > 0: current_bet -= 1
+	elif bet_decrease && current_bet > 0: current_bet -= 1
 	amount_label.text = str(current_bet)
 #------------------------------------------------------------------------------#
 # Custom Functions
 # Roll Dice
 func roll_dice() -> int:
+	# Notification
 	spookivice.notifier.add_message("Rolling Your Fate!", 2.5, false)
+	# Animate Screen
 	spookivice.top_screen.texture = _ROLL
 	spookivice.top_screen.texture.current_frame = 0
 	spookivice.top_screen.texture.pause = false
+	# Create/Roll Dice
 	var random = RandomNumberGenerator.new()
 	random.randomize()
 	var die1 = random.randi_range(1, 6)
@@ -56,23 +61,37 @@ func roll_dice() -> int:
 	print("Die 2: ", die2)
 	if doubles: print("[DOUBLES!!]")
 	print("Dice Total: ", total)
+	# Await and Instantiate, But Keep Hidden
 	await get_tree().process_frame
 	var dice_scene = SLOT_DICE.instantiate()
 	spookivice.bottom_screen.scroll_container.show()
 	spookivice.bottom_screen.slot_container.add_child(dice_scene)
 	dice_scene.hide()
+	# Await and Show Results
 	await get_tree().create_timer(2.1).timeout
-	if doubles: spookivice.notifier.add_message("DOUBLES! Next Payout is Doubled!!", 2.5, false)
+	if doubles: spookivice.notifier.add_message(
+		"[rainbow][wave]DOUBLES[/wave][/rainbow]![br]Next Payout is [u]Doubled[/u]!!",
+		2.5, false
+	)
 	dice_scene.show()
 	dice_scene.die1_face = str(die1)
 	dice_scene.die2_face = str(die2)
+	# Return the Total Dice Roll
 	return total
+# Show Results
+func show_result(result):
+	var message: String
+	match(result):
+		2, 12: message = "Result: [rainbow][pulse][%s][/pulse][/rainbow]" % result
+		3, 4, 10, 11: message = "Result: [color=eddc3c][pulse][%s][/pulse][/color]" % result
+		_: message = "Result: [%s]" % result
+	spookivice.top_screen.title.text = message
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
 func alter_bet(increment, is_pressed):
 	match(increment):
 		"Decrease":
-			bet_descrease = is_pressed
+			bet_decrease = is_pressed
 			if current_bet < Globals.CURRENCY && current_bet > 0:
 				current_bet -= 1 if !is_pressed else 0
 		"Increase":

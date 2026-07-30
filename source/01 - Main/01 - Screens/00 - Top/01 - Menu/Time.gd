@@ -5,7 +5,7 @@ signal switch_time
 #------------------------------------------------------------------------------#
 # Variables
 # OnReady Variables
-@onready var top_screen: TextureRect = $"../.."
+@onready var top_screen: TextureRect = $"../../.."
 #------------------------------------------------------------------------------#
 # Functions
 func _ready() -> void:

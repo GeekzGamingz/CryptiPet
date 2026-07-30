@@ -50,6 +50,8 @@ texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a1j8a"]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_txbq4"]
 texture = ExtResource("3_bkhs7")
 texture_margin_left = 4.0
@@ -69,4 +71,5 @@ RichTextLabel/font_sizes/normal_font_size = 15
 RichTextLabel/fonts/bold_font = ExtResource("4_tcib6")
 RichTextLabel/fonts/italics_font = ExtResource("5_o8fqx")
 RichTextLabel/fonts/normal_font = ExtResource("6_33u5s")
+TabContainer/styles/panel = SubResource("StyleBoxEmpty_a1j8a")
 TooltipPanel/styles/panel = SubResource("StyleBoxTexture_txbq4")

@@ -17,34 +17,40 @@
 [ext_resource type="Texture2D" uid="uid://cmoimkx7yok64" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/00 - Disabled/Games_Icon_Disabled.png" id="11_sxnri"]
 [ext_resource type="Script" uid="uid://deu7lwgorrcxh" path="res://source/01 - Main/01 - Screens/00 - Top/00 - Scripts/Orphanage.gd" id="12_oq06h"]
 [ext_resource type="Texture2D" uid="uid://bqu8ypanprjqy" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/00 - Disabled/Chat_Icon_Disabled.png" id="13_75skj"]
-[ext_resource type="Script" uid="uid://b33cynyrjctak" path="res://source/01 - Main/01 - Screens/00 - Top/00 - Scripts/Play.gd" id="13_sxnri"]
+[ext_resource type="Script" uid="uid://b33cynyrjctak" path="res://source/01 - Main/01 - Screens/00 - Top/01 - Menu/Play.gd" id="13_sxnri"]
 [ext_resource type="Texture2D" uid="uid://dxi25crscs1k0" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/00 - Disabled/FirstAid_Icon_Disabled.png" id="15_cq6xi"]
 [ext_resource type="Texture2D" uid="uid://cnlihssum1s10" path="res://assets/00 - Spookivice/00 - Screens/00 - Top/01 - Icons/00 - Disabled/Cleanup_Icon_Disabled.png" id="17_uad0v"]
 
-[node name="TopScreen" type="TextureRect" unique_id=1668624340]
+[node name="TopScreen" type="TextureRect" unique_id=1668624340 node_paths=PackedStringArray("tab_container", "menu_container", "title")]
 offset_right = 281.0
 offset_bottom = 265.0
 mouse_filter = 2
 theme = ExtResource("1_g2lt3")
 texture = ExtResource("1_w0rnr")
 script = ExtResource("3_5f7of")
-metadata/_edit_vertical_guides_ = [85.0, 196.0, 141.0]
+tab_container = NodePath("TabContainer")
+menu_container = NodePath("TabContainer/MenuContainer")
+title = NodePath("TabContainer/MarginContainer/TitleLabel")
+metadata/_edit_vertical_guides_ = [87.0, 194.0, 141.0]
+metadata/_edit_horizontal_guides_ = [84.0, 97.0]
 
-[node name="LevelBorder" type="StaticBody2D" parent="." unique_id=934322642]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelBorder" unique_id=2071827324]
-polygon = PackedVector2Array(87, 173, 84, 173, 84, 189, 90, 195, 191, 195, 197, 189, 197, 171, 84, 171, 84, 173, 194, 173, 194, 188, 190, 192, 91, 192, 87, 188)
-
-[node name="MenuContainer" type="HBoxContainer" parent="." unique_id=579397727]
+[node name="TabContainer" type="TabContainer" parent="." unique_id=65944190]
+visible = false
 layout_mode = 0
-offset_left = 86.0
+offset_left = 87.0
 offset_top = 84.0
-offset_right = 195.0
+offset_right = 194.0
 offset_bottom = 97.0
+current_tab = 0
+tabs_visible = false
+
+[node name="MenuContainer" type="HBoxContainer" parent="TabContainer" unique_id=579397727]
+layout_mode = 2
 theme_override_constants/separation = 1
 alignment = 1
+metadata/_tab_index = 0
 
-[node name="Feed" type="TextureButton" parent="MenuContainer" unique_id=237401447]
+[node name="Feed" type="TextureButton" parent="TabContainer/MenuContainer" unique_id=237401447]
 layout_mode = 2
 focus_next = NodePath("../Time")
 focus_previous = NodePath("../Cleanup")
@@ -52,7 +58,7 @@ texture_normal = ExtResource("3_cxf82")
 texture_disabled = ExtResource("4_q165l")
 texture_focused = ExtResource("4_43lvc")
 
-[node name="Time" type="TextureButton" parent="MenuContainer" unique_id=450420656]
+[node name="Time" type="TextureButton" parent="TabContainer/MenuContainer" unique_id=450420656]
 layout_mode = 2
 focus_next = NodePath("../Play")
 focus_previous = NodePath("../Feed")
@@ -63,7 +69,7 @@ texture_disabled = ExtResource("8_g2lt3")
 texture_focused = ExtResource("4_43lvc")
 script = ExtResource("10_5f7of")
 
-[node name="Play" type="TextureButton" parent="MenuContainer" unique_id=1619768679]
+[node name="Play" type="TextureButton" parent="TabContainer/MenuContainer" unique_id=1619768679]
 layout_mode = 2
 focus_next = NodePath("../Chat")
 focus_previous = NodePath("../Time")
@@ -72,7 +78,7 @@ texture_disabled = ExtResource("11_sxnri")
 texture_focused = ExtResource("4_43lvc")
 script = ExtResource("13_sxnri")
 
-[node name="Chat" type="TextureButton" parent="MenuContainer" unique_id=1617306956]
+[node name="Chat" type="TextureButton" parent="TabContainer/MenuContainer" unique_id=1617306956]
 layout_mode = 2
 focus_next = NodePath("../Heal")
 focus_previous = NodePath("../Play")
@@ -80,7 +86,7 @@ texture_normal = ExtResource("7_3fnx7")
 texture_disabled = ExtResource("13_75skj")
 texture_focused = ExtResource("4_43lvc")
 
-[node name="Heal" type="TextureButton" parent="MenuContainer" unique_id=1234981683]
+[node name="Heal" type="TextureButton" parent="TabContainer/MenuContainer" unique_id=1234981683]
 layout_mode = 2
 focus_next = NodePath("../Cleanup")
 focus_previous = NodePath("../Chat")
@@ -88,7 +94,7 @@ texture_normal = ExtResource("8_rkajd")
 texture_disabled = ExtResource("15_cq6xi")
 texture_focused = ExtResource("4_43lvc")
 
-[node name="Cleanup" type="TextureButton" parent="MenuContainer" unique_id=66788965]
+[node name="Cleanup" type="TextureButton" parent="TabContainer/MenuContainer" unique_id=66788965]
 layout_mode = 2
 focus_next = NodePath("../Feed")
 focus_previous = NodePath("../Heal")
@@ -96,10 +102,33 @@ texture_normal = ExtResource("9_ncl7e")
 texture_disabled = ExtResource("17_uad0v")
 texture_focused = ExtResource("4_43lvc")
 
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer" unique_id=1537005854]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="TitleLabel" type="RichTextLabel" parent="TabContainer/MarginContainer" unique_id=1181807187]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.5764706, 0.5921569, 0.7137255, 1)
+theme_override_colors/font_shadow_color = Color(0.6784314, 0.70980394, 0.7921569, 1)
+theme_override_constants/shadow_outline_size = 1
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+bbcode_enabled = true
+text = "Title Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelBorder" type="StaticBody2D" parent="." unique_id=934322642]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelBorder" unique_id=2071827324]
+polygon = PackedVector2Array(87, 173, 84, 173, 84, 189, 90, 195, 191, 195, 197, 189, 197, 171, 84, 171, 84, 173, 194, 173, 194, 188, 190, 192, 91, 192, 87, 188)
+
 [node name="Orphanage" type="Marker2D" parent="." unique_id=682031323 node_paths=PackedStringArray("top_screen")]
 position = Vector2(141, 180)
 script = ExtResource("12_oq06h")
 top_screen = NodePath("..")
 
-[connection signal="toggled" from="MenuContainer/Time" to="MenuContainer/Time" method="_on_toggled"]
-[connection signal="button_up" from="MenuContainer/Play" to="MenuContainer/Play" method="_on_button_up"]
+[connection signal="toggled" from="TabContainer/MenuContainer/Time" to="TabContainer/MenuContainer/Time" method="_on_toggled"]
+[connection signal="button_up" from="TabContainer/MenuContainer/Play" to="TabContainer/MenuContainer/Play" method="_on_button_up"]

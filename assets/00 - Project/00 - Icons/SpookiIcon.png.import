@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4bswolqm05wm"
-path="res://.godot/imported/Cryptidood.png-2f53d7fce4df1e4124f2e40ea5025385.ctex"
+uid="uid://p4l3hqej3rl4"
+path="res://.godot/imported/SpookiIcon.png-b4177dce65559db99ac00c51094b4dc6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/01 - Icons/Cryptidood.png"
-dest_files=["res://.godot/imported/Cryptidood.png-2f53d7fce4df1e4124f2e40ea5025385.ctex"]
+source_file="res://assets/00 - Project/00 - Icons/SpookiIcon.png"
+dest_files=["res://.godot/imported/SpookiIcon.png-b4177dce65559db99ac00c51094b4dc6.ctex"]
 
 [params]
 

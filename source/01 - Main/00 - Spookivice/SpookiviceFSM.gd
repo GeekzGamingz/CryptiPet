@@ -60,7 +60,7 @@ func state_enter(new_state, old_state):
 			outputs.bottom_screen.phase = "On"
 			spookivice.texture_player.play("alert")
 			spookivice.notifier.add_message("Powering [On]", 2.5, true)
-		states.idle: pass
+		states.idle: outputs.orphanage.awaken()
 		states.waiting:
 			outputs.disable_buttons(true)
 			outputs.disable_choice(false)
@@ -94,10 +94,10 @@ func state_exit(old_state, new_state):
 			outputs.disable_buttons(false)
 			spookivice.texture_player.play("standby")
 		states.game_select:
-			outputs.top_screen.menu_container.show()
-			outputs.disable_menu(false)
+			if new_state != states.game_active:
+				outputs.top_screen.menu_container.show()
+				outputs.disable_menu(false)
+				outputs.bottom_screen.texture = outputs.bottom_screen._BOTTOM_ON
 			outputs.bottom_screen.scroll_container.hide()
 			outputs.bottom_screen.spawn_games(false)
-			outputs.bottom_screen.texture = outputs.bottom_screen._BOTTOM_ON
-			if new_state == states.idle: outputs.orphanage.awaken()
 		states.idle: pass

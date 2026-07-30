@@ -39,8 +39,10 @@ func _ready() -> void:
 # Left/Right Buttons Pressed
 func _on_left_button_up() -> void:
 	if [spooki_fsm.states.idle].has(spooki_fsm.state): switch_tabs("Previous")
+	elif [spooki_fsm.states.game_select].has(spooki_fsm.state): select_game("Previous")
 func _on_right_button_up() -> void:
 	if [spooki_fsm.states.idle].has(spooki_fsm.state): switch_tabs("Next")
+	elif [spooki_fsm.states.game_select].has(spooki_fsm.state): select_game("Next")
 #------------------------------------------------------------------------------#
 # Custom Functions
 func update_screen():
@@ -62,9 +64,9 @@ func switch_tabs(direction: String) -> void:
 # Spawn Games
 func spawn_games(to_spawn: bool) -> void:
 	match(to_spawn):
-		true: for slot in Games.GAME_SLOTS:
+		true: for slot in Games.GAMES:
 			# Instantiate/Add Slots
-			var game_slot = Games.GAME_SLOTS[slot].instantiate()
+			var game_slot = Games.GAME_SLOT.instantiate()
 			game_slot.game = slot
 			game_slot.top_screen = spookivice.top_screen
 			game_slot.bottom_screen = spookivice.bottom_screen
@@ -78,6 +80,12 @@ func spawn_games(to_spawn: bool) -> void:
 		false:
 			for slot in slot_container.get_children(): slot.queue_free()
 			spookivice.outputs.game_select = false
+# Change Game Selection
+func select_game(direction: String):
+	match(direction):
+		"Previous": pass
+		"Next": pass
+	print(direction)
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
 # Cross Pressed

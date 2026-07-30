@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p4l3hqej3rl4"
-path="res://.godot/imported/Spookivice_Off_Icon.png-7aed44858c2a9440c1e60b679e89e7d8.ctex"
+uid="uid://4i4jgbjngmcn"
+path="res://.godot/imported/Bottom_Screen_Mothmatch.png-75b47548d1e4e1da4a64e1bc98aaae4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/01 - Icons/Spookivice_Off_Icon.png"
-dest_files=["res://.godot/imported/Spookivice_Off_Icon.png-7aed44858c2a9440c1e60b679e89e7d8.ctex"]
+source_file="res://assets/00 - Spookivice/03 - Games/Bottom_Screen_Mothmatch.png"
+dest_files=["res://.godot/imported/Bottom_Screen_Mothmatch.png-75b47548d1e4e1da4a64e1bc98aaae4d.ctex"]
 
 [params]
 

@@ -4,12 +4,20 @@ extends TextureRect
 # Exported Variables
 ## Points to the Spookivice. This is your responsibility... Your curse.
 @export var spookivice: Control
+## Points to the Menu Container [TabContainer]
+@export var tab_container: TabContainer
+## Points to the Menu Container [HBoxContainer]
+@export var menu_container: HBoxContainer
+## Points to the Title [RichTextLabel]
+@export var title: RichTextLabel
 # Exported Enumerations
 ## Sets the [enum location] of the player's [Cryptid] to the [Texture2D];[br]
 ## Depends on the [enum time].[br][br]
 ## Default = "Off"
 @export_enum("Off", "Graveyard") var location = "Off":
 	set(new_location):
+		if new_location == "Off": tab_container.hide() 
+		else: tab_container.show()
 		location = new_location
 		update_location()
 ## Sets the [enum time] of the player's [enum location].
@@ -20,9 +28,8 @@ extends TextureRect
 # OnReady Variables
 # Local Nodes
 @onready var spooki_fsm: Node2D = spookivice.get_node("StateMachine")
-@onready var menu_container: HBoxContainer = $MenuContainer
-@onready var button_feed: TextureButton = $MenuContainer/Feed
-@onready var button_time: TextureButton = $MenuContainer/Time
+@onready var button_feed: TextureButton = menu_container.get_node("Feed")
+@onready var button_time: TextureButton = menu_container.get_node("Time")
 @onready var orphanage: Marker2D = $Orphanage
 #------------------------------------------------------------------------------#
 # Functions
