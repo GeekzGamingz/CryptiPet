@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://dnajijafcg0ye"]
 
 [ext_resource type="Theme" uid="uid://5hdiyrqlevro" path="res://assets/Base_Theme.tres" id="1_1xxqn"]
-[ext_resource type="Texture2D" uid="uid://c3u4h1h5ya4h8" path="res://assets/00 - Spookivice/00 - Screens/01 - Bottom/00 - Backgrounds/_BottomOff.png" id="1_8somu"]
+[ext_resource type="Texture2D" uid="uid://c3u4h1h5ya4h8" path="res://assets/01 - Spookivice/02 - Screens/01 - Bottom/00 - Backgrounds/_BottomOff.png" id="1_8somu"]
 [ext_resource type="Script" uid="uid://ce1vetm46c2x3" path="res://source/01 - Main/01 - Screens/01 - Bottom/BottomScreen.gd" id="3_ve3ph"]
-[ext_resource type="Texture2D" uid="uid://qpyjhqi82uow" path="res://assets/00 - Spookivice/00 - Screens/01 - Bottom/Screen_Arrow_Left.png" id="3_vh150"]
-[ext_resource type="Texture2D" uid="uid://dgb0rb13ooxgl" path="res://assets/00 - Spookivice/00 - Screens/01 - Bottom/Screen_Arrow_Right.png" id="5_5tyya"]
+[ext_resource type="Texture2D" uid="uid://qpyjhqi82uow" path="res://assets/01 - Spookivice/02 - Screens/01 - Bottom/01 - Menu/Screen_Arrow_Left.png" id="3_vh150"]
+[ext_resource type="Script" uid="uid://bs4g0q20c545g" path="res://source/01 - Main/01 - Screens/01 - Bottom/Bottom_Games.gd" id="4_1a3dm"]
+[ext_resource type="Texture2D" uid="uid://dgb0rb13ooxgl" path="res://assets/01 - Spookivice/02 - Screens/01 - Bottom/01 - Menu/Screen_Arrow_Right.png" id="5_5tyya"]
 [ext_resource type="Script" uid="uid://bkkukfrnsr2nk" path="res://source/01 - Main/01 - Screens/01 - Bottom/00 - Scripts/Clock.gd" id="6_ve3ph"]
 [ext_resource type="Script" uid="uid://dkf8ivxrdhcfd" path="res://source/01 - Main/01 - Screens/00 - Top/00 - Scripts/Countdown.gd" id="7_ve3ph"]
 [ext_resource type="Script" uid="uid://c4x3n7rkd1yjv" path="res://source/01 - Main/01 - Screens/01 - Bottom/00 - Scripts/Currency.gd" id="7_y1vpw"]
@@ -23,6 +24,11 @@ countdown = NodePath("MenuContainer/TabContainer/CountdownContainer/PanelContain
 clock_container = NodePath("MenuContainer/TabContainer/ClockContainer")
 scroll_container = NodePath("MenuContainer/TabContainer/ScrollContainer")
 slot_container = NodePath("MenuContainer/TabContainer/ScrollContainer/SlotContainer")
+
+[node name="Scripts" type="Node2D" parent="." unique_id=747812885]
+
+[node name="Games" type="Node2D" parent="Scripts" unique_id=546600717]
+script = ExtResource("4_1a3dm")
 
 [node name="MenuContainer" type="HBoxContainer" parent="." unique_id=685332943]
 visible = false

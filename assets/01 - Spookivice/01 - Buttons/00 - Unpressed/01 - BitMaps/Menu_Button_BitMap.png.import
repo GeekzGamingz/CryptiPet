@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://sgnaghoc40nr"
+path="res://.godot/imported/Menu_Button_BitMap.png-74b70f1f15ed47767159f28995480b76.res"
+
+[deps]
+
+source_file="res://assets/01 - Spookivice/01 - Buttons/00 - Unpressed/01 - BitMaps/Menu_Button_BitMap.png"
+dest_files=["res://.godot/imported/Menu_Button_BitMap.png-74b70f1f15ed47767159f28995480b76.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

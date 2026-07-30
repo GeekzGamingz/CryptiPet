@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://gq56647av362"
+path="res://.godot/imported/Small_Cirlce_BitMap.png-41c887ca84999b8e12fa4aaad1268625.res"
+
+[deps]
+
+source_file="res://assets/01 - Spookivice/01 - Buttons/00 - Unpressed/01 - BitMaps/Small_Cirlce_BitMap.png"
+dest_files=["res://.godot/imported/Small_Cirlce_BitMap.png-41c887ca84999b8e12fa4aaad1268625.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

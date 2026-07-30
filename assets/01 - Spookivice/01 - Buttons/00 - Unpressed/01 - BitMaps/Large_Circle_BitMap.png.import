@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://ct62chskbjrpl"
+path="res://.godot/imported/Large_Circle_BitMap.png-babfe4f69c984546bf89e65d6cae9d14.res"
+
+[deps]
+
+source_file="res://assets/01 - Spookivice/01 - Buttons/00 - Unpressed/01 - BitMaps/Large_Circle_BitMap.png"
+dest_files=["res://.godot/imported/Large_Circle_BitMap.png-babfe4f69c984546bf89e65d6cae9d14.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

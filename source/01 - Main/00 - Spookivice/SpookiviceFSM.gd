@@ -99,5 +99,5 @@ func state_exit(old_state, new_state):
 				outputs.disable_menu(false)
 				outputs.bottom_screen.texture = outputs.bottom_screen._BOTTOM_ON
 			outputs.bottom_screen.scroll_container.hide()
-			outputs.bottom_screen.spawn_games(false)
+			outputs.bottom_screen.bottom_games.spawn_games(false)
 		states.idle: pass

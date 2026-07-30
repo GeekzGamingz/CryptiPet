@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://6i70xf67afgl"]
 
 [ext_resource type="Script" uid="uid://xn205fbdf2b2" path="res://source/02 - Minigames/01 - SnakeEyes/Slot_Dice.gd" id="1_1wi1n"]
-[ext_resource type="Texture2D" uid="uid://bxfc0scnwywwb" path="res://assets/00 - Spookivice/03 - Games/00 - SnakeEyes/Dice_Results.png" id="1_cf7o7"]
+[ext_resource type="Texture2D" uid="uid://bxfc0scnwywwb" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/Dice_Results.png" id="1_cf7o7"]
 
 [node name="Slot_Dice" type="HBoxContainer" unique_id=258811156]
 offset_right = 50.0

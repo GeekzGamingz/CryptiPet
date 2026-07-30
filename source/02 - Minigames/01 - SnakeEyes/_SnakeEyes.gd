@@ -70,7 +70,7 @@ func roll_dice() -> int:
 	# Await and Show Results
 	await get_tree().create_timer(2.1).timeout
 	if doubles: spookivice.notifier.add_message(
-		"[rainbow][wave]DOUBLES[/wave][/rainbow]![br]Next Payout is [u]Doubled[/u]!!",
+		"[rainbow][wave]DOUBLES[/wave][/rainbow]! Next Payout is [u]Doubled[/u]!!",
 		2.5, false
 	)
 	dice_scene.show()

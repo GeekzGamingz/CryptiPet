@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://64160p7wn7v2"
+path="res://.godot/imported/Right_Button_BitMap.png-59135a9f15271ff9496230880d985947.res"
+
+[deps]
+
+source_file="res://assets/01 - Spookivice/01 - Buttons/00 - Unpressed/01 - BitMaps/Right_Button_BitMap.png"
+dest_files=["res://.godot/imported/Right_Button_BitMap.png-59135a9f15271ff9496230880d985947.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

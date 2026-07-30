@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bhld3kdqm5dp8"
+path="res://.godot/imported/Sound_BitMap.png-65df071549351a543d2cf3cd4c0638a8.res"
+
+[deps]
+
+source_file="res://assets/01 - Spookivice/01 - Buttons/03 - Toggles/01 - BitMaps/Sound_BitMap.png"
+dest_files=["res://.godot/imported/Sound_BitMap.png-65df071549351a543d2cf3cd4c0638a8.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
