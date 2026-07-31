@@ -4,11 +4,13 @@ extends Node2D
 # OnReady Variables
 @onready var bottom_screen = $"../.."
 #------------------------------------------------------------------------------#
-# Bottom Arrows
-func left_pressed(): if [bottom_screen.spooki_fsm.states.game_select].has(
-	bottom_screen.spooki_fsm.state): select_game("Previous")
-func right_pressed(): if [bottom_screen.spooki_fsm.states.idle].has(
-	bottom_screen.spooki_fsm.state): select_game("Next")
+# Ready
+func _ready() -> void:
+	await get_tree().process_frame
+	bottom_screen.spooki_fsm.connect("start_game_select", spawn_games.bind(true))
+	bottom_screen.spookivice.buttons.connect("cross_pressed", cross_pressed)
+	bottom_screen.spookivice.buttons.connect("circle_pressed", circle_pressed)
+#------------------------------------------------------------------------------#
 # Spawn Games
 func spawn_games(to_spawn: bool) -> void:
 	var slot_container = bottom_screen.slot_container
@@ -56,3 +58,8 @@ func cross_pressed() -> void:
 	spawn_games(false)
 	bottom_screen.spookivice.outputs.game_active = false
 	for game in Games.get_children(): game.queue_free()
+# Circle Pressed
+func circle_pressed() -> void:
+	if [bottom_screen.spooki_fsm.states.game_select].has(bottom_screen.spooki_fsm.state):
+		get_viewport().gui_get_focus_owner().emit_signal("button_up")
+	

@@ -30,11 +30,10 @@ const _BOTTOM_ON = preload("uid://dm5alueyt0wj8")
 @onready var tab_container: TabContainer = $MenuContainer/TabContainer
 @onready var bottom_games: Node2D = $Scripts/Games
 #------------------------------------------------------------------------------#
-# Ready
 func _ready() -> void:
 	await get_tree().process_frame
-	spooki_fsm.connect("start_game_select", bottom_games.spawn_games.bind(true))
-	spookivice.buttons.connect("cross_pressed", bottom_games.cross_pressed)
+	spookivice.buttons.connect("left_pressed", _on_left_button_up)
+	spookivice.buttons.connect("right_pressed", _on_right_button_up)
 #------------------------------------------------------------------------------#
 # Signaled Functions
 # Left/Right Buttons Pressed
