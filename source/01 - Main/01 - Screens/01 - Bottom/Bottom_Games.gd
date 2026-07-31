@@ -32,7 +32,7 @@ func spawn_games(to_spawn: bool) -> void:
 		for slot in slot_container.get_children(): slot.free()
 		bottom_screen.spookivice.outputs.game_select = false
 # Grab Focus
-func select_game(direction: String):
+func select_game(direction: String) -> void:
 	var slot_container: HBoxContainer = bottom_screen.slot_container
 	if slot_container.get_child_count() == 0: return
 	var current_focus: Control = get_viewport().gui_get_focus_owner()
@@ -52,7 +52,7 @@ func select_game(direction: String):
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
 # Cross Pressed
-func cross_pressed():
+func cross_pressed() -> void:
 	spawn_games(false)
 	bottom_screen.spookivice.outputs.game_active = false
 	for game in Games.get_children(): game.queue_free()

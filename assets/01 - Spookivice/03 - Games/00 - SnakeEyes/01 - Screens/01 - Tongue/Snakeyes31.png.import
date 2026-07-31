@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5cdsvjgx3ca2"
-path="res://.godot/imported/Snakeyes23.png-20ebb0bfcf82dd55ebaaf4b05e72a8de.ctex"
+uid="uid://dc344vgmidltn"
+path="res://.godot/imported/Snakeyes31.png-5d4b14ab89268242f3989a9e1a6b560f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/01 - Bite/Snakeyes23.png"
-dest_files=["res://.godot/imported/Snakeyes23.png-20ebb0bfcf82dd55ebaaf4b05e72a8de.ctex"]
+source_file="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/01 - Tongue/Snakeyes31.png"
+dest_files=["res://.godot/imported/Snakeyes31.png-5d4b14ab89268242f3989a9e1a6b560f.ctex"]
 
 [params]
 

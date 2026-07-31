@@ -42,7 +42,7 @@ func _ready() -> void:
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
 # Power Toggle
-func power_toggled(toggled_on: bool):
+func power_toggled(toggled_on: bool) -> void:
 	match(toggled_on):
 		true: location = Globals.LOCATION
 # Main Arrows
@@ -67,7 +67,7 @@ func change_focus(direction: String) -> void:
 		button_feed.grab_focus()
 #------------------------------------------------------------------------------#
 # Custom Functions
-func update_location():
+func update_location() -> void:
 	if location == "Off": texture = Textures.LOCATIONS[location]
 	else: texture = Textures.LOCATIONS[str("%s_%s" % [location, time])]
 	if spookivice != null:

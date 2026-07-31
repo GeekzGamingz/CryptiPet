@@ -21,21 +21,21 @@ func _ready() -> void:
 #------------------------------------------------------------------------------#
 # Custom Functions
 # Disable Buttons
-func disable_buttons(disabled: bool):
+func disable_buttons(disabled: bool) -> void:
 	for button in spookivice.buttons.get_children(): button.disabled = disabled
 	disable_menu(disabled)
 # Disable Menu
-func disable_menu(disabled: bool):
+func disable_menu(disabled: bool) -> void:
 	for button in top_screen.menu_container.get_children():
 		button.disabled = disabled
 		if button.has_focus: button.release_focus()
 # Enable Choice
-func disable_choice(disabled: bool):
+func disable_choice(disabled: bool) -> void:
 	spookivice.buttons.cross.disabled = disabled
 	spookivice.buttons.circle.disabled = disabled
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
 # Power Toggle
-func power_toggled(toggled_on: bool): powered_on = toggled_on
+func power_toggled(toggled_on: bool) -> void: powered_on = toggled_on
 # Cryptid Spawn Notification
-func cryptid_spawned(is_spawned: bool): spawned = is_spawned
+func cryptid_spawned(is_spawned: bool) -> void: spawned = is_spawned

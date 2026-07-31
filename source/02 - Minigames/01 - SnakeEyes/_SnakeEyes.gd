@@ -4,14 +4,16 @@ extends Control
 ## This manages the dice game, Snake Eyes.
 #------------------------------------------------------------------------------#
 # Constants
-const _BITE = preload("uid://jw0r8unm4xvm")
 const _ROLL = preload("uid://dtnrkc8mjslnf")
+const _TONGUE = preload("uid://jw0r8unm4xvm")
+const _BITE = preload("uid://dwkd1vw3nj5v6")
 const SLOT_DICE = preload("uid://6i70xf67afgl")
 #------------------------------------------------------------------------------#
 # Variables
 # Bools
 var bet_decrease: bool = false
 var bet_increase: bool = false
+var doubles: bool = false
 # Integers
 var current_bet: int = 0
 var last_result: int
@@ -56,7 +58,7 @@ func roll_dice() -> int:
 	var die1 = random.randi_range(1, 6)
 	var die2 = random.randi_range(1, 6)
 	var total = die1 + die2
-	var doubles = true if die1 == die2 else false
+	doubles = true if die1 == die2 else false
 	print("Die 1: ", die1)
 	print("Die 2: ", die2)
 	if doubles: print("[DOUBLES!!]")
@@ -79,7 +81,7 @@ func roll_dice() -> int:
 	# Return the Total Dice Roll
 	return total
 # Show Results
-func show_result(result):
+func show_result(result) -> void:
 	var message: String
 	match(result):
 		2, 12: message = "Result: [rainbow][pulse][%s][/pulse][/rainbow]" % result
@@ -88,7 +90,7 @@ func show_result(result):
 	spookivice.top_screen.title.text = message
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
-func alter_bet(increment, is_pressed):
+func alter_bet(increment, is_pressed) -> void:
 	match(increment):
 		"Decrease":
 			bet_decrease = is_pressed

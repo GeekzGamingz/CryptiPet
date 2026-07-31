@@ -20,5 +20,5 @@ func _on_toggled(toggled_on: bool) -> void:
 		"Night": emit_signal("switch_time", "Night")
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
-func circle_pressed():
+func circle_pressed() -> void:
 	if has_focus(): button_pressed = !button_pressed

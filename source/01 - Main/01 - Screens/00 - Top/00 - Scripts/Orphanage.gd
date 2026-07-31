@@ -17,6 +17,7 @@ func _ready() -> void:
 	top_screen.button_time.connect("switch_time", switch_time)
 #------------------------------------------------------------------------------#
 # Custom Functions
+# Awaken Your Cryptid
 func awaken():
 	# Remove Other Children & Add New
 	if get_child_count() > 0: for child in get_children(): child.queue_free()
@@ -31,6 +32,7 @@ func awaken():
 	# Await & Signal
 	await cryptid_scene.sprite_player.animation_finished
 	emit_signal("cryptid_spawned", true)
+# Allow Your Cryptid to Rest
 func sleep(): if get_child_count() != 0:
 	# Identify Cryptid & Hide
 	var cryptid = get_child(0)

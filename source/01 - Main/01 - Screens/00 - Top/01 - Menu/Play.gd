@@ -15,7 +15,7 @@ func _ready() -> void:
 func _on_button_up() -> void: game_select()
 #------------------------------------------------------------------------------#
 #Activate Game Mode
-func game_select(): top_screen.spookivice.outputs.game_select = true
+func game_select() -> void: top_screen.spookivice.outputs.game_select = true
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
-func circle_pressed(): if has_focus(): emit_signal("button_up")
+func circle_pressed() -> void: if has_focus(): emit_signal("button_up")

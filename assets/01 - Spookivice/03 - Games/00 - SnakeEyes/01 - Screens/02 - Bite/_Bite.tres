@@ -1,0 +1,46 @@
+[gd_resource type="AnimatedTexture" format=3 uid="uid://dwkd1vw3nj5v6"]
+
+[ext_resource type="Texture2D" uid="uid://b8xqvyrvht6qd" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/02 - Bite/Snakeyes32.png" id="1_aioq1"]
+[ext_resource type="Texture2D" uid="uid://bhdcgyvvx27up" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/02 - Bite/Snakeyes33.png" id="2_wj8sn"]
+[ext_resource type="Texture2D" uid="uid://5p0sy4bx0ich" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/02 - Bite/Snakeyes42.png" id="3_f76vq"]
+[ext_resource type="Texture2D" uid="uid://ckfksge4i3plf" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/02 - Bite/Snakeyes43.png" id="4_ksu02"]
+[ext_resource type="Texture2D" uid="uid://rqd675oxtgyo" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/02 - Bite/Snakeyes44.png" id="5_st8ao"]
+[ext_resource type="Texture2D" uid="uid://dlagyij4b34m0" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/02 - Bite/Snakeyes34.png" id="6_oe50q"]
+[ext_resource type="Texture2D" uid="uid://8x0btgjrwl86" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/02 - Bite/Snakeyes35.png" id="7_5nwye"]
+[ext_resource type="Texture2D" uid="uid://s0o0occuws1h" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/02 - Bite/Snakeyes36.png" id="8_new3v"]
+[ext_resource type="Texture2D" uid="uid://d2q4a8buu2trb" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/02 - Bite/Snakeyes37.png" id="9_5todx"]
+[ext_resource type="Texture2D" uid="uid://ds1jwgxq75hju" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/02 - Bite/Snakeyes38.png" id="10_elmg7"]
+[ext_resource type="Texture2D" uid="uid://bx2sxs066du4m" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/02 - Bite/Snakeyes39.png" id="11_mjke5"]
+[ext_resource type="Texture2D" uid="uid://ync70onn0sg" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/02 - Bite/Snakeyes40.png" id="12_guj70"]
+[ext_resource type="Texture2D" uid="uid://bdydfr7yjldow" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/02 - Bite/Snakeyes41.png" id="13_1n8l4"]
+
+[resource]
+frames = 13
+pause = true
+one_shot = true
+frame_0/texture = ExtResource("1_aioq1")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("2_wj8sn")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("6_oe50q")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("7_5nwye")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("8_new3v")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("9_5todx")
+frame_5/duration = 0.1
+frame_6/texture = ExtResource("10_elmg7")
+frame_6/duration = 0.1
+frame_7/texture = ExtResource("11_mjke5")
+frame_7/duration = 0.1
+frame_8/texture = ExtResource("12_guj70")
+frame_8/duration = 0.1
+frame_9/texture = ExtResource("13_1n8l4")
+frame_9/duration = 0.1
+frame_10/texture = ExtResource("3_f76vq")
+frame_10/duration = 0.1
+frame_11/texture = ExtResource("4_ksu02")
+frame_11/duration = 0.1
+frame_12/texture = ExtResource("5_st8ao")
+frame_12/duration = 0.1

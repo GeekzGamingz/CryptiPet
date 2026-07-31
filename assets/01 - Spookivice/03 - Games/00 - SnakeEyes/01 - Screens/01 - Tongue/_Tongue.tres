@@ -1,0 +1,34 @@
+[gd_resource type="AnimatedTexture" format=3 uid="uid://jw0r8unm4xvm"]
+
+[ext_resource type="Texture2D" uid="uid://5cdsvjgx3ca2" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/01 - Tongue/Snakeyes23.png" id="1_ke6md"]
+[ext_resource type="Texture2D" uid="uid://r37ly2chi57h" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/01 - Tongue/Snakeyes24.png" id="2_xlinp"]
+[ext_resource type="Texture2D" uid="uid://dcskaina3hc4d" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/01 - Tongue/Snakeyes25.png" id="3_2j7td"]
+[ext_resource type="Texture2D" uid="uid://bpxj5dj7yojnl" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/01 - Tongue/Snakeyes26.png" id="4_lob3r"]
+[ext_resource type="Texture2D" uid="uid://dblwrogfbijlw" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/01 - Tongue/Snakeyes27.png" id="5_iicso"]
+[ext_resource type="Texture2D" uid="uid://dole7htacahgx" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/01 - Tongue/Snakeyes28.png" id="6_jk15g"]
+[ext_resource type="Texture2D" uid="uid://yta5el2vmrdm" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/01 - Tongue/Snakeyes29.png" id="7_h6fy0"]
+[ext_resource type="Texture2D" uid="uid://21iwuoi3cr4x" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/01 - Tongue/Snakeyes30.png" id="8_5nj4s"]
+[ext_resource type="Texture2D" uid="uid://dc344vgmidltn" path="res://assets/01 - Spookivice/03 - Games/00 - SnakeEyes/01 - Screens/01 - Tongue/Snakeyes31.png" id="9_m1tnl"]
+
+[resource]
+frames = 9
+pause = true
+one_shot = true
+frame_0/texture = ExtResource("1_ke6md")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("2_xlinp")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("3_2j7td")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("4_lob3r")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("5_iicso")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("6_jk15g")
+frame_5/duration = 0.1
+frame_6/texture = ExtResource("7_h6fy0")
+frame_6/duration = 0.1
+frame_7/texture = ExtResource("8_5nj4s")
+frame_7/duration = 0.1
+frame_8/texture = ExtResource("9_m1tnl")
+frame_8/duration = 0.1

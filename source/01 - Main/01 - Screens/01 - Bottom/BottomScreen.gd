@@ -46,7 +46,7 @@ func _on_right_button_up() -> void:
 	elif [spooki_fsm.states.game_select].has(spooki_fsm.state): bottom_games.select_game("Next")
 #------------------------------------------------------------------------------#
 # Custom Functions
-func update_screen():
+func update_screen() -> void:
 	match(phase):
 		"On":
 			texture = _BOTTOM_ON
@@ -63,7 +63,7 @@ func switch_tabs(direction: String) -> void:
 		"Next": tab_container.current_tab = 0 if shown_tab == tab_size else shown_tab + 1
 	print("[%s] Tab: [%s]" % [direction, tab_container.get_current_tab_control().name])
 #Establish Neighbors
-func establish_neighbors():
+func establish_neighbors() -> void:
 	var slots: Array[Node] = slot_container.get_children()
 	var total_slots: int = slots.size()
 	if total_slots <= 1: return
