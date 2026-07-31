@@ -23,16 +23,17 @@ var last_result: int
 # OnReady Variables
 @onready var spookivice: Control = get_tree().get_root().get_node("Spookivice")
 @onready var increment_timer: Timer = $Increment
+@onready var random = RandomNumberGenerator.new()
 #------------------------------------------------------------------------------#
 # Functions
-# Process
-func _process(_delta: float) -> void: amount_label.text = str(current_bet)
 # Ready
 func _ready() -> void:
+	update_bet()
 	spookivice.buttons.connect("minus_pressed", alter_bet.bind("Decrease", true))
 	spookivice.buttons.connect("minus_released", alter_bet.bind("Decrease", false))
 	spookivice.buttons.connect("plus_pressed", alter_bet.bind("Increase", true))
 	spookivice.buttons.connect("plus_released", alter_bet.bind("Increase", false))
+	Globals.currency_changed.connect(func(_amount): update_bet())
 	last_result = await roll_dice()
 	show_result(last_result)
 #------------------------------------------------------------------------------#
@@ -41,7 +42,7 @@ func _on_increment_timeout() -> void:
 	if bet_increase:
 		if current_bet < Globals.CURRENCY && current_bet < 999: current_bet += 1
 	elif bet_decrease && current_bet > 0: current_bet -= 1
-	amount_label.text = str(current_bet)
+	update_bet()
 #------------------------------------------------------------------------------#
 # Custom Functions
 # Roll Dice
@@ -53,7 +54,6 @@ func roll_dice() -> int:
 	spookivice.top_screen.texture.current_frame = 0
 	spookivice.top_screen.texture.pause = false
 	# Create/Roll Dice
-	var random = RandomNumberGenerator.new()
 	random.randomize()
 	var die1 = random.randi_range(1, 6)
 	var die2 = random.randi_range(1, 6)
@@ -88,6 +88,50 @@ func show_result(result) -> void:
 		3, 4, 10, 11: message = "Result: [color=eddc3c][pulse][%s][/pulse][/color]" % result
 		_: message = "Result: [%s]" % result
 	spookivice.top_screen.title.text = message
+# Compare Results
+func compare_results(guess: String) -> void:
+	var new_result: int = await roll_dice()
+	var comparison: String
+	if new_result > last_result: comparison = "Higher"
+	elif new_result < last_result: comparison = "Lower"
+	else: comparison = "Match"
+	match(comparison):
+		"Match": show_outcome(comparison)
+		guess: show_outcome("Win")
+		_: show_outcome("Loss")
+	last_result = new_result
+	show_result(last_result)
+# Outcome
+func show_outcome(outcome):
+	var outcome_string: String
+	var wait_time: float = 0.9
+	match(outcome):
+		"Win":
+			spookivice.top_screen.texture = _TONGUE
+			if doubles: Globals.CURRENCY += current_bet * 2
+			else: Globals.CURRENCY += current_bet
+			outcome_string = "[rainbow][wave]You Won![/wave][/rainbow]"
+		"Match":
+			spookivice.top_screen.texture = _TONGUE
+			if doubles: Globals.CURRENCY += current_bet
+			else: Globals.CURRENCY += floor(current_bet * 0.5)
+			outcome_string = "[color=458f58][pulse]You Matched![/pulse][/color]"
+		"Loss":
+			spookivice.top_screen.texture = _BITE
+			Globals.CURRENCY -= current_bet
+			if Globals.CURRENCY <= 0: Globals.CURRENCY = 0
+			outcome_string = "[color=e92719][pulse]You Lost![/pulse][/color]"
+			wait_time = 1.7
+	spookivice.top_screen.texture.current_frame = 0
+	spookivice.top_screen.texture.pause = false
+	await get_tree().create_timer(wait_time).timeout
+	spookivice.notifier.add_message(
+		"[%s]! Try Your Luck Again?" % outcome_string, INF, false
+	)
+# Update Bet Display
+func update_bet() -> void:
+	amount_label.text = str(current_bet, "/", Globals.CURRENCY)
+	current_bet = 0
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
 func alter_bet(increment, is_pressed) -> void:
@@ -103,3 +147,4 @@ func alter_bet(increment, is_pressed) -> void:
 	match(is_pressed):
 		true: increment_timer.start()
 		false: increment_timer.stop()
+	update_bet()

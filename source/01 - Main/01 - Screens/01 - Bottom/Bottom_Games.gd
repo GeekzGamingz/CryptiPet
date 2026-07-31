@@ -33,24 +33,6 @@ func spawn_games(to_spawn: bool) -> void:
 	else:
 		for slot in slot_container.get_children(): slot.free()
 		bottom_screen.spookivice.outputs.game_select = false
-# Grab Focus
-func select_game(direction: String) -> void:
-	var slot_container: HBoxContainer = bottom_screen.slot_container
-	if slot_container.get_child_count() == 0: return
-	var current_focus: Control = get_viewport().gui_get_focus_owner()
-	if current_focus && slot_container.is_ancestor_of(current_focus):
-		var target_path: NodePath
-		match(direction):
-			"Previous": target_path = current_focus.focus_previous
-			"Next": target_path = current_focus.focus_next
-		if !target_path.is_empty():
-			var button_to_focus: TextureButton = current_focus.get_node(target_path)
-			if button_to_focus:
-				button_to_focus.grab_focus()
-				return
-	else:
-		var first_button: TextureButton = slot_container.get_child(0).get_node("SlotButton")
-		if first_button: first_button.grab_focus()
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
 # Cross Pressed

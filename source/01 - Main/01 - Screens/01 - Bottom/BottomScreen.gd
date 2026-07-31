@@ -38,11 +38,13 @@ func _ready() -> void:
 # Signaled Functions
 # Left/Right Buttons Pressed
 func _on_left_button_up() -> void:
-	if [spooki_fsm.states.idle].has(spooki_fsm.state): switch_tabs("Previous")
-	elif [spooki_fsm.states.game_select].has(spooki_fsm.state): bottom_games.select_game("Previous")
+	var states = spooki_fsm.states
+	if [states.idle].has(spooki_fsm.state): switch_tabs("Previous")
+	elif [states.game_select, states.game_active].has(spooki_fsm.state): select_slot("Previous")
 func _on_right_button_up() -> void:
+	var states = spooki_fsm.states
 	if [spooki_fsm.states.idle].has(spooki_fsm.state): switch_tabs("Next")
-	elif [spooki_fsm.states.game_select].has(spooki_fsm.state): bottom_games.select_game("Next")
+	elif [states.game_select, states.game_active].has(spooki_fsm.state): select_slot("Next")
 #------------------------------------------------------------------------------#
 # Custom Functions
 func update_screen() -> void:
@@ -74,3 +76,20 @@ func establish_neighbors() -> void:
 		var previous_button: TextureButton = slots[previous_index].get_node("SlotButton")
 		current_button.focus_next = current_button.get_path_to(next_button)
 		current_button.focus_previous = current_button.get_path_to(previous_button)
+# Grab Focus
+func select_slot(direction: String) -> void:
+	if slot_container.get_child_count() == 0: return
+	var current_focus: Control = get_viewport().gui_get_focus_owner()
+	if current_focus && slot_container.is_ancestor_of(current_focus):
+		var target_path: NodePath
+		match(direction):
+			"Previous": target_path = current_focus.focus_previous
+			"Next": target_path = current_focus.focus_next
+		if !target_path.is_empty():
+			var button_to_focus: TextureButton = current_focus.get_node_or_null(target_path)
+			if button_to_focus:
+				button_to_focus.grab_focus()
+				return
+	else:
+		var first_button: TextureButton = slot_container.get_child(0).get_node_or_null("SlotButton")
+		if first_button: first_button.grab_focus()
