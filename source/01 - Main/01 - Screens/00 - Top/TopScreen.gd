@@ -30,7 +30,7 @@ extends TextureRect
 @onready var spooki_fsm: Node2D = spookivice.get_node("StateMachine")
 @onready var button_feed: TextureButton = menu_container.get_node("Feed")
 @onready var button_time: TextureButton = menu_container.get_node("Time")
-@onready var orphanage: Marker2D = $Orphanage
+@onready var orphanage: Marker2D = $Level/Orphanage
 #------------------------------------------------------------------------------#
 # Functions
 # Ready
@@ -44,7 +44,7 @@ func _ready() -> void:
 # Power Toggle
 func power_toggled(toggled_on: bool) -> void:
 	match(toggled_on):
-		true: location = Globals.LOCATION
+		true: location = Locations.LOCATION
 # Main Arrows
 func left_pressed(): if [spooki_fsm.states.idle].has(spooki_fsm.state): change_focus("Previous")
 func right_pressed(): if [spooki_fsm.states.idle].has(spooki_fsm.state): change_focus("Next")
@@ -68,7 +68,8 @@ func change_focus(direction: String) -> void:
 #------------------------------------------------------------------------------#
 # Custom Functions
 func update_location() -> void:
-	if location == "Off": texture = Textures.LOCATIONS[location]
-	else: texture = Textures.LOCATIONS[str("%s_%s" % [location, time])]
+	if location == "Off": texture = Locations.BACKGROUNDS[location]
+	else: texture = Locations.BACKGROUNDS[str("%s_%s" % [location, time])]
 	if spookivice != null:
-		if !location == "Off": spookivice.notifier.add_message("[%s] at [%s]" % [location, time], 2.5, false)
+		if !location == "Off":
+			spookivice.notifier.add_message("[%s] at [%s]" % [location, time], 2.5, false)

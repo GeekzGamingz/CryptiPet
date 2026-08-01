@@ -10,7 +10,7 @@ var game_active: bool = false
 @onready var spookivice: Control = $".."
 @onready var toggles: Control = $"../Toggles"
 @onready var top_screen: TextureRect = $"../Screens/TopScreen"
-@onready var orphanage: Marker2D = $"../Screens/TopScreen/Orphanage"
+@onready var orphanage: Marker2D = $"../Screens/TopScreen/Level/Orphanage"
 @onready var bottom_screen: TextureRect = $"../Screens/BottomScreen"
 #------------------------------------------------------------------------------#
 # Functions

@@ -25,7 +25,7 @@ func awaken():
 	add_child(cryptid_scene)
 	# Set Scene Attributes
 	cryptid_scene.concept.stage = Globals.CONCEPT
-	top_screen.location = Globals.LOCATION
+	top_screen.location = Locations.LOCATION
 	cryptid_scene.concept.morph_timer.wait_time = Globals.CONCEPT_TIME
 	cryptid_scene.concept.morph_timer.start()
 	top_screen.spookivice.bottom_screen.countdown.morph_timer = cryptid_scene.concept.morph_timer

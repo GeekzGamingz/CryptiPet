@@ -13,7 +13,7 @@ const SLOT_DICE = preload("uid://6i70xf67afgl")
 # Bools
 var bet_decrease: bool = false
 var bet_increase: bool = false
-var doubles: bool = false
+var double_payout: bool = false
 # Integers
 var current_bet: int = 0
 var last_result: int
@@ -34,13 +34,18 @@ var min_time: float = 0.02
 # Functions
 # Ready
 func _ready() -> void:
+	# Update Bet
 	update_bet()
+	# Connections
 	spookivice.buttons.connect("minus_pressed", alter_bet.bind("Decrease", true))
 	spookivice.buttons.connect("minus_released", alter_bet.bind("Decrease", false))
 	spookivice.buttons.connect("plus_pressed", alter_bet.bind("Increase", true))
 	spookivice.buttons.connect("plus_released", alter_bet.bind("Increase", false))
 	Globals.currency_changed.connect(func(_amount): update_bet())
-	last_result = await roll_dice()
+	# Initial Roll
+	var initial_roll = await roll_dice()
+	last_result = initial_roll[0]
+	double_payout = initial_roll[1]
 	show_result(last_result)
 #------------------------------------------------------------------------------#
 # Signaled Functions
@@ -59,7 +64,7 @@ func _on_increment_timeout() -> void:
 #------------------------------------------------------------------------------#
 # Custom Functions
 # Roll Dice
-func roll_dice() -> int:
+func roll_dice() -> Array:
 	# Notification
 	spookivice.notifier.add_message("Rolling Your Fate!", 2.5, false)
 	# Animate Screen
@@ -71,7 +76,7 @@ func roll_dice() -> int:
 	var die1 = random.randi_range(1, 6)
 	var die2 = random.randi_range(1, 6)
 	var total = die1 + die2
-	doubles = true if die1 == die2 else false
+	var doubles: bool = true if die1 == die2 else false
 	print("Die 1: ", die1)
 	print("Die 2: ", die2)
 	if doubles: print("[DOUBLES!!]")
@@ -86,13 +91,13 @@ func roll_dice() -> int:
 	await get_tree().create_timer(2.1).timeout
 	if doubles: spookivice.notifier.add_message(
 		"[rainbow][wave]DOUBLES[/wave][/rainbow]! Next Payout is [u]Doubled[/u]!!",
-		2.5, false
+		2.5, true
 	)
 	dice_scene.show()
 	dice_scene.die1_face = str(die1)
 	dice_scene.die2_face = str(die2)
 	# Return the Total Dice Roll
-	return total
+	return [total, doubles]
 # Show Results
 func show_result(result) -> void:
 	var message: String
@@ -113,20 +118,24 @@ func compare_results(guess: String) -> void:
 			"Press \"[color=e92719]X[/color]\" to Exit", INF, false
 		)
 		return
+	# Get Roll Data
+	var roll_data = await roll_dice()
+	var new_result: int = roll_data[0]
+	var doubles: bool = roll_data[1]
 	# Compare Results
-	var new_result: int = await roll_dice()
 	var comparison: String
 	if new_result > last_result: comparison = "Higher"
 	elif new_result < last_result: comparison = "Lower"
 	else: comparison = "Match"
 	match(comparison):
-		"Match": show_outcome(comparison)
-		guess: show_outcome("Win")
-		_: show_outcome("Loss")
+		"Match": show_outcome(comparison, double_payout)
+		guess: show_outcome("Win", double_payout)
+		_: show_outcome("Loss", double_payout)
+	double_payout = doubles
 	last_result = new_result
 	show_result(last_result)
 # Outcome
-func show_outcome(outcome):
+func show_outcome(outcome: String, doubles: bool):
 	var outcome_string: String
 	var wait_time: float = 0.9
 	match(outcome):

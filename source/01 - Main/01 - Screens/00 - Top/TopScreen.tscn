@@ -120,15 +120,17 @@ text = "Title Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LevelBorder" type="StaticBody2D" parent="." unique_id=934322642]
+[node name="Level" type="Node2D" parent="." unique_id=1750160543]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelBorder" unique_id=2071827324]
+[node name="LevelBorder" type="StaticBody2D" parent="Level" unique_id=934322642]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/LevelBorder" unique_id=2071827324]
 polygon = PackedVector2Array(87, 173, 84, 173, 84, 189, 90, 195, 191, 195, 197, 189, 197, 171, 84, 171, 84, 173, 194, 173, 194, 188, 190, 192, 91, 192, 87, 188)
 
-[node name="Orphanage" type="Marker2D" parent="." unique_id=682031323 node_paths=PackedStringArray("top_screen")]
+[node name="Orphanage" type="Marker2D" parent="Level" unique_id=682031323 node_paths=PackedStringArray("top_screen")]
 position = Vector2(141, 180)
 script = ExtResource("12_oq06h")
-top_screen = NodePath("..")
+top_screen = NodePath("../..")
 
 [connection signal="toggled" from="TabContainer/MenuContainer/Time" to="TabContainer/MenuContainer/Time" method="_on_toggled"]
 [connection signal="button_up" from="TabContainer/MenuContainer/Play" to="TabContainer/MenuContainer/Play" method="_on_button_up"]

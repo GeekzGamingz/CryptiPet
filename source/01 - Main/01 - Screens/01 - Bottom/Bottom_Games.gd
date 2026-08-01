@@ -42,6 +42,7 @@ func cross_pressed() -> void:
 	for game in Games.get_children(): game.queue_free()
 # Circle Pressed
 func circle_pressed() -> void:
-	if [bottom_screen.spooki_fsm.states.game_select].has(bottom_screen.spooki_fsm.state):
+	var spooki_state = bottom_screen.spooki_fsm.states
+	if [spooki_state.game_select, spooki_state.game_active].has(bottom_screen.spooki_fsm.state):
 		get_viewport().gui_get_focus_owner().emit_signal("button_up")
 	

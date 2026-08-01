@@ -20,6 +20,7 @@ config/icon="uid://p4l3hqej3rl4"
 Globals="*uid://bs3dwb3rwi8ot"
 Textures="*uid://cxjhrtlktcr7y"
 Games="*uid://c1vanjeg55xek"
+Locations="*uid://b5ehsvgo4lt8r"
 
 [display]
 
