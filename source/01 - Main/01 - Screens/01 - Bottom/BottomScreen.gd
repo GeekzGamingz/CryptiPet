@@ -32,18 +32,18 @@ const _BOTTOM_ON = preload("uid://dm5alueyt0wj8")
 #------------------------------------------------------------------------------#
 func _ready() -> void:
 	await get_tree().process_frame
-	spookivice.buttons.connect("left_pressed", _on_left_button_up)
-	spookivice.buttons.connect("right_pressed", _on_right_button_up)
+	spookivice.buttons.connect("left_pressed", _on_left_button_up.bind("Main"))
+	spookivice.buttons.connect("right_pressed", _on_right_button_up.bind("Main"))
 #------------------------------------------------------------------------------#
 # Signaled Functions
 # Left/Right Buttons Pressed
-func _on_left_button_up() -> void:
+func _on_left_button_up(source: String = "Bottom") -> void:
 	var states = spooki_fsm.states
-	if [states.idle].has(spooki_fsm.state): switch_tabs("Previous")
+	if [states.idle].has(spooki_fsm.state) && source != "Main": switch_tabs("Previous")
 	elif [states.game_select, states.game_active].has(spooki_fsm.state): select_slot("Previous")
-func _on_right_button_up() -> void:
+func _on_right_button_up(source: String = "Bottom") -> void:
 	var states = spooki_fsm.states
-	if [spooki_fsm.states.idle].has(spooki_fsm.state): switch_tabs("Next")
+	if [spooki_fsm.states.idle].has(spooki_fsm.state) && source != "Main": switch_tabs("Next")
 	elif [states.game_select, states.game_active].has(spooki_fsm.state): select_slot("Next")
 #------------------------------------------------------------------------------#
 # Custom Functions

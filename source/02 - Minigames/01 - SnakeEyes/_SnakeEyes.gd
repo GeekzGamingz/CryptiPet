@@ -17,7 +17,13 @@ var doubles: bool = false
 # Integers
 var current_bet: int = 0
 var last_result: int
+# Floats
+var hold_time: float = 0.0
+var base_time: float = 0.25
+var min_time: float = 0.02
 # Exported Variables
+## References the maximum allowed bet. Default = 13 (Spoopy)
+@export var max_bet: int = 13
 ## References the Amount [RichTextLabel] Node.
 @export var amount_label: RichTextLabel
 # OnReady Variables
@@ -39,10 +45,17 @@ func _ready() -> void:
 #------------------------------------------------------------------------------#
 # Signaled Functions
 func _on_increment_timeout() -> void:
+	# Update Bet
 	if bet_increase:
-		if current_bet < Globals.CURRENCY && current_bet < 999: current_bet += 1
-	elif bet_decrease && current_bet > 0: current_bet -= 1
+		if current_bet < Globals.CURRENCY && current_bet < max_bet: current_bet += 1
+	elif bet_decrease && current_bet > 1: current_bet -= 1
 	update_bet()
+	# Track Held Time
+	hold_time += increment_timer.wait_time
+	# Smoothed Held Time
+	var incremental_speed = max(min_time, base_time - (hold_time * 0.15))
+	increment_timer.wait_time = incremental_speed
+	increment_timer.start()
 #------------------------------------------------------------------------------#
 # Custom Functions
 # Roll Dice
@@ -90,6 +103,17 @@ func show_result(result) -> void:
 	spookivice.top_screen.title.text = message
 # Compare Results
 func compare_results(guess: String) -> void:
+	# Currency Validation
+	if Globals.CURRENCY <= 0:
+		spookivice.notifier.add_message(
+			"[color=e92719]You Are [pulse]Bankrupt[/pulse]!![/color]", 2.5, false
+		)
+		await get_tree().create_timer(2.5).timeout
+		spookivice.notifier.add_message(
+			"Press \"[color=e92719]X[/color]\" to Exit", INF, false
+		)
+		return
+	# Compare Results
 	var new_result: int = await roll_dice()
 	var comparison: String
 	if new_result > last_result: comparison = "Higher"
@@ -128,23 +152,21 @@ func show_outcome(outcome):
 	spookivice.notifier.add_message(
 		"[%s]! Try Your Luck Again?" % outcome_string, INF, false
 	)
+	update_bet()
 # Update Bet Display
 func update_bet() -> void:
-	amount_label.text = str(current_bet, "/", Globals.CURRENCY)
-	current_bet = 0
+	var min_bet: int = 1 if Globals.CURRENCY > 0 else 0
+	current_bet = clampi(current_bet, min_bet, min(Globals.CURRENCY, max_bet))
+	amount_label.text = str(current_bet, "/", min(Globals.CURRENCY, 999))
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
 func alter_bet(increment, is_pressed) -> void:
 	match(increment):
-		"Decrease":
-			bet_decrease = is_pressed
-			if current_bet < Globals.CURRENCY && current_bet > 0:
-				current_bet -= 1 if !is_pressed else 0
-		"Increase":
-			bet_increase = is_pressed
-			if current_bet < Globals.CURRENCY && current_bet < 999:
-				current_bet += 1 if !is_pressed else 0
-	match(is_pressed):
-		true: increment_timer.start()
-		false: increment_timer.stop()
+		"Decrease": bet_decrease = is_pressed
+		"Increase": bet_increase = is_pressed
+	if is_pressed:
+		hold_time = 0.0
+		increment_timer.wait_time = base_time
+		_on_increment_timeout()
+	else: increment_timer.stop()
 	update_bet()
