@@ -75,6 +75,7 @@ func state_enter(new_state, old_state):
 		states.powering_off:
 			outputs.disable_buttons(true)
 			spookivice.notifier.add_message("Powering [Off]", 2.5, true)
+			if Games.get_child_count() > 0: for game in Games.get_children(): game.free()
 		states.off:
 			outputs.top_screen.location = "Off"
 			outputs.bottom_screen.phase = "Off"

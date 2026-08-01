@@ -171,6 +171,7 @@ autoplay = &"idle"
 [node name="Audio" type="Node2D" parent="Players" unique_id=1007804820]
 
 [node name="Outputs" type="Node2D" parent="." unique_id=1958444179]
+visible = false
 
 [node name="States" type="Label" parent="Outputs" unique_id=931993900]
 anchors_preset = 5
