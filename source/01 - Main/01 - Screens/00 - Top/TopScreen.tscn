@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dhb4rr62ffxjv"]
 
 [ext_resource type="Theme" uid="uid://5hdiyrqlevro" path="res://assets/Base_Theme.tres" id="1_g2lt3"]
-[ext_resource type="Texture2D" uid="uid://wnc2m06npfqg" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/00 - Backgrounds/_TopOff.png" id="1_w0rnr"]
+[ext_resource type="Texture2D" uid="uid://wnc2m06npfqg" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/00 - Locations/_TopOff.png" id="1_w0rnr"]
 [ext_resource type="Script" uid="uid://dmiw3ydbb01nx" path="res://source/01 - Main/01 - Screens/00 - Top/TopScreen.gd" id="3_5f7of"]
 [ext_resource type="Texture2D" uid="uid://sbyshnwyimx7" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/01 - Menu/Food_Icon.png" id="3_cxf82"]
 [ext_resource type="Texture2D" uid="uid://b10bnbldg2sf3" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/01 - Menu/Icon_Brackets.png" id="4_43lvc"]

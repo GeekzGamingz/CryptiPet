@@ -35,7 +35,11 @@ func awaken():
 # Allow Your Cryptid to Rest
 func sleep(): if get_child_count() != 0:
 	# Identify Cryptid & Hide
-	var cryptid = get_child(0)
+	var cryptid: Cryptid
+	for child in get_children(): # Find Only the Cryptid
+		if child is Cryptid:
+			cryptid = child
+			break
 	cryptid.hiding = true
 	# Check Time Transition
 	if !cryptid.concept.time_transitioning:

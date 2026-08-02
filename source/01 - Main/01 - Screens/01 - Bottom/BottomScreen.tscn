@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://bkkukfrnsr2nk" path="res://source/01 - Main/01 - Screens/01 - Bottom/00 - Scripts/Clock.gd" id="6_ve3ph"]
 [ext_resource type="Script" uid="uid://dkf8ivxrdhcfd" path="res://source/01 - Main/01 - Screens/00 - Top/00 - Scripts/Countdown.gd" id="7_ve3ph"]
 [ext_resource type="Script" uid="uid://c4x3n7rkd1yjv" path="res://source/01 - Main/01 - Screens/01 - Bottom/00 - Scripts/Currency.gd" id="7_y1vpw"]
-[ext_resource type="Texture2D" uid="uid://fjskg7j0pf8h" path="res://assets/04 - Food/Currency.png" id="8_1a3dm"]
+[ext_resource type="Texture2D" uid="uid://fjskg7j0pf8h" path="res://assets/04 - Objects/00 - Food/Currency.png" id="8_1a3dm"]
 
 [node name="BottomScreen" type="TextureRect" unique_id=1570758406 node_paths=PackedStringArray("menu_container", "countdown_container", "countdown", "clock_container", "scroll_container", "slot_container")]
 offset_right = 281.0

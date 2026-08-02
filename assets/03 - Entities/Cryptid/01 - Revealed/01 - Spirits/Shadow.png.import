@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fjskg7j0pf8h"
-path="res://.godot/imported/Currency.png-ec33e0c625f43652bf337dc4fc913935.ctex"
+uid="uid://bgkg6gqm60e5t"
+path="res://.godot/imported/Shadow.png-d6684c5d9cf74523fd012650d1c9783c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/04 - Food/Currency.png"
-dest_files=["res://.godot/imported/Currency.png-ec33e0c625f43652bf337dc4fc913935.ctex"]
+source_file="res://assets/03 - Entities/Cryptid/01 - Revealed/01 - Spirits/Shadow.png"
+dest_files=["res://.godot/imported/Shadow.png-d6684c5d9cf74523fd012650d1c9783c.ctex"]
 
 [params]
 
