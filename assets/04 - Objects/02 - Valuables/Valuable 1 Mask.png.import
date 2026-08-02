@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bwclgwg6m3qf0"
+path="res://.godot/imported/Valuable 1 Mask.png-baab1a72afc1664282bafa3a73623ea7.res"
+
+[deps]
+
+source_file="res://assets/04 - Objects/02 - Valuables/Valuable 1 Mask.png"
+dest_files=["res://.godot/imported/Valuable 1 Mask.png-baab1a72afc1664282bafa3a73623ea7.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

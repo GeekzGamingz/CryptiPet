@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://be0pr7d4aaus7"
+path="res://.godot/imported/Remains 2 Mask.png-bae8910279c97b0d5df8fee0f283a76d.res"
+
+[deps]
+
+source_file="res://assets/04 - Objects/01 - Remains/Remains 2 Mask.png"
+dest_files=["res://.godot/imported/Remains 2 Mask.png-bae8910279c97b0d5df8fee0f283a76d.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

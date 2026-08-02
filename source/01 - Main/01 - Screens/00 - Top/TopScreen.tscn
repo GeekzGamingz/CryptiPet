@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dhb4rr62ffxjv"]
 
 [ext_resource type="Theme" uid="uid://5hdiyrqlevro" path="res://assets/Base_Theme.tres" id="1_g2lt3"]
-[ext_resource type="Texture2D" uid="uid://wnc2m06npfqg" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/00 - Locations/_TopOff.png" id="1_w0rnr"]
+[ext_resource type="Texture2D" uid="uid://dih5q08gsdjgb" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/00 - Locations/00 - Graveyard/Graveyard_Night.png" id="2_ssuis"]
 [ext_resource type="Script" uid="uid://dmiw3ydbb01nx" path="res://source/01 - Main/01 - Screens/00 - Top/TopScreen.gd" id="3_5f7of"]
 [ext_resource type="Texture2D" uid="uid://sbyshnwyimx7" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/01 - Menu/Food_Icon.png" id="3_cxf82"]
 [ext_resource type="Texture2D" uid="uid://b10bnbldg2sf3" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/01 - Menu/Icon_Brackets.png" id="4_43lvc"]
@@ -20,13 +20,56 @@
 [ext_resource type="Script" uid="uid://b33cynyrjctak" path="res://source/01 - Main/01 - Screens/00 - Top/01 - Menu/Play.gd" id="13_sxnri"]
 [ext_resource type="Texture2D" uid="uid://dxi25crscs1k0" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/01 - Menu/00 - Disabled/FirstAid_Icon_Disabled.png" id="15_cq6xi"]
 [ext_resource type="Texture2D" uid="uid://cnlihssum1s10" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/01 - Menu/00 - Disabled/Cleanup_Icon_Disabled.png" id="17_uad0v"]
+[ext_resource type="PackedScene" uid="uid://bdere446c0oxj" path="res://source/01 - Main/03 - Objects/Remains.tscn" id="20_2odgt"]
+[ext_resource type="Texture2D" uid="uid://c8fpujr4sxn6x" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/00 - Locations/00 - Graveyard/Tombstone_Night.png" id="21_2odgt"]
+[ext_resource type="PackedScene" uid="uid://0553f5ocdexr" path="res://source/01 - Main/03 - Objects/Valuables.tscn" id="21_orlv8"]
+[ext_resource type="Texture2D" uid="uid://bwye1p3y2yiy1" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/00 - Locations/00 - Graveyard/Graveyard_Mist.png" id="22_orlv8"]
+
+[sub_resource type="Animation" id="Animation_dea30"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_888fu"]
+resource_name = "idle"
+length = 4.8
+loop_mode = 1
+step = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6, 2.4, 3.2, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uadxh"]
+_data = {
+&"RESET": SubResource("Animation_dea30"),
+&"idle": SubResource("Animation_888fu")
+}
 
 [node name="TopScreen" type="TextureRect" unique_id=1668624340 node_paths=PackedStringArray("tab_container", "menu_container", "title")]
 offset_right = 281.0
 offset_bottom = 265.0
 mouse_filter = 2
 theme = ExtResource("1_g2lt3")
-texture = ExtResource("1_w0rnr")
+texture = ExtResource("2_ssuis")
 script = ExtResource("3_5f7of")
 tab_container = NodePath("TabContainer")
 menu_container = NodePath("TabContainer/MenuContainer")
@@ -126,6 +169,46 @@ vertical_alignment = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/LevelBorder" unique_id=2071827324]
 polygon = PackedVector2Array(87, 173, 84, 173, 84, 189, 90, 195, 191, 195, 197, 189, 197, 171, 84, 171, 84, 173, 194, 173, 194, 188, 190, 192, 91, 192, 87, 188)
+
+[node name="Objects" type="Node2D" parent="Level" unique_id=936949146]
+
+[node name="Drops" type="Node2D" parent="Level/Objects" unique_id=367841366]
+
+[node name="Marker2D" type="Marker2D" parent="Level/Objects/Drops" unique_id=142538570]
+position = Vector2(178, 185)
+
+[node name="Remains" parent="Level/Objects/Drops" unique_id=195399046 instance=ExtResource("20_2odgt")]
+offset_left = 159.0
+offset_top = 180.0
+offset_right = 201.0
+offset_bottom = 192.0
+
+[node name="Valuables" parent="Level/Objects/Drops" unique_id=1174673357 instance=ExtResource("21_orlv8")]
+offset_left = 112.0
+offset_top = 171.0
+offset_right = 121.0
+offset_bottom = 179.0
+
+[node name="Tombstone" type="StaticBody2D" parent="Level/Objects" unique_id=2102472045]
+position = Vector2(100, 169)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Objects/Tombstone" unique_id=1781312532]
+polygon = PackedVector2Array(-9, 2, 9, 2, 9, 5, 8, 8, 7, 9, -5, 12, -9, 12, -10, 11, -10, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Objects/Tombstone" unique_id=381105685]
+texture = ExtResource("21_2odgt")
+
+[node name="Mist" type="Sprite2D" parent="Level/Objects" unique_id=941381742]
+self_modulate = Color(1, 1, 1, 0.5882353)
+z_index = 1
+position = Vector2(85, 83)
+texture = ExtResource("22_orlv8")
+centered = false
+hframes = 6
+
+[node name="MistPlayer" type="AnimationPlayer" parent="Level/Objects/Mist" unique_id=1078765746]
+libraries/ = SubResource("AnimationLibrary_uadxh")
+autoplay = &"idle"
 
 [node name="Orphanage" type="Marker2D" parent="Level" unique_id=682031323 node_paths=PackedStringArray("top_screen")]
 position = Vector2(141, 180)

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bdere446c0oxj"]
+
+[ext_resource type="Texture2D" uid="uid://dbk23v51e7107" path="res://assets/04 - Objects/01 - Remains/Remains 1.png" id="1_vb6pj"]
+[ext_resource type="Texture2D" uid="uid://cr0hsxa7a1wgk" path="res://assets/04 - Objects/01 - Remains/Remains 1 Selected.png" id="2_g2sal"]
+[ext_resource type="BitMap" uid="uid://bhvh7lpsb1ljn" path="res://assets/04 - Objects/01 - Remains/Remains 1 Mask.png" id="3_vjfee"]
+[ext_resource type="Script" uid="uid://bb7pjinv8n3mf" path="res://source/01 - Main/03 - Objects/Remains.gd" id="4_rorr8"]
+
+[node name="Remains" type="TextureButton" unique_id=195399046]
+y_sort_enabled = true
+offset_left = -20.0
+offset_top = -4.0
+offset_right = 22.0
+offset_bottom = 8.0
+texture_normal = ExtResource("1_vb6pj")
+texture_hover = ExtResource("2_g2sal")
+texture_click_mask = ExtResource("3_vjfee")
+script = ExtResource("4_rorr8")
+
+[node name="Stinky" type="Timer" parent="." unique_id=582244722]
+wait_time = 10.0
+autostart = true
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="timeout" from="Stinky" to="." method="_on_stinky_timeout"]

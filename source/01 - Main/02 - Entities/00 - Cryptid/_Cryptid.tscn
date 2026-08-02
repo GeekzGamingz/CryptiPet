@@ -107,6 +107,7 @@ radius = 2.0
 height = 14.0
 
 [node name="Cryptid" type="CharacterBody2D" unique_id=1065017632]
+y_sort_enabled = true
 collision_layer = 0
 script = ExtResource("1_4l88x")
 
@@ -121,6 +122,7 @@ speed = 5.0
 
 [node name="Concept" type="Node2D" parent="Scripts" unique_id=816813666]
 script = ExtResource("6_f6ol5")
+stage = "Glimpse"
 
 [node name="Happiness" type="Node2D" parent="Scripts" unique_id=1773535689]
 script = ExtResource("5_dm4q3")
@@ -131,7 +133,7 @@ script = ExtResource("4_o7kha")
 [node name="Sprites" type="Node2D" parent="." unique_id=431798492]
 
 [node name="Base" type="Sprite2D" parent="Sprites" unique_id=1680327893]
-position = Vector2(-1, -20)
+position = Vector2(-1, -21)
 texture = ExtResource("7_unaj7")
 hframes = 12
 vframes = 4
