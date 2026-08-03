@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://dftcgo4cne1st"]
 
 [ext_resource type="Script" uid="uid://dhma1bkni6i3v" path="res://source/01 - Main/02 - Entities/00 - Cryptid/_Cryptid.gd" id="1_4l88x"]
-[ext_resource type="Script" uid="uid://cpqxbypr2mxug" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/CryptidFSM.gd" id="2_wglnx"]
-[ext_resource type="Script" uid="uid://b1qu2lrmmwdoo" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/CryptidMovement.gd" id="3_unaj7"]
-[ext_resource type="Script" uid="uid://d1cclf7ckdv1y" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/CryptidHunger.gd" id="4_o7kha"]
-[ext_resource type="Script" uid="uid://duhgxow6a1h2q" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/CryptidHappiness.gd" id="5_dm4q3"]
-[ext_resource type="Script" uid="uid://df02wjoyni16q" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/CryptidConcept.gd" id="6_f6ol5"]
+[ext_resource type="Script" uid="uid://cpqxbypr2mxug" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/_CryptidFSM.gd" id="2_wglnx"]
+[ext_resource type="Script" uid="uid://b1qu2lrmmwdoo" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/Movement.gd" id="3_unaj7"]
+[ext_resource type="Script" uid="uid://d1cclf7ckdv1y" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/Hunger.gd" id="4_o7kha"]
+[ext_resource type="Script" uid="uid://duhgxow6a1h2q" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/Happiness.gd" id="5_dm4q3"]
+[ext_resource type="Script" uid="uid://wtp8cnc1ftp7" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/Glimpse.gd" id="5_o7kha"]
+[ext_resource type="Script" uid="uid://df02wjoyni16q" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/Concept.gd" id="6_f6ol5"]
 [ext_resource type="Texture2D" uid="uid://iwxc6pn28n3e" path="res://assets/03 - Entities/Cryptid/Essence.png" id="7_unaj7"]
 
 [sub_resource type="Animation" id="Animation_unaj7"]
@@ -122,7 +123,10 @@ speed = 5.0
 
 [node name="Concept" type="Node2D" parent="Scripts" unique_id=816813666]
 script = ExtResource("6_f6ol5")
-stage = "Glimpse"
+base_time = 10.0
+
+[node name="Subtype" type="Node2D" parent="Scripts/Concept" unique_id=486837584]
+script = ExtResource("5_o7kha")
 
 [node name="Happiness" type="Node2D" parent="Scripts" unique_id=1773535689]
 script = ExtResource("5_dm4q3")
@@ -136,7 +140,7 @@ script = ExtResource("4_o7kha")
 position = Vector2(-1, -21)
 texture = ExtResource("7_unaj7")
 hframes = 12
-vframes = 4
+vframes = 5
 
 [node name="Raycasts" type="Node2D" parent="." unique_id=550828293]
 

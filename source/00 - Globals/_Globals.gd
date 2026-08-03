@@ -11,4 +11,4 @@ var CURRENCY: int = 10:
 		emit_signal("currency_changed", CURRENCY)
 # Cryptid Attibutes
 var CONCEPT: String = "Essence"
-var CONCEPT_TIME: float = 60
+var CONCEPT_TIME: float = 10

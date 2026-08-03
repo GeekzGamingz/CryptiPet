@@ -6,7 +6,7 @@ extends Node2D
 # Variables
 var time_transitioning: bool = false
 # Exported Variables
-@export var base_time: float = 60.0
+@export var base_time: float
 # Exported Enums
 ## Sets the Concept [enum stage] of the player's [Cryptid] to the specified [String];[br]
 ## This is the maturity of the creature and will help it evolve into the different stages [br]
@@ -21,7 +21,11 @@ var time_transitioning: bool = false
 ) var stage: String = "Essence":
 	set(new_stage):
 		stage = new_stage
-		if cryptid != null: cryptid.sprite_base.texture = Textures.CRYPTIDS[stage]
+		if cryptid != null:
+			match(stage):
+				"Essence", "Rumor": cryptid.sprite_base.texture = Textures.CRYPTIDS[stage]
+				"Glimpse", "Revealed": subtype.get_subtype(stage)
+				"Manifesting": pass
 		else:
 			print("Concept Switching to Global")
 			stage = Globals.CONCEPT
@@ -29,6 +33,7 @@ var time_transitioning: bool = false
 # OnReady Variables
 # Local Nodes
 @onready var cryptid: Cryptid = $"../.."
+@onready var subtype: Node2D = $Subtype
 @onready var morph_timer: Timer = cryptid.get_node("Timers/Morph")
 @onready var spookivice: Control = get_tree().get_root().get_node("Spookivice")
 #------------------------------------------------------------------------------#
