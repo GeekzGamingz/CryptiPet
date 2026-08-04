@@ -12,3 +12,7 @@ var CURRENCY: int = 10:
 # Cryptid Attibutes
 var CONCEPT: String = "Essence"
 var CONCEPT_TIME: float = 10
+var CURRENT_PATH: String
+var SUBTYPE_GLIMPSE: String
+var SUBTYPE_SPIRIT: String
+var SUBTYPE_UNDEAD: String

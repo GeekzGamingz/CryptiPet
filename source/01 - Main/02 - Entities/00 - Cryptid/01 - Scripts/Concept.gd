@@ -17,19 +17,11 @@ var time_transitioning: bool = false
 	"Rumor",
 	"Glimpse",
 	"Revealed",
-	"Manifesting"
+	"Manifested"
 ) var stage: String = "Essence":
 	set(new_stage):
 		stage = new_stage
-		if cryptid != null:
-			match(stage):
-				"Essence", "Rumor": cryptid.sprite_base.texture = Textures.CRYPTIDS[stage]
-				"Glimpse", "Revealed": subtype.get_subtype(stage)
-				"Manifesting": pass
-		else:
-			print("Concept Switching to Global")
-			stage = Globals.CONCEPT
-		print("Concept: ", stage)
+		print("Concept: ", new_stage)
 # OnReady Variables
 # Local Nodes
 @onready var cryptid: Cryptid = $"../.."
