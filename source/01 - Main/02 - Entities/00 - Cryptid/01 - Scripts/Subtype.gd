@@ -25,15 +25,29 @@ extends Node2D
 func _process(_delta: float) -> void: update_path()
 #------------------------------------------------------------------------------#
 # Custom Functions
+## Called for the Glimpse Stage of the [Cryptid]'s Concept.
 func match_glimpse():
 	cryptid.sprite_base.texture = Textures.CRYPTIDS[subtype_glimpse]
-func match_path():
+## Called for the Revealed Stage of the [Cryptid]'s Concept.
+func match_revealed():
 	if current_path != "": cryptid.sprite_base.texture = Textures.CRYPTIDS[current_path]
-func update_path(): # Add Hunger and Health Arguments
+## Updates the current_path of the [Cryptid].
+func update_path(): set_spirit() # Add Hunger and Health Arguments
+
+func set_undead(): pass
+
+func set_spirit():
 	match(happiness.stage):
-		"Elated", "Euphoric": current_path = "Angel"
-		"Happy": current_path = "Grim"
-		"Neutral": current_path = "Ghost"
-		"Frustrated": current_path = "Shadow"
+		var happy when happy >= 5: current_path = "Angel"
+		var happy when happy >= 4: current_path = "Grim"
+		var happy when happy >= 3: current_path = "Ghost"
+		var happy when happy >= 2: current_path = "Shadow"
 		_: current_path = "Wraith"
 	subtype_glimpse = "Spirit"
+	#match(happiness.stage):
+		#"Elated", "Euphoric": current_path = "Angel"
+		#"Happy": current_path = "Grim"
+		#"Neutral": current_path = "Ghost"
+		#"Frustrated": current_path = "Shadow"
+		#_: current_path = "Wraith"
+	#subtype_glimpse = "Spirit"

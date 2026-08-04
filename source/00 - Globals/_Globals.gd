@@ -12,6 +12,6 @@ var CURRENCY: int = 10:
 # Cryptid Attibutes
 var CONCEPT: String = "Essence"
 var CONCEPT_TIME: float = 10
-var HAPPINESS: String = "Neutral"
+var HAPPINESS: int = 3
 var HUNGER: String = "Satiated"
 var HEALTH: String = "Fit"

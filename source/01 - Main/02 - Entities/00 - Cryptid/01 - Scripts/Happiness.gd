@@ -17,7 +17,7 @@ extends Node2D
 	"Happy",
 	"Elated",
 	"Euphoric"
-) var stage: String = "Neutral":
+) var stage: int = 3:
 	set(new_stage):
 		stage = new_stage
 		print("Happiness: ", str(stage))

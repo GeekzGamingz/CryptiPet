@@ -45,7 +45,7 @@ func state_enter(new_state, old_state):
 			if concept.stage == "Essence" || concept.stage == "Rumor":
 				cryptid.sprite_base.texture = Textures.CRYPTIDS[concept.stage]
 		states.glimpse: cryptid.concept.subtype.match_glimpse()
-		states.revealed: cryptid.concept.subtype.match_path()
+		states.revealed: cryptid.concept.subtype.match_revealed()
 	concept_label.text = str(states.keys()[new_state])
 	if old_state != null:
 		var old_string = str(states.keys()[old_state])
