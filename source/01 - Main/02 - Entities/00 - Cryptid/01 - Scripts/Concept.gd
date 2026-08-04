@@ -72,6 +72,10 @@ func metamorph():
 				Globals.CONCEPT_TIME = base_time * 30
 				stage = "Manifested"
 			"Manifested": pass
+		Globals.CONCEPT = cryptid.concept.stage
+		Globals.HAPPINESS = cryptid.happiness.stage
+		Globals.HUNGER = cryptid.hunger.stage
+		Globals.HEALTH = cryptid.health.stage
 		reset(false)
 func reset(canceling: bool):
 	if spookivice.outputs.waiting:

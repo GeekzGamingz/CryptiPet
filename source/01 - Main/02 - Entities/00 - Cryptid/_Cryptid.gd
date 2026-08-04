@@ -19,6 +19,8 @@ var hiding: bool = false
 @onready var happiness: Node2D = $Scripts/Happiness
 ## Returns the [Node2D] of the [Cryptid]'s Hunger Component.
 @onready var hunger: Node2D = $Scripts/Hunger
+## Returns the [Node2D] of the [Cryptid]'s Health Component.
+@onready var health: Node2D = $Scripts/Health
 # Sprites
 ## Returns the base [Sprite2D] of the [Cryptid].
 @onready var sprite_base: Sprite2D = $Sprites/Base
