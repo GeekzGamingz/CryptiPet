@@ -16,6 +16,7 @@ var ICONS: Dictionary = {
 	"Meat": preload("uid://nud065t7kmbx"),
 	"Valuables": preload("uid://fjskg7j0pf8h")
 }
+# Food Titles
 var TITLES: Dictionary = {
 	"Blood": "[wave][color=171717]Blood[/color][/wave]",
 	"Book": "[wave][color=171717]Book[/color][/wave]",
@@ -25,6 +26,17 @@ var TITLES: Dictionary = {
 	"Leaf": "[wave][color=171717]Leaf[/color][/wave]",
 	"Meat": "[wave][color=171717]Meat[/color][/wave]",
 	"Valuables": "[wave][color=171717]Valuables[/color][/wave]"
+}
+# Food Descriptions
+var DESCRIPTIONS: Dictionary = {
+	"Blood": "Composed of red and white cells suspended in plasma, blood is mostly water and contains proteins, glucose, minerals, and hormones all neccessary for a Cryptid's natual development.\n\nBlood is especially enjoyed by Ghouls, Shadows, and Vampires.",
+	"Book": "A written work of substaintial length created by one or more authors. Books are broadly classified into fiction, which contains invented narratives or other imaginary content, and non-fiction, which contains content intended as factual truth.\n\nAngels, Ghosts, and Mummys often prefer to consume knowledge instead of bio-material.",
+	"Brains": "An organ that serves as the center of the nervous system in all vertebrate and most invertebrate animals, the brain cosists of nervous tissue and is typically located in the head due to Cephalization.\n\nBrains contain Docosahexaenoic Acid (DHA), an Omega-3 Fatty Acid crucial for certain Cryptid development.",
+	"Energy": "",
+	"Goat": "",
+	"Leaf": "",
+	"Meat": "",
+	"Valuables": ""
 }
 # Cryptid Diets
 var DIETS: Dictionary = {

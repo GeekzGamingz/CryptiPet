@@ -76,6 +76,7 @@ func state_enter(new_state, old_state):
 			spookivice.texture_player.play("alert")
 		states.food_select:
 			outputs.top_screen.menu_container.hide()
+			outputs.top_screen.info.show()
 			outputs.disable_menu(true)
 			outputs.orphanage.sleep()
 			outputs.bottom_screen.scroll_container.show()
@@ -115,6 +116,7 @@ func state_exit(old_state, new_state):
 			spookivice.texture_player.play("standby")
 		states.game_select, states.food_select:
 			outputs.top_screen.menu_container.show()
+			outputs.top_screen.info.hide()
 			outputs.disable_menu(false)
 			outputs.bottom_screen.scroll_container.hide()
 		states.game_active:

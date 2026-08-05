@@ -19,6 +19,8 @@ func _on_button_focus_entered() -> void:
 	top_screen.spookivice.notifier.add_message(
 		"[color=853a4c]X[/color] = Back | Feed = [color=18372a]O[/color]", 1, false
 	)
+	top_screen.info.item.texture = Food.ICONS[food]
+	top_screen.info.wrap_text(Food.DESCRIPTIONS[food])
 ## On Button Up
 #func _on_slot_button_up() -> void:
 	#var game_scene = Games.GAMES[game].instantiate()

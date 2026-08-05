@@ -167,11 +167,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InfoContainer" type="MarginContainer" parent="." unique_id=2142795935]
+visible = false
 layout_mode = 0
 offset_left = 85.0
 offset_top = 99.0
 offset_right = 196.0
-offset_bottom = 195.0
+offset_bottom = 192.0
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
@@ -184,11 +185,13 @@ theme_override_constants/separation = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="InfoContainer/VBoxContainer" unique_id=892672171]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="PanelContainer" type="PanelContainer" parent="InfoContainer/VBoxContainer/HBoxContainer" unique_id=1477818130]
+custom_maximum_size = Vector2(27, 27)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="InfoContainer/VBoxContainer/HBoxContainer/PanelContainer" unique_id=8926426]
+[node name="Item" type="TextureRect" parent="InfoContainer/VBoxContainer/HBoxContainer/PanelContainer" unique_id=8926426]
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_scale = Vector2(1.25, 1.25)
@@ -206,6 +209,7 @@ scroll_active = false
 [node name="TextBottom" type="RichTextLabel" parent="InfoContainer/VBoxContainer" unique_id=2100688797]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/line_separation = -1
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "Remainder of text goes here."
@@ -222,6 +226,7 @@ polygon = PackedVector2Array(87, 173, 84, 173, 84, 189, 90, 195, 191, 195, 197, 
 [node name="Objects" type="Node2D" parent="Level" unique_id=936949146]
 
 [node name="Drops" type="Node2D" parent="Level/Objects" unique_id=367841366]
+visible = false
 
 [node name="Marker2D" type="Marker2D" parent="Level/Objects/Drops" unique_id=142538570]
 position = Vector2(178, 185)
@@ -239,6 +244,7 @@ offset_right = 121.0
 offset_bottom = 179.0
 
 [node name="Tombstone" type="StaticBody2D" parent="Level/Objects" unique_id=2102472045]
+visible = false
 position = Vector2(100, 169)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Objects/Tombstone" unique_id=1781312532]
@@ -248,6 +254,7 @@ polygon = PackedVector2Array(-9, 2, 9, 2, 9, 5, 8, 8, 7, 9, -5, 12, -9, 12, -10,
 texture = ExtResource("21_2odgt")
 
 [node name="Mist" type="Sprite2D" parent="Level/Objects" unique_id=941381742]
+visible = false
 self_modulate = Color(1, 1, 1, 0.5882353)
 z_index = 1
 position = Vector2(85, 83)

@@ -2,6 +2,7 @@ extends MarginContainer
 
 @export_multiline var full_string: String
 
+@onready var item: TextureRect = $VBoxContainer/HBoxContainer/PanelContainer/Item
 @onready var text_top: RichTextLabel = $VBoxContainer/HBoxContainer/TextTop
 @onready var text_bottom: RichTextLabel = $VBoxContainer/TextBottom
 
@@ -11,6 +12,7 @@ func wrap_text(text: String) -> void:
 	# Clear Previous Text
 	text_top.text = ""
 	text_bottom.text = ""
+	text_top.fit_content = false
 	# Update Top & Await
 	text_top.text = text
 	await get_tree().process_frame
@@ -36,3 +38,4 @@ func wrap_text(text: String) -> void:
 		else:
 			text_top.text = text
 			text_bottom.text = ""
+	text_top.fit_content = true
