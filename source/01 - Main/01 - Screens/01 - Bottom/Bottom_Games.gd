@@ -4,6 +4,7 @@ extends Node2D
 # OnReady Variables
 @onready var bottom_screen = $"../.."
 #------------------------------------------------------------------------------#
+# Functions
 # Ready
 func _ready() -> void:
 	await get_tree().process_frame
@@ -11,6 +12,7 @@ func _ready() -> void:
 	bottom_screen.spookivice.buttons.connect("cross_pressed", cross_pressed)
 	bottom_screen.spookivice.buttons.connect("circle_pressed", circle_pressed)
 #------------------------------------------------------------------------------#
+# Custom Functions
 # Spawn Games
 func spawn_games(to_spawn: bool) -> void:
 	var slot_container = bottom_screen.slot_container
@@ -37,9 +39,11 @@ func spawn_games(to_spawn: bool) -> void:
 # Custom Signaled Functions
 # Cross Pressed
 func cross_pressed() -> void:
-	spawn_games(false)
-	bottom_screen.spookivice.outputs.game_active = false
-	for game in Games.get_children(): game.queue_free()
+	var spooki_state = bottom_screen.spooki_fsm.states
+	if [spooki_state.game_select, spooki_state.game_active].has(bottom_screen.spooki_fsm.state):
+		spawn_games(false)
+		bottom_screen.spookivice.outputs.game_active = false
+		for game in Games.get_children(): game.queue_free()
 # Circle Pressed
 func circle_pressed() -> void:
 	var spooki_state = bottom_screen.spooki_fsm.states

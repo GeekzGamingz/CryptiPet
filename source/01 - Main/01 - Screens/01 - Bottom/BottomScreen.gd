@@ -29,6 +29,7 @@ const _BOTTOM_ON = preload("uid://dm5alueyt0wj8")
 # Local Nodes
 @onready var tab_container: TabContainer = $MenuContainer/TabContainer
 @onready var bottom_games: Node2D = $Scripts/Games
+@onready var bottom_food: Node2D = $Scripts/Food
 #------------------------------------------------------------------------------#
 func _ready() -> void:
 	await get_tree().process_frame
@@ -40,11 +41,19 @@ func _ready() -> void:
 func _on_left_button_up(source: String = "Bottom") -> void:
 	var states = spooki_fsm.states
 	if [states.idle].has(spooki_fsm.state) && source != "Main": switch_tabs("Previous")
-	elif [states.game_select, states.game_active].has(spooki_fsm.state): select_slot("Previous")
+	elif [
+		states.game_select,
+		states.game_active,
+		states.food_select
+	].has(spooki_fsm.state): select_slot("Previous")
 func _on_right_button_up(source: String = "Bottom") -> void:
 	var states = spooki_fsm.states
 	if [spooki_fsm.states.idle].has(spooki_fsm.state) && source != "Main": switch_tabs("Next")
-	elif [states.game_select, states.game_active].has(spooki_fsm.state): select_slot("Next")
+	elif [
+		states.game_select,
+		states.game_active,
+		states.food_select
+	].has(spooki_fsm.state): select_slot("Next")
 #------------------------------------------------------------------------------#
 # Custom Functions
 func update_screen() -> void:

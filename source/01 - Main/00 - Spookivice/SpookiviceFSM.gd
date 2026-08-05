@@ -3,6 +3,7 @@ extends StateMachine
 #------------------------------------------------------------------------------#
 # Signals
 signal start_game_select
+signal start_food_select
 #------------------------------------------------------------------------------#
 # Variables
 # OnReady Variables
@@ -45,6 +46,9 @@ func transitions(delta):
 		states.waiting:
 			if !outputs.powered_on: return states.powering_off
 			if !outputs.waiting: return states.idle
+		states.food_select:
+			if !outputs.powered_on: return states.powering_off
+			if !outputs.food_select: return states.idle
 		states.game_select:
 			if !outputs.powered_on: return states.powering_off
 			if !outputs.game_select: return states.idle
@@ -68,6 +72,11 @@ func state_enter(new_state, old_state):
 			outputs.disable_buttons(true)
 			outputs.disable_choice(false)
 			spookivice.texture_player.play("alert")
+		states.food_select:
+			outputs.top_screen.menu_container.hide()
+			outputs.disable_menu(true)
+			outputs.bottom_screen.scroll_container.show()
+			emit_signal("start_food_select")
 		states.game_select:
 			outputs.top_screen.menu_container.hide()
 			outputs.disable_menu(true)
@@ -97,11 +106,10 @@ func state_exit(old_state, new_state):
 		states.waiting:
 			outputs.disable_buttons(false)
 			spookivice.texture_player.play("standby")
-		states.game_select, states.game_active:
-			if new_state != states.game_active:
-				outputs.top_screen.menu_container.show()
-				outputs.disable_menu(false)
-				outputs.bottom_screen.texture = outputs.bottom_screen._BOTTOM_ON
+		states.game_select, states.food_select:
+			outputs.top_screen.menu_container.show()
+			outputs.disable_menu(false)
+			outputs.bottom_screen.texture = outputs.bottom_screen._BOTTOM_ON
 			outputs.bottom_screen.scroll_container.hide()
-			outputs.bottom_screen.bottom_games.spawn_games(false)
+		states.game_active: outputs.bottom_screen.scroll_container.hide()
 		states.idle: pass
