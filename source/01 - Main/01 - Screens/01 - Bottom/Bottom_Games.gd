@@ -17,10 +17,10 @@ func _ready() -> void:
 func spawn_games(to_spawn: bool) -> void:
 	var slot_container = bottom_screen.slot_container
 	if to_spawn:
-		for slot in Games.GAMES:
+		for game in Games.GAMES:
 			# Instantiate/Add Slots
-			var game_slot = Games.GAME_SLOT.instantiate()
-			game_slot.game = slot
+			var game_slot = Games.SLOT.instantiate()
+			game_slot.game = game
 			game_slot.name = game_slot.game
 			game_slot.top_screen = bottom_screen.spookivice.top_screen
 			game_slot.bottom_screen = bottom_screen

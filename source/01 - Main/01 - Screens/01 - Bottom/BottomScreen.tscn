@@ -149,6 +149,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_constants/scrollbar_v_separation = 2
+follow_focus = true
 vertical_scroll_mode = 0
 scroll_horizontal_by_default = true
 metadata/_tab_index = 3

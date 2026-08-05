@@ -67,7 +67,9 @@ func state_enter(new_state, old_state):
 			outputs.bottom_screen.phase = "On"
 			spookivice.texture_player.play("alert")
 			spookivice.notifier.add_message("Powering [On]", 2.5, true)
-		states.idle: outputs.orphanage.awaken()
+		states.idle:
+			outputs.orphanage.awaken()
+			outputs.bottom_screen.texture = outputs.bottom_screen._BOTTOM_ON
 		states.waiting:
 			outputs.disable_buttons(true)
 			outputs.disable_choice(false)
@@ -75,6 +77,7 @@ func state_enter(new_state, old_state):
 		states.food_select:
 			outputs.top_screen.menu_container.hide()
 			outputs.disable_menu(true)
+			outputs.orphanage.sleep()
 			outputs.bottom_screen.scroll_container.show()
 			emit_signal("start_food_select")
 		states.game_select:
@@ -83,6 +86,10 @@ func state_enter(new_state, old_state):
 			outputs.bottom_screen.scroll_container.show()
 			outputs.orphanage.sleep()
 			emit_signal("start_game_select")
+		states.game_active:
+			outputs.top_screen.menu_container.hide()
+			outputs.disable_menu(true)
+			outputs.bottom_screen.scroll_container.show()
 		states.powering_off:
 			outputs.disable_buttons(true)
 			spookivice.notifier.add_message("Powering [Off]", 2.5, true)
@@ -109,7 +116,9 @@ func state_exit(old_state, new_state):
 		states.game_select, states.food_select:
 			outputs.top_screen.menu_container.show()
 			outputs.disable_menu(false)
-			outputs.bottom_screen.texture = outputs.bottom_screen._BOTTOM_ON
 			outputs.bottom_screen.scroll_container.hide()
-		states.game_active: outputs.bottom_screen.scroll_container.hide()
+		states.game_active:
+			outputs.top_screen.menu_container.show()
+			outputs.disable_menu(false)
+			outputs.bottom_screen.scroll_container.hide()
 		states.idle: pass

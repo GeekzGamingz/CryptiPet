@@ -1,12 +1,12 @@
 extends Node
 #------------------------------------------------------------------------------#
 # Globals Constants
-const FOOD_SLOT = preload("uid://wamq0p3cddv0")
+const SLOT = preload("uid://wamq0p3cddv0")
 #------------------------------------------------------------------------------#
 # Global Variables
 # Global Dictionaries
 # Food Icons
-var FOOD: Dictionary = {
+var ICONS: Dictionary = {
 	"Blood": preload("uid://dx1eblie1dy3q"),
 	"Book": preload("uid://cris0agwcil73"),
 	"Brains": preload("uid://b8ykpa02v0ky0"),
@@ -16,13 +16,18 @@ var FOOD: Dictionary = {
 	"Meat": preload("uid://nud065t7kmbx"),
 	"Valuables": preload("uid://fjskg7j0pf8h")
 }
-# Foods Consumed
-var EATEN: Dictionary = {
-	"Blood": 0, "Book": 0, "Brains": 0, "Energy":0,
-	"Goat": 0, "Leaf": 0, "Meat": 0, "Valuables": 0
+var TITLES: Dictionary = {
+	"Blood": "[wave][color=171717]Blood[/color][/wave]",
+	"Book": "[wave][color=171717]Book[/color][/wave]",
+	"Brains": "[wave][color=171717]Brains[/color][/wave]",
+	"Energy": "[wave][color=171717]Energy[/color][/wave]",
+	"Goat": "[wave][color=171717]Goat[/color][/wave]",
+	"Leaf": "[wave][color=171717]Leaf[/color][/wave]",
+	"Meat": "[wave][color=171717]Meat[/color][/wave]",
+	"Valuables": "[wave][color=171717]Valuables[/color][/wave]"
 }
 # Cryptid Diets
-var DIET: Dictionary = {
+var DIETS: Dictionary = {
 	# Sprits
 	"Angel": ["Book"],
 	"Ghost": ["Energy", "Book", "Valuables"],
@@ -35,4 +40,9 @@ var DIET: Dictionary = {
 	"Mummy": ["Book", "Energy", "Valuables"],
 	"Vampire": ["Blood", "Valuables"],
 	"Zombie": ["Brains", "Meat"]
+}
+# Foods Consumed
+var EATEN: Dictionary = {
+	"Blood": 0, "Book": 0, "Brains": 0, "Energy":0,
+	"Goat": 0, "Leaf": 0, "Meat": 0, "Valuables": 0
 }

@@ -23,7 +23,9 @@
 [ext_resource type="Texture2D" uid="uid://cnlihssum1s10" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/01 - Menu/00 - Disabled/Cleanup_Icon_Disabled.png" id="17_uad0v"]
 [ext_resource type="PackedScene" uid="uid://bdere446c0oxj" path="res://source/01 - Main/03 - Objects/Remains.tscn" id="20_2odgt"]
 [ext_resource type="Texture2D" uid="uid://c8fpujr4sxn6x" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/00 - Locations/00 - Graveyard/Tombstone_Night.png" id="21_2odgt"]
+[ext_resource type="Texture2D" uid="uid://dx1eblie1dy3q" path="res://assets/04 - Objects/00 - Food/Blood.png" id="21_888fu"]
 [ext_resource type="PackedScene" uid="uid://0553f5ocdexr" path="res://source/01 - Main/03 - Objects/Valuables.tscn" id="21_orlv8"]
+[ext_resource type="Script" uid="uid://c0ygowyscg31f" path="res://source/01 - Main/01 - Screens/00 - Top/InfoContainer.gd" id="21_uadxh"]
 [ext_resource type="Texture2D" uid="uid://bwye1p3y2yiy1" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/00 - Locations/00 - Graveyard/Graveyard_Mist.png" id="22_orlv8"]
 
 [sub_resource type="Animation" id="Animation_dea30"]
@@ -79,7 +81,6 @@ metadata/_edit_vertical_guides_ = [87.0, 194.0, 141.0]
 metadata/_edit_horizontal_guides_ = [84.0, 97.0]
 
 [node name="TabContainer" type="TabContainer" parent="." unique_id=65944190]
-visible = false
 layout_mode = 0
 offset_left = 87.0
 offset_top = 84.0
@@ -164,6 +165,52 @@ bbcode_enabled = true
 text = "Title Text"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="InfoContainer" type="MarginContainer" parent="." unique_id=2142795935]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 99.0
+offset_right = 196.0
+offset_bottom = 195.0
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+script = ExtResource("21_uadxh")
+full_string = "This is placeholder test so that I can format the Information Container to better suit the needs of the Spookivice."
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InfoContainer" unique_id=345709633]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InfoContainer/VBoxContainer" unique_id=892672171]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="InfoContainer/VBoxContainer/HBoxContainer" unique_id=1477818130]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="InfoContainer/VBoxContainer/HBoxContainer/PanelContainer" unique_id=8926426]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.25, 1.25)
+texture = ExtResource("21_888fu")
+
+[node name="TextTop" type="RichTextLabel" parent="InfoContainer/VBoxContainer/HBoxContainer" unique_id=414972417]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/line_separation = -1
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "This is placeholder test so that I can format the Information Container to better suit the needs of the Spookivice."
+scroll_active = false
+
+[node name="TextBottom" type="RichTextLabel" parent="InfoContainer/VBoxContainer" unique_id=2100688797]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Remainder of text goes here."
+fit_content = true
+scroll_active = false
 
 [node name="Level" type="Node2D" parent="." unique_id=1750160543]
 

@@ -10,14 +10,14 @@ var bottom_screen: TextureRect
 # Functions
 # Ready
 func _ready() -> void:
-	if game != "": slot_button.texture_normal = Games.GAME_ICONS[game]
+	if game != "": slot_button.texture_normal = Games.ICONS[game]
 #------------------------------------------------------------------------------#
 # Signaled Functions
 # On Button Focused
 func _on_button_focus_entered() -> void:
-	top_screen.title.text = Games.GAME_TITLE[game]
-	top_screen.texture = Games.GAME_PREVIEWS[game]
-	bottom_screen.texture = Games.GAME_BOTTOMS[game]
+	top_screen.title.text = Games.TITLES[game]
+	top_screen.texture = Games.PREVIEWS[game]
+	bottom_screen.texture = Games.BOTTOMS[game]
 	match(game):
 		"SnakeEyes": top_screen.spookivice.notifier.add_message(
 			"[color=853a4c]X[/color] = Back | Play = [color=18372a]O[/color]", 1, false

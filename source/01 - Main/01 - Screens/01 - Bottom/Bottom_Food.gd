@@ -16,13 +16,12 @@ func _ready() -> void:
 func spawn_food(to_spawn: bool) -> void: 
 	var slot_container = bottom_screen.slot_container
 	if to_spawn:
-		for slot in Food.FOOD:
+		for food in Food.ICONS:
 			# Instantiate/Add Slots
-			var food_slot = Food.FOOD_SLOT.instantiate()
-			food_slot.food = slot
+			var food_slot = Food.SLOT.instantiate()
+			food_slot.food = food
 			food_slot.top_screen = bottom_screen.spookivice.top_screen
 			food_slot.bottom_screen = bottom_screen
-			food_slot.get_node("SlotButton").texture_normal = Food.FOOD[slot]
 			slot_container.add_child(food_slot)
 			# Await One Frame to Grab Focus
 			await get_tree().process_frame
