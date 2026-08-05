@@ -6,6 +6,7 @@ var spawned: bool = false
 var waiting: bool = false
 var game_select: bool = false
 var game_active: bool = false
+var food_select: bool = false
 # OnReady Variables
 @onready var spookivice: Control = $".."
 @onready var toggles: Control = $"../Toggles"

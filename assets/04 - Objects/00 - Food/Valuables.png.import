@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fjskg7j0pf8h"
-path="res://.godot/imported/Currency.png-3069a5565f207a7c46b905529906e953.ctex"
+path="res://.godot/imported/Valuables.png-00408415232ebb9601177fd926ce8090.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/04 - Objects/00 - Food/Currency.png"
-dest_files=["res://.godot/imported/Currency.png-3069a5565f207a7c46b905529906e953.ctex"]
+source_file="res://assets/04 - Objects/00 - Food/Valuables.png"
+dest_files=["res://.godot/imported/Valuables.png-00408415232ebb9601177fd926ce8090.ctex"]
 
 [params]
 

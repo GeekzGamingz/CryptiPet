@@ -10,10 +10,10 @@ func _ready() -> void:
 	top_screen.spookivice.buttons.connect("circle_pressed", circle_pressed)
 #------------------------------------------------------------------------------#
 # Signaled Functions
-func _on_button_up() -> void: game_select()
+func _on_button_up() -> void: food_select()
 #------------------------------------------------------------------------------#
-# Activate Game Mode
-func game_select() -> void: top_screen.spookivice.outputs.game_select = true
+# Activate Food Mode
+func food_select() -> void: top_screen.spookivice.outputs.food_select = true
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
 func circle_pressed() -> void: if has_focus(): emit_signal("button_up")

@@ -149,7 +149,6 @@ libraries/ = SubResource("AnimationLibrary_lmvhp")
 [node name="Audio" type="Node2D" parent="Players" unique_id=1820230467]
 
 [node name="Outputs" type="Node2D" parent="." unique_id=1458323927]
-visible = false
 script = ExtResource("3_1lxtc")
 
 [node name="States" type="Label" parent="Outputs" unique_id=98647434]

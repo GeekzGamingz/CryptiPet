@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://b7hhdl60lf54g"]
 
-[ext_resource type="Texture2D" uid="uid://ccq0wpkeppief" path="res://assets/01 - Spookivice/02 - Screens/01 - Bottom/01 - Menu/Screen_Empty_Slot.png" id="1_xofai"]
-[ext_resource type="Script" uid="uid://dh2h8b8medby1" path="res://source/02 - Minigames/00 - Slots/Slot_Minigame.gd" id="2_xofai"]
-[ext_resource type="Texture2D" uid="uid://b10bnbldg2sf3" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/01 - Menu/Icon_Brackets.png" id="3_xofai"]
+[ext_resource type="Texture2D" uid="uid://ccq0wpkeppief" path="res://assets/01 - Spookivice/02 - Screens/01 - Bottom/01 - Menu/Screen_Empty_Slot.png" id="1_u02t2"]
+[ext_resource type="Script" uid="uid://dh2h8b8medby1" path="res://source/01 - Main/01 - Screens/01 - Bottom/01 - Slots/Slot_Minigame.gd" id="2_w02xw"]
+[ext_resource type="Texture2D" uid="uid://b10bnbldg2sf3" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/01 - Menu/Icon_Brackets.png" id="3_s3t1v"]
 
 [node name="Slot" type="TextureRect" unique_id=1820355747]
-texture = ExtResource("1_xofai")
-script = ExtResource("2_xofai")
+texture = ExtResource("1_u02t2")
+script = ExtResource("2_w02xw")
 
 [node name="SlotButton" type="TextureButton" parent="." unique_id=775790066]
 layout_mode = 1
@@ -21,7 +21,7 @@ offset_right = 8.5
 offset_bottom = 8.5
 grow_horizontal = 2
 grow_vertical = 2
-texture_focused = ExtResource("3_xofai")
+texture_focused = ExtResource("3_s3t1v")
 stretch_mode = 3
 
 [connection signal="button_up" from="SlotButton" to="." method="_on_slot_button_up"]
