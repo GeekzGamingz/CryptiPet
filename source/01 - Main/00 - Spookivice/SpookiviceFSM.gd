@@ -75,6 +75,8 @@ func state_enter(new_state, old_state):
 			outputs.disable_choice(false)
 			spookivice.texture_player.play("alert")
 		states.food_select:
+			outputs.top_screen.texture = Food.NOTEBOOK
+			outputs.bottom_screen.texture = Food.NOTEBOOK_BOTTOM
 			outputs.top_screen.menu_container.hide()
 			outputs.top_screen.info.show()
 			outputs.disable_menu(true)

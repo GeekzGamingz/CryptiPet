@@ -1,18 +1,19 @@
 extends MarginContainer
-
+#------------------------------------------------------------------------------#
+# Variables
+# Exported Variables
 @export_multiline var full_string: String
-
+# OnReady Variables
 @onready var item: TextureRect = $VBoxContainer/HBoxContainer/PanelContainer/Item
 @onready var text_top: RichTextLabel = $VBoxContainer/HBoxContainer/TextTop
 @onready var text_bottom: RichTextLabel = $VBoxContainer/TextBottom
-
-func _ready() -> void: wrap_text(full_string)
-
+#------------------------------------------------------------------------------#
+# Custom Functions
 func wrap_text(text: String) -> void:
 	# Clear Previous Text
+	text_top.fit_content = false
 	text_top.text = ""
 	text_bottom.text = ""
-	text_top.fit_content = false
 	# Update Top & Await
 	text_top.text = text
 	await get_tree().process_frame
@@ -32,10 +33,11 @@ func wrap_text(text: String) -> void:
 				total_visible = character
 				break
 		# Slice Text
-		if total_visible < text.length() and total_visible > 0:
+		if total_visible < text.length() && total_visible > 0:
 			text_top.text = text.left(total_visible)
 			text_bottom.text = text.substr(total_visible)
-		else:
+		else: # Split Not Needed
 			text_top.text = text
 			text_bottom.text = ""
+	# Fit Top Content for Character Descenders
 	text_top.fit_content = true

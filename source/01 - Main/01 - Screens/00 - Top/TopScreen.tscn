@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dhb4rr62ffxjv"]
 
 [ext_resource type="Theme" uid="uid://5hdiyrqlevro" path="res://assets/Base_Theme.tres" id="1_g2lt3"]
-[ext_resource type="Texture2D" uid="uid://dih5q08gsdjgb" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/00 - Locations/00 - Graveyard/Graveyard_Night.png" id="2_ssuis"]
+[ext_resource type="Texture2D" uid="uid://wnc2m06npfqg" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/_TopOff.png" id="2_uadxh"]
 [ext_resource type="Script" uid="uid://dmiw3ydbb01nx" path="res://source/01 - Main/01 - Screens/00 - Top/TopScreen.gd" id="3_5f7of"]
 [ext_resource type="Texture2D" uid="uid://sbyshnwyimx7" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/01 - Menu/Food_Icon.png" id="3_cxf82"]
 [ext_resource type="Texture2D" uid="uid://b10bnbldg2sf3" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/01 - Menu/Icon_Brackets.png" id="4_43lvc"]
@@ -72,7 +72,7 @@ offset_right = 281.0
 offset_bottom = 265.0
 mouse_filter = 2
 theme = ExtResource("1_g2lt3")
-texture = ExtResource("2_ssuis")
+texture = ExtResource("2_uadxh")
 script = ExtResource("3_5f7of")
 tab_container = NodePath("TabContainer")
 menu_container = NodePath("TabContainer/MenuContainer")
@@ -167,15 +167,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InfoContainer" type="MarginContainer" parent="." unique_id=2142795935]
-visible = false
 layout_mode = 0
 offset_left = 85.0
 offset_top = 99.0
 offset_right = 196.0
 offset_bottom = 192.0
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+theme_override_constants/margin_bottom = 7
 script = ExtResource("21_uadxh")
 full_string = "This is placeholder test so that I can format the Information Container to better suit the needs of the Spookivice."
 
@@ -200,6 +200,8 @@ texture = ExtResource("21_888fu")
 [node name="TextTop" type="RichTextLabel" parent="InfoContainer/VBoxContainer/HBoxContainer" unique_id=414972417]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.24313726, 0.10980392, 0.16862746, 1)
+theme_override_colors/font_shadow_color = Color(0.7647059, 0.7176471, 0.5921569, 1)
 theme_override_constants/line_separation = -1
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
@@ -209,6 +211,8 @@ scroll_active = false
 [node name="TextBottom" type="RichTextLabel" parent="InfoContainer/VBoxContainer" unique_id=2100688797]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.24313726, 0.10980392, 0.16862746, 1)
+theme_override_colors/font_shadow_color = Color(0.7647059, 0.7176471, 0.5921569, 1)
 theme_override_constants/line_separation = -1
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://wnc2m06npfqg"
-path="res://.godot/imported/_TopOff.png-e108eb7865466757649754eacd14403e.ctex"
+path="res://.godot/imported/_TopOff.png-d1b8520834e9bdca347d1aa3d4b6086c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/01 - Spookivice/02 - Screens/00 - Top/00 - Locations/_TopOff.png"
-dest_files=["res://.godot/imported/_TopOff.png-e108eb7865466757649754eacd14403e.ctex"]
+source_file="res://assets/01 - Spookivice/02 - Screens/00 - Top/_TopOff.png"
+dest_files=["res://.godot/imported/_TopOff.png-d1b8520834e9bdca347d1aa3d4b6086c.ctex"]
 
 [params]
 
