@@ -167,6 +167,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InfoContainer" type="MarginContainer" parent="." unique_id=2142795935]
+visible = false
 layout_mode = 0
 offset_left = 85.0
 offset_top = 99.0
