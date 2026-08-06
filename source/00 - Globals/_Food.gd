@@ -38,7 +38,7 @@ var DESCRIPTIONS: Dictionary = {
 	"Goat": "In the era of the Temple of Jerusalem a pair of Capra Hircus were present in rituals. One, the Scapegoat, would be released, believing to hold all the sins of the people while the other was sacrificed.\n\nGrims and Ghouls are simply fond of the taste...",
 	"Leaf": "The principal appendage of the stem of a vascular plant, specializing in photosynthesis. Leaves are collectively called \"foliage\".\n\nCertain leaves have been known to be the preferred snack of Cryptids belonging to the Lepidoptera Order",
 	"Meat": "Humans have hunted and farmed other animals for meat since prehistory. The Neolithic Revolution allowed the domestication of vertebrates, starting around 11 millenia ago.\n\nThis unidentified meat will serve well as food for Ghouls, Grims, and Zombies, amongst others...",
-	"Valuables": "Intelligent creatures often possess an insatiable desire for material gain motivated by the promotion of personal or family survival or an intent to deny or obstruct competitors from potential means.\n\nGhosts, Mummies, and Vampires are no exception to this."
+	"Valuables": "Intelligent creatures often possess an insatiable desire for material gain motivated by the promotion of personal or familial survival or an intent to deny or obstruct competitors from potential means.\n\nGhosts, Mummies, and Vampires are no exception to this."
 }
 # Cryptid Diets
 var DIETS: Dictionary = {

@@ -21,16 +21,10 @@ func _on_button_focus_entered() -> void:
 	)
 	top_screen.info.item.texture = Food.ICONS[food]
 	top_screen.info.wrap_text(Food.DESCRIPTIONS[food])
-## On Button Up
-#func _on_slot_button_up() -> void:
-	#var game_scene = Games.GAMES[game].instantiate()
-	#game_scene.name = game
-	#clear_games()
-	#await get_tree().process_frame
-	#Games.add_child(game_scene)
-	#top_screen.spookivice.outputs.game_active = true
-	#top_screen.spookivice.notifier.add_message("Game Start!", 1, true)
-	#clear_buttons()
+# On Button Up
+func _on_slot_button_up() -> void:
+	Food.EATEN[food] += 1
+	print("[%s] Eaten!" % food)
 ##------------------------------------------------------------------------------#
 ## Custom Functions
 ## Clear Active Games

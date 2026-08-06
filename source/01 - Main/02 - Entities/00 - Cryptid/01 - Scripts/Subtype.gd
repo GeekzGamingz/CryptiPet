@@ -32,8 +32,26 @@ func match_glimpse():
 func match_revealed():
 	if current_path != "": cryptid.sprite_base.texture = Textures.CRYPTIDS[current_path]
 ## Updates the current_path of the [Cryptid].
-func update_path(): set_spirit() # Add Hunger and Health Arguments
-
+func update_path(): #set_spirit() # Add Hunger and Health Arguments
+	# Check Cryptid Food
+	var consumed: Array = []
+	for food in Food.EATEN:
+		if Food.EATEN[food] > 0:
+			consumed.append(food)
+			
+	var possible_cryptids: Array = []
+	for cryptid_index in Food.DIETS:
+		var diet = Food.DIETS[cryptid_index]
+		var can_eat: bool = true
+		if diet.has("All"): possible_cryptids.append(cryptid_index)
+		for food in consumed: if !diet.has(food):
+			can_eat = false
+			break
+		if can_eat: possible_cryptids.append(cryptid_index)
+	print("Consumed: ", consumed)
+	print("Possible Cryptids: ", possible_cryptids)
+			#for subtype in Food.DIETS:
+				#if subtype.print(food)
 func set_undead(): pass
 
 func set_spirit():

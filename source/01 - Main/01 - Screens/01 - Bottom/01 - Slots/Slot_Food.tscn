@@ -24,4 +24,5 @@ grow_vertical = 2
 texture_focused = ExtResource("3_4rwoj")
 stretch_mode = 3
 
+[connection signal="button_up" from="SlotButton" to="." method="_on_slot_button_up"]
 [connection signal="focus_entered" from="SlotButton" to="." method="_on_button_focus_entered"]
