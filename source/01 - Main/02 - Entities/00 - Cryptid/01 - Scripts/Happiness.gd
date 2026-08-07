@@ -20,4 +20,7 @@ extends Node2D
 ) var stage: int = 3:
 	set(new_stage):
 		stage = new_stage
+		if subtype != null: subtype.update_path()
 		print("Happiness: ", str(stage))
+# OnReady Variables
+@onready var subtype: Node2D = $"../Concept/Subtype"

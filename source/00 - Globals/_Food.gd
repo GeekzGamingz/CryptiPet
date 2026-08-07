@@ -46,17 +46,35 @@ var DIETS: Dictionary = {
 	"Angel": ["Book"],
 	"Ghost": ["Energy", "Book", "Valuables"],
 	"Grim": ["Meat", "Goat"],
+	"Mothman_Spirit": ["Book", "Leaf"],
 	"Shadow": ["Energy", "Blood"],
 	"Wraith": ["All"],
 	# Undead
 	"Balbal": ["All"],
 	"Ghoul": ["Brains", "Blood", "Goat", "Meat"],
+	"Mothman_Undead": ["Brains", "Leaf"],
 	"Mummy": ["Book", "Energy", "Valuables"],
 	"Vampire": ["Blood", "Valuables"],
 	"Zombie": ["Brains", "Meat"]
 }
+var RESTRICTED: Dictionary = {
+	# Sprits
+	"Angel": ["Blood", "Brains", "Leaf", "Meat"],
+	"Ghost": ["Brains", "Leaf"],
+	"Grim": ["None"],
+	"Mothman_Spirit": ["Blood", "Brains", "Goat", "Meat"],
+	"Shadow": ["Brains", "Goat", "Meat"],
+	"Wraith": ["None"],
+	# Undead
+	"Balbal": ["None"],
+	"Ghoul": ["Leaf"],
+	"Mothman_Undead": ["Goat", "Meat", "Energy"],
+	"Mummy": ["Blood", "Leaf", "Meat"],
+	"Vampire": ["Brains", "Goat", "Leaf", "Meat"],
+	"Zombie": ["Book", "Energy", "Leaf", "Valuables"]
+}
 # Foods Consumed
 var EATEN: Dictionary = {
-	"Blood": 0, "Book": 0, "Brains": 0, "Energy":0,
+	"Blood": 0, "Book": 0, "Brains": 0, "Energy": 0,
 	"Goat": 0, "Leaf": 0, "Meat": 0, "Valuables": 0
 }

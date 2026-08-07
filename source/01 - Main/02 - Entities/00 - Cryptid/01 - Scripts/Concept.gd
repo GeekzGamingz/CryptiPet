@@ -75,7 +75,7 @@ func metamorph():
 		Globals.CONCEPT = cryptid.concept.stage
 		Globals.HAPPINESS = cryptid.happiness.stage
 		Globals.HUNGER = cryptid.hunger.stage
-		Globals.HEALTH = cryptid.health.stage
+		Globals.HEALTH = cryptid.health.fit
 		reset(false)
 func reset(canceling: bool):
 	if spookivice.outputs.waiting:

@@ -20,4 +20,7 @@ extends Node2D
 ) var stage: String = "Satiated": 
 	set(new_stage):
 		stage = new_stage
+		if subtype != null: subtype.update_path()
 		print("Hunger: ", stage)
+# OnReady
+@onready var subtype: Node2D = $"../Concept/Subtype"

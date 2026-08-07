@@ -14,4 +14,4 @@ var CONCEPT: String = "Essence"
 var CONCEPT_TIME: float = 10
 var HAPPINESS: int = 3
 var HUNGER: String = "Satiated"
-var HEALTH: String = "Fit"
+var HEALTH: bool = true

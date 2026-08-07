@@ -27,7 +27,8 @@ func awaken():
 	cryptid_scene.concept.stage = Globals.CONCEPT
 	cryptid_scene.happiness.stage = Globals.HAPPINESS
 	cryptid_scene.hunger.stage = Globals.HUNGER
-	cryptid_scene.health.stage = Globals.HEALTH
+	cryptid_scene.health.fit = Globals.HEALTH
+	cryptid_scene.concept.subtype.update_path()
 	# Set Cryptid Location & Timers
 	top_screen.location = Locations.LOCATION
 	cryptid_scene.concept.morph_timer.wait_time = Globals.CONCEPT_TIME
@@ -51,7 +52,7 @@ func sleep():
 	Globals.CONCEPT = cryptid.concept.stage
 	Globals.HAPPINESS = cryptid.happiness.stage
 	Globals.HUNGER = cryptid.hunger.stage
-	Globals.HEALTH = cryptid.health.stage
+	Globals.HEALTH = cryptid.health.fit
 	# Check Time Transition
 	if !cryptid.concept.time_transitioning:
 		if cryptid.concept.morph_timer.time_left > 0.0:
