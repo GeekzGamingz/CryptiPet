@@ -12,6 +12,7 @@ func _ready() -> void:
 # Signaled Functions
 func _on_button_up() -> void: food_select()
 #------------------------------------------------------------------------------#
+# Custom Functions
 # Activate Food Mode
 func food_select() -> void: top_screen.spookivice.outputs.food_select = true
 #------------------------------------------------------------------------------#

@@ -14,10 +14,6 @@ extends Node2D
 @onready var hunger: Node2D = $"../../Hunger"
 @onready var health: Node2D = $"../../Health"
 #------------------------------------------------------------------------------#
-# Functions
-# Process
-#func _process(_delta: float) -> void: update_path()
-#------------------------------------------------------------------------------#
 # Custom Functions
 ## Called for the Glimpse Stage of the [Cryptid]'s Concept.
 func match_glimpse():
@@ -37,35 +33,49 @@ func update_path():
 	for cryptid_index in Food.DIETS:
 		var diet = Food.DIETS[cryptid_index]
 		var restrictions = Food.RESTRICTED[cryptid_index]
+		var iron_gut: bool = diet.has("All")
 		# If Nothing Was Eaten, Skip Cryptids That Don't Need Food
-		if consumed.is_empty() && !diet.has("All"): continue
+		if consumed.is_empty() && !iron_gut: continue
 		# Check Diet
 		var can_eat: bool = true
-		if diet.has("All"): possible_cryptids.append(cryptid_index)
 		for food in consumed:
 			if restrictions.has(food) || !diet.has(food):
 				can_eat = false
 				break
-		if can_eat: match(cryptid_index):
+		if !can_eat: continue
+		# Check Requirements
+		var requirements_met: bool = false
+		match(cryptid_index):
 			# Spirits
-			"Angel": if happiness.stage >= 5 && health.fit: possible_cryptids.append(cryptid_index)
-			"Ghost": if happiness.stage >= 3: possible_cryptids.append(cryptid_index)
-			"Grim": if happiness.stage >= 4 && health.fit: possible_cryptids.append(cryptid_index)
-			"Mothman_Spirit": if happiness.stage >= 4: possible_cryptids.append(cryptid_index)
-			"Shadow": if happiness.stage >= 2: possible_cryptids.append(cryptid_index)
+			"Angel": requirements_met = happiness.stage >= 5 && health.fit
+			"Balbal": requirements_met = true
+			"Ghost": requirements_met = happiness.stage >= 3
+			"Grim": requirements_met = happiness.stage >= 4 && health.fit
+			"Mothman_Spirit": requirements_met = happiness.stage >= 4
+			"Shadow": requirements_met = happiness.stage >= 2
 			# Undead
-			"Ghoul": if happiness.stage <= 3: possible_cryptids.append(cryptid_index)
-			"Mothman_Undead": if happiness.stage >= 4 && !health.fit: possible_cryptids.append(cryptid_index)
-			"Mummy": if happiness.stage >= 4 && health.fit: possible_cryptids.append(cryptid_index)
-			"Vampire": if happiness.stage >= 4: possible_cryptids.append(cryptid_index)
-			"Zombie": if !health.fit: possible_cryptids.append(cryptid_index)
+			"Ghoul": requirements_met = happiness.stage <= 3
+			"Mothman_Undead": requirements_met = happiness.stage >= 4 && !health.fit
+			"Mummy": requirements_met = happiness.stage >= 4 && health.fit
+			"Vampire": requirements_met = happiness.stage >= 4
+			"Wraith": requirements_met = true
+			"Zombie": requirements_met = !health.fit
+			# Catch-All
+			_:
+				printerr("Incorrect Cryptid Index!")
+				requirements_met = iron_gut
+		if requirements_met: possible_cryptids.append(cryptid_index)
 	# Only Allow Wraiths and Balbals When No Path Found
-	if possible_cryptids.size() >= 3:
-		if possible_cryptids.has("Wraith"): possible_cryptids.erase("Wraith")
-		if possible_cryptids.has("Balbal"): possible_cryptids.erase("Balbal")
+	if possible_cryptids.size() > 2:
+		possible_cryptids.erase("Wraith")
+		possible_cryptids.erase("Balbal")
 	print("Consumed: ", consumed)
 	print("Possible Cryptids: ", possible_cryptids)
-	# Pick Path
+	# Failsafe
+	if possible_cryptids.is_empty():
+		printerr("No Evolution Paths Found!")
+		return
+	# Select Path
 	current_path = possible_cryptids.pick_random()
 	match(current_path):
 		"Angel", "Ghost", "Grim", "Mothman_Spirit", "Shadow", "Wraith": subtype_glimpse = "Spirit"
