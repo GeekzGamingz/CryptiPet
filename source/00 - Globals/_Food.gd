@@ -61,12 +61,12 @@ var RESTRICTED: Dictionary = {
 	# Sprits
 	"Angel": ["Blood", "Brains", "Leaf", "Meat"],
 	"Ghost": ["Brains", "Leaf"],
-	"Grim": ["None"],
+	"Grim": [],
 	"Mothman_Spirit": ["Blood", "Brains", "Goat", "Meat"],
 	"Shadow": ["Brains", "Goat", "Meat"],
-	"Wraith": ["None"],
+	"Wraith": [],
 	# Undead
-	"Balbal": ["None"],
+	"Balbal": [],
 	"Ghoul": ["Leaf"],
 	"Mothman_Undead": ["Goat", "Meat", "Energy"],
 	"Mummy": ["Blood", "Leaf", "Meat"],

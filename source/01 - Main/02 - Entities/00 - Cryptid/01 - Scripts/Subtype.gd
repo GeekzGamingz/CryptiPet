@@ -30,6 +30,7 @@ func update_path():
 			consumed.append(food)
 	# Compare to Cryptid Diets
 	var possible_cryptids: Array = []
+	var path_found: bool = false
 	for cryptid_index in Food.DIETS:
 		var diet = Food.DIETS[cryptid_index]
 		var restrictions = Food.RESTRICTED[cryptid_index]
@@ -48,7 +49,6 @@ func update_path():
 		match(cryptid_index):
 			# Spirits
 			"Angel": requirements_met = happiness.stage >= 5 && health.fit
-			"Balbal": requirements_met = true
 			"Ghost": requirements_met = happiness.stage >= 3
 			"Grim": requirements_met = happiness.stage >= 4 && health.fit
 			"Mothman_Spirit": requirements_met = happiness.stage >= 4
@@ -58,17 +58,16 @@ func update_path():
 			"Mothman_Undead": requirements_met = happiness.stage >= 4 && !health.fit
 			"Mummy": requirements_met = happiness.stage >= 4 && health.fit
 			"Vampire": requirements_met = happiness.stage >= 4
-			"Wraith": requirements_met = true
 			"Zombie": requirements_met = !health.fit
 			# Catch-All
-			_:
-				printerr("Incorrect Cryptid Index!")
-				requirements_met = iron_gut
-		if requirements_met: possible_cryptids.append(cryptid_index)
+			_: requirements_met = false
+		if requirements_met:
+			possible_cryptids.append(cryptid_index)
+			path_found = true
 	# Only Allow Wraiths and Balbals When No Path Found
-	if possible_cryptids.size() > 2:
-		possible_cryptids.erase("Wraith")
-		possible_cryptids.erase("Balbal")
+	if !path_found:
+		possible_cryptids.append("Wraith")
+		possible_cryptids.append("Balbal")
 	print("Consumed: ", consumed)
 	print("Possible Cryptids: ", possible_cryptids)
 	# Failsafe

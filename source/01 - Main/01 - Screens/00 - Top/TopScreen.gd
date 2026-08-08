@@ -31,7 +31,7 @@ extends TextureRect
 @onready var button_feed: TextureButton = menu_container.get_node("Feed")
 @onready var button_time: TextureButton = menu_container.get_node("Time")
 @onready var info: MarginContainer = $InfoContainer
-@onready var orphanage: Marker2D = $Level/Orphanage
+@onready var orphanage: Marker2D = $Orphanage
 #------------------------------------------------------------------------------#
 # Functions
 # Ready
