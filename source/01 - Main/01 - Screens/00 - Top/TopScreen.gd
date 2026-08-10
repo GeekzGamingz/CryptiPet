@@ -81,6 +81,7 @@ func update_location() -> void:
 		var level_scene = Locations.OBJECTS["Empty"].instantiate()
 		if location != "Off":
 			if time != "Day": level_scene = Locations.OBJECTS[location].instantiate()
+			elif [spooki_fsm.states.idle].has(spooki_fsm.state): level_scene = Shop.OBJECTS.instantiate()
 		level.add_child(level_scene)
 		level_scene.name = "Objects"
 		spookivice.notifier.add_message("[%s] at [%s]" % [location, time], 2.5, false)

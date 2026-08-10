@@ -3,8 +3,8 @@ extends RichTextLabel
 # Functions
 # Ready
 func _ready() -> void:
-	Shop.connect("currency_changed", currency_changed)
 	currency_changed(Shop.CURRENCY)
+	Shop.connect("currency_changed", currency_changed)
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
 # On Currency Changed
