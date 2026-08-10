@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://dftcgo4cne1st"]
 
 [ext_resource type="Script" uid="uid://dhma1bkni6i3v" path="res://source/01 - Main/02 - Entities/00 - Cryptid/_Cryptid.gd" id="1_4l88x"]
-[ext_resource type="Script" uid="uid://cpqxbypr2mxug" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/_CryptidFSM.gd" id="2_wglnx"]
+[ext_resource type="Script" uid="uid://cpqxbypr2mxug" path="res://source/01 - Main/02 - Entities/00 - Cryptid/_CryptidFSM.gd" id="2_wglnx"]
 [ext_resource type="Script" uid="uid://b1qu2lrmmwdoo" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/Movement.gd" id="3_unaj7"]
 [ext_resource type="Script" uid="uid://d1cclf7ckdv1y" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/Hunger.gd" id="4_o7kha"]
 [ext_resource type="Script" uid="uid://duhgxow6a1h2q" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/Happiness.gd" id="5_dm4q3"]
 [ext_resource type="Script" uid="uid://wtp8cnc1ftp7" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/Subtype.gd" id="5_o7kha"]
-[ext_resource type="Script" uid="uid://bhvopf4n2tq2s" path="res://source/01 - Main/02 - Entities/00 - Cryptid/ConceptFSM.gd" id="6_dm4q3"]
+[ext_resource type="Script" uid="uid://bhvopf4n2tq2s" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/ConceptFSM.gd" id="6_dm4q3"]
 [ext_resource type="Script" uid="uid://df02wjoyni16q" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/Concept.gd" id="6_f6ol5"]
 [ext_resource type="Texture2D" uid="uid://iwxc6pn28n3e" path="res://assets/03 - Entities/Cryptid/Essence.png" id="7_unaj7"]
-[ext_resource type="Script" uid="uid://b3nkvnm85tkqp" path="res://source/01 - Main/02 - Entities/00 - Cryptid/Health.gd" id="9_f6ol5"]
+[ext_resource type="Script" uid="uid://b3nkvnm85tkqp" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/Health.gd" id="9_f6ol5"]
 
 [sub_resource type="Animation" id="Animation_unaj7"]
 length = 0.001

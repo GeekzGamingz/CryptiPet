@@ -1,7 +1,7 @@
 extends Node2D
 #------------------------------------------------------------------------------#
 # Variables
-var is_dissolving: bool = true
+var is_dissolving: bool = false
 # OnReady Variables
 @onready var merchant: Sprite2D = $Merchant/Merchant
 #------------------------------------------------------------------------------#
@@ -10,6 +10,9 @@ var is_dissolving: bool = true
 func _process(delta: float) -> void: if is_dissolving: dissolve(delta, true)
 #------------------------------------------------------------------------------#
 # Signaled Functions
+# Appearance Timeout
+func _on_appearance_timeout() -> void: is_dissolving = true
+# Tree Exited
 func _on_tree_exited() -> void:
 	var merchant_shader: ShaderMaterial = merchant.material
 	merchant_shader.set_shader_parameter("progress", 1)
