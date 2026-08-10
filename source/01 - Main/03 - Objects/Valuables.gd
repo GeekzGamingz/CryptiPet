@@ -30,5 +30,5 @@ var textures: Dictionary = {
 # Signaled Functions
 # On Button Up
 func _on_button_up() -> void:
-	Globals.CURRENCY += value
+	Shop.CURRENCY += value
 	queue_free()

@@ -41,7 +41,7 @@ func _ready() -> void:
 	spookivice.buttons.connect("minus_released", alter_bet.bind("Decrease", false))
 	spookivice.buttons.connect("plus_pressed", alter_bet.bind("Increase", true))
 	spookivice.buttons.connect("plus_released", alter_bet.bind("Increase", false))
-	Globals.currency_changed.connect(func(_amount): update_bet())
+	Shop.currency_changed.connect(func(_amount): update_bet())
 	# Initial Roll
 	var initial_roll = await roll_dice()
 	last_result = initial_roll[0]
@@ -52,7 +52,7 @@ func _ready() -> void:
 func _on_increment_timeout() -> void:
 	# Update Bet
 	if bet_increase:
-		if current_bet < Globals.CURRENCY && current_bet < max_bet: current_bet += 1
+		if current_bet < Shop.CURRENCY && current_bet < max_bet: current_bet += 1
 	elif bet_decrease && current_bet > 1: current_bet -= 1
 	update_bet()
 	# Track Held Time
@@ -109,7 +109,7 @@ func show_result(result) -> void:
 # Compare Results
 func compare_results(guess: String) -> void:
 	# Currency Validation
-	if Globals.CURRENCY <= 0:
+	if Shop.CURRENCY <= 0:
 		spookivice.notifier.add_message(
 			"[color=e92719]You Are [pulse]Bankrupt[/pulse]!![/color]", 2.5, false
 		)
@@ -141,18 +141,18 @@ func show_outcome(outcome: String, doubles: bool):
 	match(outcome):
 		"Win":
 			spookivice.top_screen.texture = _TONGUE
-			if doubles: Globals.CURRENCY += current_bet * 2
-			else: Globals.CURRENCY += current_bet
+			if doubles: Shop.CURRENCY += current_bet * 2
+			else: Shop.CURRENCY += current_bet
 			outcome_string = "[rainbow][wave]You Won![/wave][/rainbow]"
 		"Match":
 			spookivice.top_screen.texture = _TONGUE
-			if doubles: Globals.CURRENCY += current_bet
-			else: Globals.CURRENCY += floor(current_bet * 0.5)
+			if doubles: Shop.CURRENCY += current_bet
+			else: Shop.CURRENCY += floor(current_bet * 0.5)
 			outcome_string = "[color=458f58][pulse]You Matched![/pulse][/color]"
 		"Loss":
 			spookivice.top_screen.texture = _BITE
-			Globals.CURRENCY -= current_bet
-			if Globals.CURRENCY <= 0: Globals.CURRENCY = 0
+			Shop.CURRENCY -= current_bet
+			if Shop.CURRENCY <= 0: Shop.CURRENCY = 0
 			outcome_string = "[color=e92719][pulse]You Lost![/pulse][/color]"
 			wait_time = 1.7
 	spookivice.top_screen.texture.current_frame = 0
@@ -164,9 +164,9 @@ func show_outcome(outcome: String, doubles: bool):
 	update_bet()
 # Update Bet Display
 func update_bet() -> void:
-	var min_bet: int = 1 if Globals.CURRENCY > 0 else 0
-	current_bet = clampi(current_bet, min_bet, min(Globals.CURRENCY, max_bet))
-	amount_label.text = str(current_bet, "/", min(Globals.CURRENCY, 999))
+	var min_bet: int = 1 if Shop.CURRENCY > 0 else 0
+	current_bet = clampi(current_bet, min_bet, min(Shop.CURRENCY, max_bet))
+	amount_label.text = str(current_bet, "/", min(Shop.CURRENCY, 999))
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
 func alter_bet(increment, is_pressed) -> void:
