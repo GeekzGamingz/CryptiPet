@@ -1,6 +1,7 @@
 extends Node2D
 #------------------------------------------------------------------------------#
 # Variables
+var path_chosen: bool = false
 # Exported Variables
 @export var current_path: String
 # Enumerations
@@ -22,7 +23,7 @@ func match_glimpse():
 func match_revealed():
 	if current_path != "": cryptid.sprite_base.texture = Textures.CRYPTIDS[current_path]
 ## Updates the current_path of the [Cryptid].
-func update_path(): 
+func update_path(): if !path_chosen:
 	# Check Consumed Food
 	var consumed: Array = []
 	for food in Food.EATEN:

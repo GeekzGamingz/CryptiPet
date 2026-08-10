@@ -22,6 +22,7 @@ var time_transitioning: bool = false
 	set(new_stage):
 		stage = new_stage
 		print("Concept: ", new_stage)
+		if new_stage == "Glimpse": subtype.path_chosen = true
 # OnReady Variables
 # Local Nodes
 @onready var cryptid: Cryptid = $"../.."
@@ -49,7 +50,6 @@ func _on_morph_timeout() -> void:
 		"Rumor": spookivice.notifier.add_message("They caught a Glimpse! Let them live?", INF, true)
 		"Glimpse": spookivice.notifier.add_message("It's about to be Revealed! Make it so?", INF, true)
 		"Revealed": spookivice.notifier.add_message("Allow your Cryptid to be Manifested?", INF, true)
-	if spookivice.top_screen.time == "Day": spookivice.top_screen.orphanage.switch_time("Night")
 #------------------------------------------------------------------------------#
 func metamorph():
 	if spookivice.outputs.waiting:

@@ -10,15 +10,17 @@ extends TextureRect
 @export var menu_container: HBoxContainer
 ## Points to the Title [RichTextLabel]
 @export var title: RichTextLabel
+## Points to the Level [Node2d].
+@export var level: Node2D
 # Exported Enumerations
 ## Sets the [enum location] of the player's [Cryptid] to the [Texture2D];[br]
 ## Depends on the [enum time].[br][br]
 ## Default = "Off"
 @export_enum("Off", "Graveyard") var location = "Off":
 	set(new_location):
+		location = new_location
 		if new_location == "Off": tab_container.hide() 
 		else: tab_container.show()
-		location = new_location
 		update_location()
 ## Sets the [enum time] of the player's [enum location].
 @export_enum("Day", "Night") var time = "Night":
@@ -69,8 +71,16 @@ func change_focus(direction: String) -> void:
 #------------------------------------------------------------------------------#
 # Custom Functions
 func update_location() -> void:
+	var old_objects = level.get_node_or_null("Objects")
+	if old_objects != null:
+		level.remove_child(old_objects)
+		old_objects.free()
 	if location == "Off": texture = Locations.BACKGROUNDS[location]
 	else: texture = Locations.BACKGROUNDS[str("%s_%s" % [location, time])]
 	if spookivice != null:
-		if !location == "Off":
-			spookivice.notifier.add_message("[%s] at [%s]" % [location, time], 2.5, false)
+		var level_scene = Locations.OBJECTS["Empty"].instantiate()
+		if location != "Off":
+			if time != "Day": level_scene = Locations.OBJECTS[location].instantiate()
+		level.add_child(level_scene)
+		level_scene.name = "Objects"
+		spookivice.notifier.add_message("[%s] at [%s]" % [location, time], 2.5, false)

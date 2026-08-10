@@ -68,22 +68,24 @@ func state_enter(new_state, old_state):
 			spookivice.texture_player.play("alert")
 			spookivice.notifier.add_message("Powering [On]", 2.5, true)
 		states.idle:
-			outputs.orphanage.awaken()
+			outputs.top_screen.location = Locations.LOCATION
+			outputs.top_screen.button_time.button_pressed = false
 			outputs.bottom_screen.texture = outputs.bottom_screen._BOTTOM_ON
 		states.waiting:
 			outputs.disable_buttons(true)
 			outputs.disable_choice(false)
 			spookivice.texture_player.play("alert")
 		states.food_select:
+			outputs.top_screen.button_time.button_pressed = true
 			outputs.top_screen.texture = Food.NOTEBOOK
 			outputs.bottom_screen.texture = Food.NOTEBOOK_BOTTOM
 			outputs.top_screen.menu_container.hide()
 			outputs.top_screen.info.show()
 			outputs.disable_menu(true)
-			outputs.orphanage.sleep()
 			outputs.bottom_screen.scroll_container.show()
 			emit_signal("start_food_select")
 		states.game_select:
+			outputs.top_screen.button_time.button_pressed = true
 			outputs.top_screen.menu_container.hide()
 			outputs.disable_menu(true)
 			outputs.bottom_screen.scroll_container.show()

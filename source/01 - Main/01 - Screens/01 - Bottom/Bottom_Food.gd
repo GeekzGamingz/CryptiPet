@@ -41,7 +41,6 @@ func cross_pressed() -> void:
 	if [spooki_state.food_select].has(bottom_screen.spooki_fsm.state):
 		spawn_food(false)
 		bottom_screen.spookivice.outputs.food_select = false
-		print("Got here")
 # Circle Pressed
 func circle_pressed() -> void:
 	var spooki_state = bottom_screen.spooki_fsm.states
