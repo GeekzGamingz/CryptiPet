@@ -16,8 +16,12 @@ func _ready() -> void:
 func _on_toggled(toggled_on: bool) -> void:
 	top_screen.time = "Day" if toggled_on else "Night"
 	match(top_screen.time):
-		"Day": emit_signal("switch_time", "Day")
-		"Night": emit_signal("switch_time", "Night")
+		"Day":
+			top_screen.spookivice.outputs.bartering = true
+			emit_signal("switch_time", "Day")
+		"Night":
+			top_screen.spookivice.outputs.bartering = false
+			emit_signal("switch_time", "Night")
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
 func circle_pressed() -> void:

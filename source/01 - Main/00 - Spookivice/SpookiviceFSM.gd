@@ -18,9 +18,10 @@ func _ready() -> void:
 	state_add("powering_on")
 	state_add("idle")
 	state_add("waiting")
+	state_add("food_select")
+	state_add("bartering")
 	state_add("game_select")
 	state_add("game_active")
-	state_add("food_select")
 	state_add("powering_off")
 	state_add("off")
 	call_deferred("state_set", states.standby)
@@ -43,12 +44,14 @@ func transitions(delta):
 			if outputs.waiting: return states.waiting
 			if outputs.game_select: return states.game_select
 			if outputs.food_select: return states.food_select
+			if outputs.bartering: return states.bartering
 		states.waiting:
 			if !outputs.powered_on: return states.powering_off
 			if !outputs.waiting: return states.idle
 		states.food_select:
 			if !outputs.powered_on: return states.powering_off
 			if !outputs.food_select: return states.idle
+		states.bartering: if !outputs.bartering: return states.idle
 		states.game_select:
 			if !outputs.powered_on: return states.powering_off
 			if !outputs.game_select: return states.idle
