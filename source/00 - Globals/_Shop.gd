@@ -2,6 +2,7 @@ extends Node
 #------------------------------------------------------------------------------#
 # Global Constants
 const OBJECTS = preload("uid://b1a3o0gc63sy4")
+const SLOT = preload("uid://dh65x84kel2fh")
 #------------------------------------------------------------------------------#
 # Global Signals
 # Currency Changed

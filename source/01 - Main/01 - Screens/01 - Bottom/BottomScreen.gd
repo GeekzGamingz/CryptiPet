@@ -42,17 +42,19 @@ func _on_left_button_up(source: String = "Bottom") -> void:
 	var states = spooki_fsm.states
 	if [states.idle].has(spooki_fsm.state) && source != "Main": switch_tabs("Previous")
 	elif [
+		states.food_select,
+		states.bartering,
 		states.game_select,
-		states.game_active,
-		states.food_select
+		states.game_active
 	].has(spooki_fsm.state): select_slot("Previous")
 func _on_right_button_up(source: String = "Bottom") -> void:
 	var states = spooki_fsm.states
 	if [spooki_fsm.states.idle].has(spooki_fsm.state) && source != "Main": switch_tabs("Next")
 	elif [
+		states.food_select,
+		states.bartering,
 		states.game_select,
-		states.game_active,
-		states.food_select
+		states.game_active
 	].has(spooki_fsm.state): select_slot("Next")
 #------------------------------------------------------------------------------#
 # Custom Functions

@@ -2,8 +2,9 @@
 extends StateMachine
 #------------------------------------------------------------------------------#
 # Signals
-signal start_game_select
 signal start_food_select
+signal start_shop_select
+signal start_game_select
 #------------------------------------------------------------------------------#
 # Variables
 # OnReady Variables
@@ -87,6 +88,10 @@ func state_enter(new_state, old_state):
 			outputs.disable_menu(true)
 			outputs.bottom_screen.scroll_container.show()
 			emit_signal("start_food_select")
+		states.bartering:
+			outputs.top_screen.info.show()
+			outputs.bottom_screen.scroll_container.show()
+			emit_signal("start_shop_select")
 		states.game_select:
 			outputs.top_screen.button_time.button_pressed = true
 			outputs.top_screen.menu_container.hide()
@@ -121,6 +126,9 @@ func state_exit(old_state, new_state):
 		states.waiting:
 			outputs.disable_buttons(false)
 			spookivice.texture_player.play("standby")
+		states.bartering:
+			outputs.top_screen.info.hide()
+			outputs.bottom_screen.scroll_container.hide()
 		states.game_select, states.food_select:
 			outputs.top_screen.menu_container.show()
 			outputs.top_screen.info.hide()
