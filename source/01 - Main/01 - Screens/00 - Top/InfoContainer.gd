@@ -3,10 +3,19 @@ extends MarginContainer
 # Variables
 # Exported Variables
 @export_multiline var full_string: String
-# OnReady Variables
-@onready var item: TextureRect = $VBoxContainer/HBoxContainer/PanelContainer/Item
-@onready var text_top: RichTextLabel = $VBoxContainer/HBoxContainer/TextTop
-@onready var text_bottom: RichTextLabel = $VBoxContainer/TextBottom
+# Exported Nodes
+@export var item: TextureRect
+@export var text_top: RichTextLabel
+@export var text_bottom: RichTextLabel
+@export var shop_container: PanelContainer
+@export var title_shop: RichTextLabel
+@export var text_shop: RichTextLabel
+#------------------------------------------------------------------------------#
+# Signaled Functions
+func _on_shop_visibility_changed() -> void:
+	if shop_container != null:
+		var value: int = 7 if shop_container.visible == true else 12
+		add_theme_constant_override("margin_left", value)
 #------------------------------------------------------------------------------#
 # Custom Functions
 func wrap_text(text: String) -> void:

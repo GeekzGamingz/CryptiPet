@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://dh65x84kel2fh"]
 
 [ext_resource type="Texture2D" uid="uid://ccq0wpkeppief" path="res://assets/01 - Spookivice/02 - Screens/01 - Bottom/01 - Menu/Screen_Empty_Slot.png" id="1_10dm6"]
+[ext_resource type="Script" uid="uid://cu2elwhlx0t82" path="res://source/01 - Main/01 - Screens/01 - Bottom/01 - Slots/Slot_Shop.gd" id="2_10dm6"]
 [ext_resource type="Texture2D" uid="uid://b10bnbldg2sf3" path="res://assets/01 - Spookivice/02 - Screens/00 - Top/01 - Menu/Icon_Brackets.png" id="3_cald8"]
 
 [node name="Slot" type="TextureRect" unique_id=1820355747]
 texture = ExtResource("1_10dm6")
+script = ExtResource("2_10dm6")
 
 [node name="SlotButton" type="TextureButton" parent="." unique_id=775790066]
 layout_mode = 1
@@ -21,3 +23,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_focused = ExtResource("3_cald8")
 stretch_mode = 3
+
+[connection signal="button_up" from="SlotButton" to="." method="_on_slot_button_up"]
+[connection signal="focus_entered" from="SlotButton" to="." method="_on_button_focus_entered"]

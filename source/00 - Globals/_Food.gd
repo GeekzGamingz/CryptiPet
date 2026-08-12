@@ -18,6 +18,16 @@ var ICONS: Dictionary = {
 	"Meat": preload("uid://nud065t7kmbx"),
 	"Valuables": preload("uid://fjskg7j0pf8h")
 }
+var ICONS_DISABLED: Dictionary = {
+	"Blood": preload("uid://cneck7t4ddu68"),
+	"Book": preload("uid://bohn0nks0gfsa"),
+	"Brains": preload("uid://d4iesmc2gj0xp"),
+	"Energy": preload("uid://bw3llgibtb0ax"),
+	"Goat": preload("uid://b3f03qjapjghc"),
+	"Leaf": preload("uid://blshmj5xjyrxv"),
+	"Meat": preload("uid://dl2oopac7df7r"),
+	"Valuables": preload("uid://bf3vr6ewq2dny"),
+}
 # Food Titles
 var TITLES: Dictionary = {
 	"Blood": "[wave][color=3e1c2b]Blood[/color][/wave]",

@@ -85,11 +85,14 @@ func state_enter(new_state, old_state):
 			outputs.bottom_screen.texture = Food.NOTEBOOK_BOTTOM
 			outputs.top_screen.menu_container.hide()
 			outputs.top_screen.info.show()
+			outputs.top_screen.info.text_top.show()
 			outputs.disable_menu(true)
 			outputs.bottom_screen.scroll_container.show()
 			emit_signal("start_food_select")
 		states.bartering:
 			outputs.top_screen.info.show()
+			outputs.top_screen.info.shop_container.show()
+			outputs.top_screen.info.text_bottom.text = ""
 			outputs.bottom_screen.scroll_container.show()
 			emit_signal("start_shop_select")
 		states.game_select:

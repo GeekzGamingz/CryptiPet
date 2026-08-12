@@ -125,7 +125,7 @@ text = "Title Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="InfoContainer" type="MarginContainer" parent="." unique_id=2142795935]
+[node name="InfoContainer" type="MarginContainer" parent="." unique_id=2142795935 node_paths=PackedStringArray("item", "text_top", "text_bottom", "shop_container", "title_shop", "text_shop")]
 visible = false
 layout_mode = 0
 offset_left = 85.0
@@ -138,6 +138,12 @@ theme_override_constants/margin_right = 7
 theme_override_constants/margin_bottom = 7
 script = ExtResource("21_uadxh")
 full_string = "This is placeholder test so that I can format the Information Container to better suit the needs of the Spookivice."
+item = NodePath("VBoxContainer/HBoxContainer/PanelContainer/Item")
+text_top = NodePath("VBoxContainer/HBoxContainer/TopTab/TextTop")
+text_bottom = NodePath("VBoxContainer/TextBottom")
+shop_container = NodePath("VBoxContainer/HBoxContainer/TopTab/ShopContainer")
+title_shop = NodePath("VBoxContainer/HBoxContainer/TopTab/ShopContainer/VBoxContainer/TitleShop")
+text_shop = NodePath("VBoxContainer/HBoxContainer/TopTab/ShopContainer/VBoxContainer/TextShop")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="InfoContainer" unique_id=345709633]
 layout_mode = 2
@@ -157,7 +163,14 @@ offset_transform_enabled = true
 offset_transform_scale = Vector2(1.25, 1.25)
 texture = ExtResource("21_888fu")
 
-[node name="TextTop" type="RichTextLabel" parent="InfoContainer/VBoxContainer/HBoxContainer" unique_id=414972417]
+[node name="TopTab" type="TabContainer" parent="InfoContainer/VBoxContainer/HBoxContainer" unique_id=327600352]
+layout_mode = 2
+size_flags_horizontal = 3
+current_tab = 1
+tabs_visible = false
+
+[node name="TextTop" type="RichTextLabel" parent="InfoContainer/VBoxContainer/HBoxContainer/TopTab" unique_id=414972417]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0.24313726, 0.10980392, 0.16862746, 1)
@@ -165,8 +178,38 @@ theme_override_colors/font_shadow_color = Color(0.7647059, 0.7176471, 0.5921569,
 theme_override_constants/line_separation = -1
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
-text = "This is placeholder test so that I can format the Information Container to better suit the needs of the Spookivice."
+text = "This is placeholder text so that I can format the Information Container to better suit the needs of the Spookivice."
 scroll_active = false
+metadata/_tab_index = 0
+
+[node name="ShopContainer" type="PanelContainer" parent="InfoContainer/VBoxContainer/HBoxContainer/TopTab" unique_id=102092094]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InfoContainer/VBoxContainer/HBoxContainer/TopTab/ShopContainer" unique_id=1888013552]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TitleShop" type="RichTextLabel" parent="InfoContainer/VBoxContainer/HBoxContainer/TopTab/ShopContainer/VBoxContainer" unique_id=1715864036]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "Title"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextShop" type="RichTextLabel" parent="InfoContainer/VBoxContainer/HBoxContainer/TopTab/ShopContainer/VBoxContainer" unique_id=1116403928]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "Cost: #c | Owned: #"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextBottom" type="RichTextLabel" parent="InfoContainer/VBoxContainer" unique_id=2100688797]
 layout_mode = 2
@@ -202,3 +245,4 @@ top_screen = NodePath("..")
 [connection signal="button_up" from="TabContainer/MenuContainer/Feed" to="TabContainer/MenuContainer/Feed" method="_on_button_up"]
 [connection signal="toggled" from="TabContainer/MenuContainer/Time" to="TabContainer/MenuContainer/Time" method="_on_toggled"]
 [connection signal="button_up" from="TabContainer/MenuContainer/Play" to="TabContainer/MenuContainer/Play" method="_on_button_up"]
+[connection signal="visibility_changed" from="InfoContainer/VBoxContainer/HBoxContainer/TopTab/ShopContainer" to="InfoContainer" method="_on_shop_visibility_changed"]
