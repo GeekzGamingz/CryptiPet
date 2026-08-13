@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf3vr6ewq2dny"
-path="res://.godot/imported/Valuables.png-c51d089ea5a2d597599a421b1e2ea9d2.ctex"
+uid="uid://ccasjoa0ffofo"
+path="res://.godot/imported/Cleanse_Locked.png-7fb19f66e52f2f539a6b008758aecb8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/04 - Objects/00 - Food/00 - Disabled/Valuables.png"
-dest_files=["res://.godot/imported/Valuables.png-c51d089ea5a2d597599a421b1e2ea9d2.ctex"]
+source_file="res://assets/04 - Objects/03 - Potions/00 - Locked/Cleanse_Locked.png"
+dest_files=["res://.godot/imported/Cleanse_Locked.png-7fb19f66e52f2f539a6b008758aecb8a.ctex"]
 
 [params]
 

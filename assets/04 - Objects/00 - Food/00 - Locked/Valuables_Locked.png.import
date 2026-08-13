@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cneck7t4ddu68"
-path="res://.godot/imported/Blood_Disabled.png-134ad162e620acde436e0e5e7f9d90f5.ctex"
+uid="uid://bf3vr6ewq2dny"
+path="res://.godot/imported/Valuables_Locked.png-f6b9578bf3ea278ee15ddaf9e990789c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/04 - Objects/00 - Food/00 - Disabled/Blood_Disabled.png"
-dest_files=["res://.godot/imported/Blood_Disabled.png-134ad162e620acde436e0e5e7f9d90f5.ctex"]
+source_file="res://assets/04 - Objects/00 - Food/00 - Locked/Valuables_Locked.png"
+dest_files=["res://.godot/imported/Valuables_Locked.png-f6b9578bf3ea278ee15ddaf9e990789c.ctex"]
 
 [params]
 

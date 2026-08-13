@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blshmj5xjyrxv"
-path="res://.godot/imported/Leaf_Disabled.png-32c306b69f953ac8dd54bd7d95af50ec.ctex"
+uid="uid://nwcq41qyhuml"
+path="res://.godot/imported/Antidote.png-e45c99ab7520fbda3382c09e7d8a6d7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/04 - Objects/00 - Food/00 - Disabled/Leaf_Disabled.png"
-dest_files=["res://.godot/imported/Leaf_Disabled.png-32c306b69f953ac8dd54bd7d95af50ec.ctex"]
+source_file="res://assets/04 - Objects/03 - Potions/Antidote.png"
+dest_files=["res://.godot/imported/Antidote.png-e45c99ab7520fbda3382c09e7d8a6d7a.ctex"]
 
 [params]
 

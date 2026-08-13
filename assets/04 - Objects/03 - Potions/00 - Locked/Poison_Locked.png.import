@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4iesmc2gj0xp"
-path="res://.godot/imported/Brains_Disabled.png-90d07a0a5e62de90539abb15eba08971.ctex"
+uid="uid://bbwqab0tw2s04"
+path="res://.godot/imported/Poison_Locked.png-6fb4b6c22dc5cd6292eea4d52199e4e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/04 - Objects/00 - Food/00 - Disabled/Brains_Disabled.png"
-dest_files=["res://.godot/imported/Brains_Disabled.png-90d07a0a5e62de90539abb15eba08971.ctex"]
+source_file="res://assets/04 - Objects/03 - Potions/00 - Locked/Poison_Locked.png"
+dest_files=["res://.godot/imported/Poison_Locked.png-6fb4b6c22dc5cd6292eea4d52199e4e2.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw3llgibtb0ax"
-path="res://.godot/imported/Energy_Disabled.png-e103900437c228bc70e72cb9e069a359.ctex"
+uid="uid://cxo7l37ghs4re"
+path="res://.godot/imported/Cleanse.png-a1450888e9fe2988074d2cc9f3ac2af0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/04 - Objects/00 - Food/00 - Disabled/Energy_Disabled.png"
-dest_files=["res://.godot/imported/Energy_Disabled.png-e103900437c228bc70e72cb9e069a359.ctex"]
+source_file="res://assets/04 - Objects/03 - Potions/Cleanse.png"
+dest_files=["res://.godot/imported/Cleanse.png-a1450888e9fe2988074d2cc9f3ac2af0.ctex"]
 
 [params]
 

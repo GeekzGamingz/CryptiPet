@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl2oopac7df7r"
-path="res://.godot/imported/Meat_Disabled.png-0e47562c62413dfec0d443e27006c828.ctex"
+uid="uid://dxk5id14t7w8x"
+path="res://.godot/imported/Hate_Locked.png-858450c8e5305a90354ca77f7afdcdf4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/04 - Objects/00 - Food/00 - Disabled/Meat_Disabled.png"
-dest_files=["res://.godot/imported/Meat_Disabled.png-0e47562c62413dfec0d443e27006c828.ctex"]
+source_file="res://assets/04 - Objects/03 - Potions/00 - Locked/Hate_Locked.png"
+dest_files=["res://.godot/imported/Hate_Locked.png-858450c8e5305a90354ca77f7afdcdf4.ctex"]
 
 [params]
 

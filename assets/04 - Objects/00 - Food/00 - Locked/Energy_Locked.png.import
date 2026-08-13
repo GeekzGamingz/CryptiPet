@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3f03qjapjghc"
-path="res://.godot/imported/Goat_Disabled.png-dcbdf89f2d3e6dc6dd9505a6f2ace488.ctex"
+uid="uid://bw3llgibtb0ax"
+path="res://.godot/imported/Energy_Locked.png-28ab16bb6a8d8b315aed57e642721dd7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/04 - Objects/00 - Food/00 - Disabled/Goat_Disabled.png"
-dest_files=["res://.godot/imported/Goat_Disabled.png-dcbdf89f2d3e6dc6dd9505a6f2ace488.ctex"]
+source_file="res://assets/04 - Objects/00 - Food/00 - Locked/Energy_Locked.png"
+dest_files=["res://.godot/imported/Energy_Locked.png-28ab16bb6a8d8b315aed57e642721dd7.ctex"]
 
 [params]
 

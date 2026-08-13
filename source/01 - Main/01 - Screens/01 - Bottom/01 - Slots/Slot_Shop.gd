@@ -27,7 +27,7 @@ func _on_button_focus_entered() -> void:
 	)
 	top_screen.info.item.texture = Shop.ICONS[item]
 	var item_data: Array = Shop.GET_DESCRIPTION(item)
-	top_screen.info.title_shop.text = item
+	top_screen.info.title_shop.text = "[wave]%s[/wave]" % item
 	top_screen.info.text_shop.text = item_data[0]
 # On Button Up
 func _on_slot_button_up() -> void:

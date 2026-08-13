@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bohn0nks0gfsa"
-path="res://.godot/imported/Book_Disabled.png-be6965f8cffd779c97c0c287f49c2cdd.ctex"
+uid="uid://b3g821yk3e37a"
+path="res://.godot/imported/Antidote_Locked.png-cd0d24c029d0433b5bc8e2effa3a3005.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/04 - Objects/00 - Food/00 - Disabled/Book_Disabled.png"
-dest_files=["res://.godot/imported/Book_Disabled.png-be6965f8cffd779c97c0c287f49c2cdd.ctex"]
+source_file="res://assets/04 - Objects/03 - Potions/00 - Locked/Antidote_Locked.png"
+dest_files=["res://.godot/imported/Antidote_Locked.png-cd0d24c029d0433b5bc8e2effa3a3005.ctex"]
 
 [params]
 
