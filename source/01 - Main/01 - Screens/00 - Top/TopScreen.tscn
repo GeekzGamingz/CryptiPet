@@ -37,7 +37,7 @@ menu_container = NodePath("TabContainer/MenuContainer")
 title = NodePath("TabContainer/MarginContainer/TitleLabel")
 level = NodePath("Level")
 metadata/_edit_vertical_guides_ = [87.0, 194.0, 141.0]
-metadata/_edit_horizontal_guides_ = [84.0, 97.0, 180.0]
+metadata/_edit_horizontal_guides_ = [84.0, 97.0, 180.0, 112.0, 114.0]
 
 [node name="TabContainer" type="TabContainer" parent="." unique_id=65944190]
 layout_mode = 0

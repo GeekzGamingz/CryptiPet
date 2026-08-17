@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chptpbusmap0c"
-path="res://.godot/imported/Wraith.png-7b83452bb489a99336dc9c0270bdea6b.ctex"
+uid="uid://cjbldg7iq8tt3"
+path="res://.godot/imported/Vampire.png-dc0bddbd40ec71460eb337e32e5f8115.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/03 - Entities/Cryptid/01 - Revealed/01 - Spirits/Wraith.png"
-dest_files=["res://.godot/imported/Wraith.png-7b83452bb489a99336dc9c0270bdea6b.ctex"]
+source_file="res://assets/03 - Entities/00 - Cryptid/01 - Revealed/00 - Undead/Vampire.png"
+dest_files=["res://.godot/imported/Vampire.png-dc0bddbd40ec71460eb337e32e5f8115.ctex"]
 
 [params]
 

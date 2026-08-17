@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://6abp083g7rn3"]
+
+[ext_resource type="Script" uid="uid://v4d34bl5yldg" path="res://source/04 - Moodifications/Moodifier.gd" id="1_rbrmk"]
+
+[node name="Moodifier" type="Control" unique_id=576290489]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 19.0
+offset_bottom = 58.0
+script = ExtResource("1_rbrmk")
+metadata/_edit_vertical_guides_ = [19.0]
+metadata/_edit_horizontal_guides_ = [58.0]
+
+[node name="Moodifications" type="VBoxContainer" parent="." unique_id=1204702250]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2gwv2or74usf"
-path="res://.godot/imported/Mothman_Spirit.png-7361977b95b88b1cb0b1da5d1786b52a.ctex"
+uid="uid://utdjmws14eqe"
+path="res://.godot/imported/Angel.png-8bfee959cacf4fe1f2d11ea3752690e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/03 - Entities/Cryptid/01 - Revealed/01 - Spirits/Mothman_Spirit.png"
-dest_files=["res://.godot/imported/Mothman_Spirit.png-7361977b95b88b1cb0b1da5d1786b52a.ctex"]
+source_file="res://assets/03 - Entities/00 - Cryptid/01 - Revealed/01 - Spirits/Angel.png"
+dest_files=["res://.godot/imported/Angel.png-8bfee959cacf4fe1f2d11ea3752690e8.ctex"]
 
 [params]
 

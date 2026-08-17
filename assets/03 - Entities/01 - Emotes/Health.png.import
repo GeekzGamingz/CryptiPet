@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buwemwaguepmm"
-path="res://.godot/imported/Ghoul.png-4ff5bad65cf727f5f1bb80e1f05339a8.ctex"
+uid="uid://c7yl7qh6gry3e"
+path="res://.godot/imported/Health.png-94cee6d19b595e65682d6c8559e71cb6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/03 - Entities/Cryptid/01 - Revealed/00 - Undead/Ghoul.png"
-dest_files=["res://.godot/imported/Ghoul.png-4ff5bad65cf727f5f1bb80e1f05339a8.ctex"]
+source_file="res://assets/03 - Entities/01 - Emotes/Health.png"
+dest_files=["res://.godot/imported/Health.png-94cee6d19b595e65682d6c8559e71cb6.ctex"]
 
 [params]
 

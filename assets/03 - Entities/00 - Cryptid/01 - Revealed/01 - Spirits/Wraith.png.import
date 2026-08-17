@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvkvnf1fsrh6"
-path="res://.godot/imported/Balbal.png-0770dc406a183efa5c320facfa2ec3c7.ctex"
+uid="uid://chptpbusmap0c"
+path="res://.godot/imported/Wraith.png-166153af5dbb5f2ca5b8356f572b8fa2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/03 - Entities/Cryptid/01 - Revealed/00 - Undead/Balbal.png"
-dest_files=["res://.godot/imported/Balbal.png-0770dc406a183efa5c320facfa2ec3c7.ctex"]
+source_file="res://assets/03 - Entities/00 - Cryptid/01 - Revealed/01 - Spirits/Wraith.png"
+dest_files=["res://.godot/imported/Wraith.png-166153af5dbb5f2ca5b8356f572b8fa2.ctex"]
 
 [params]
 

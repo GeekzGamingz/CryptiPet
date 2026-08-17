@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhn12h3asjb3v"
-path="res://.godot/imported/Rumor.png-9c49819b8201397f3f0b7d2a774376b7.ctex"
+uid="uid://bvkvnf1fsrh6"
+path="res://.godot/imported/Balbal.png-b8e2999c4065c47b1e1868f217d2b91d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/03 - Entities/Cryptid/Rumor.png"
-dest_files=["res://.godot/imported/Rumor.png-9c49819b8201397f3f0b7d2a774376b7.ctex"]
+source_file="res://assets/03 - Entities/00 - Cryptid/01 - Revealed/00 - Undead/Balbal.png"
+dest_files=["res://.godot/imported/Balbal.png-b8e2999c4065c47b1e1868f217d2b91d.ctex"]
 
 [params]
 

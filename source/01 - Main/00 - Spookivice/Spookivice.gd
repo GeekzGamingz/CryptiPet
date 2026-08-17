@@ -18,6 +18,7 @@ var dragPoint = null
 @onready var buttons: Control = $Buttons
 @onready var toggles: Control = $Toggles
 @onready var notifier: Control = $Notifier
+@onready var moodifier: Control = $Moodifier
 @onready var texture_player: AnimationPlayer = $Players/Animations/Spookivice
 #------------------------------------------------------------------------------#
 # Functions

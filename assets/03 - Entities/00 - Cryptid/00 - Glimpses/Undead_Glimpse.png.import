@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://60vgglmh06sd"
-path="res://.godot/imported/Ghost.png-52a1902f3367febb33232d6a6ac0ab2e.ctex"
+uid="uid://oy7dvl547x2n"
+path="res://.godot/imported/Undead_Glimpse.png-7ce91a1770e0c92be5e7b329204a43c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/03 - Entities/Cryptid/01 - Revealed/01 - Spirits/Ghost.png"
-dest_files=["res://.godot/imported/Ghost.png-52a1902f3367febb33232d6a6ac0ab2e.ctex"]
+source_file="res://assets/03 - Entities/00 - Cryptid/00 - Glimpses/Undead_Glimpse.png"
+dest_files=["res://.godot/imported/Undead_Glimpse.png-7ce91a1770e0c92be5e7b329204a43c5.ctex"]
 
 [params]
 

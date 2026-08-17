@@ -17,10 +17,21 @@ extends Node2D
 	"Content",
 	"Satiated",
 	"Full"
-) var stage: String = "Satiated": 
+) var stage: int = 6: 
 	set(new_stage):
 		stage = new_stage
 		if subtype != null: subtype.update_path()
+		spookivice.moodifier.add_mood("Hunger", stage, 10)
 		print("Hunger: ", stage)
-# OnReady
+# OnReady Variables
+# Main Nodes
+@onready var spookivice: Control = get_tree().get_root().get_node("Spookivice")
+# Local Nodes
+@onready var cryptid: Cryptid = $"../.."
 @onready var subtype: Node2D = $"../Concept/Subtype"
+@onready var hunger_timer: Timer = $"../../Timers/Hunger"
+#------------------------------------------------------------------------------#
+# Signaled Functions
+func _on_hunger_timeout() -> void:
+	if stage > 0: stage -= 1
+	hunger_timer.start()

@@ -43,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://c6ckxfdca4wvh" path="res://assets/01 - Spookivice/01 - Buttons/02 - Disabled/+_Button_Disabled.png" id="35_2bnta"]
 [ext_resource type="Texture2D" uid="uid://ctr5aypxqvpha" path="res://assets/01 - Spookivice/01 - Buttons/02 - Disabled/X_Button_Disabled.png" id="38_aix3w"]
 [ext_resource type="Texture2D" uid="uid://iv3qepnaynpk" path="res://assets/01 - Spookivice/01 - Buttons/02 - Disabled/O_Button_Disabled.png" id="42_pqdx6"]
+[ext_resource type="PackedScene" uid="uid://6abp083g7rn3" path="res://source/04 - Moodifications/Moodifier.tscn" id="43_ejtk1"]
 
 [sub_resource type="Animation" id="Animation_muvn3"]
 length = 0.001
@@ -315,6 +316,13 @@ texture_normal = ExtResource("13_qmojm")
 texture_pressed = ExtResource("14_0ce43")
 texture_disabled = ExtResource("42_pqdx6")
 texture_click_mask = ExtResource("34_di5x5")
+
+[node name="Moodifier" parent="." unique_id=576290489 instance=ExtResource("43_ejtk1")]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 100.0
+offset_right = 195.0
+offset_bottom = 172.0
 
 [node name="Notifier" parent="." unique_id=313177762 instance=ExtResource("4_0ce43")]
 layout_mode = 1

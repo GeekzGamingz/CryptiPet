@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oy7dvl547x2n"
-path="res://.godot/imported/Undead_Glimpse.png-d7687f18a38d070ad0bf04e522c3889d.ctex"
+uid="uid://dhn12h3asjb3v"
+path="res://.godot/imported/Rumor.png-d3d26f1f24ec67f4de1f69efa62dd581.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/03 - Entities/Cryptid/00 - Glimpses/Undead_Glimpse.png"
-dest_files=["res://.godot/imported/Undead_Glimpse.png-d7687f18a38d070ad0bf04e522c3889d.ctex"]
+source_file="res://assets/03 - Entities/00 - Cryptid/Rumor.png"
+dest_files=["res://.godot/imported/Rumor.png-d3d26f1f24ec67f4de1f69efa62dd581.ctex"]
 
 [params]
 

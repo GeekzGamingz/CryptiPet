@@ -10,6 +10,9 @@ class_name Cryptid
 ## Stores the bool variable "Hiding"; Used for Despawning the [Cryptid]
 var hiding: bool = false
 # OnReady Variables
+# Main Nodes
+@onready var SPOOKIVICE: Control = get_tree().get_root().get_node("Spookivice")
+# Local Nodes
 # Attributes
 ## Returns the [Node2D] of the [Cryptid]'s Movement Component.
 @onready var movement: Node2D = $Scripts/Movement
@@ -34,5 +37,6 @@ var hiding: bool = false
 ## Returns the Western [RayCast2D] of the [Cryptid].
 @onready var ray_west: RayCast2D = $Raycasts/West
 # Animation Players
+## Returns the [Sprite2D] [AnimationPlayer]
 @onready var sprite_player: AnimationPlayer = $Players/Animation/Sprites
 #------------------------------------------------------------------------------#

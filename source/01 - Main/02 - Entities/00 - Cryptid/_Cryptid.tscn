@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://wtp8cnc1ftp7" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/Subtype.gd" id="5_o7kha"]
 [ext_resource type="Script" uid="uid://bhvopf4n2tq2s" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/ConceptFSM.gd" id="6_dm4q3"]
 [ext_resource type="Script" uid="uid://df02wjoyni16q" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/Concept.gd" id="6_f6ol5"]
-[ext_resource type="Texture2D" uid="uid://iwxc6pn28n3e" path="res://assets/03 - Entities/Cryptid/Essence.png" id="7_unaj7"]
+[ext_resource type="Texture2D" uid="uid://iwxc6pn28n3e" path="res://assets/03 - Entities/00 - Cryptid/Essence.png" id="7_unaj7"]
 [ext_resource type="Script" uid="uid://b3nkvnm85tkqp" path="res://source/01 - Main/02 - Entities/00 - Cryptid/01 - Scripts/Health.gd" id="9_f6ol5"]
 
 [sub_resource type="Animation" id="Animation_unaj7"]
@@ -125,7 +125,7 @@ speed = 5.0
 
 [node name="Concept" type="Node2D" parent="Scripts" unique_id=816813666]
 script = ExtResource("6_f6ol5")
-base_time = 10.0
+base_time = 60.0
 
 [node name="ConceptFSM" type="Node2D" parent="Scripts/Concept" unique_id=521450806]
 script = ExtResource("6_dm4q3")
@@ -166,6 +166,11 @@ target_position = Vector2(0, 5)
 target_position = Vector2(-7.5, 0)
 
 [node name="Timers" type="Node2D" parent="." unique_id=217649096]
+
+[node name="Hunger" type="Timer" parent="Timers" unique_id=1371981607]
+wait_time = 90.0
+one_shot = true
+autostart = true
 
 [node name="Morph" type="Timer" parent="Timers" unique_id=577512442]
 one_shot = true
@@ -217,4 +222,5 @@ uppercase = true
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_a1j8a")
 
+[connection signal="timeout" from="Timers/Hunger" to="Scripts/Hunger" method="_on_hunger_timeout"]
 [connection signal="timeout" from="Timers/Morph" to="Scripts/Concept" method="_on_morph_timeout"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bx08ihjayt0nl"
-path="res://.godot/imported/Mothman_Undead.png-5a13faaed14980e93089cc685d45c953.ctex"
+uid="uid://de4bgy8o25js8"
+path="res://.godot/imported/Mummy.png-69879fdb06c74f39ee92c3ff56029ded.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/03 - Entities/Cryptid/01 - Revealed/00 - Undead/Mothman_Undead.png"
-dest_files=["res://.godot/imported/Mothman_Undead.png-5a13faaed14980e93089cc685d45c953.ctex"]
+source_file="res://assets/03 - Entities/00 - Cryptid/01 - Revealed/00 - Undead/Mummy.png"
+dest_files=["res://.godot/imported/Mummy.png-69879fdb06c74f39ee92c3ff56029ded.ctex"]
 
 [params]
 

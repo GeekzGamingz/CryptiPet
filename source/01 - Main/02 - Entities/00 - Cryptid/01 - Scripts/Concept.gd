@@ -24,11 +24,12 @@ var time_transitioning: bool = false
 		print("Concept: ", new_stage)
 		if new_stage == "Glimpse": subtype.path_chosen = true
 # OnReady Variables
+# Main Nodes
+@onready var spookivice: Control = get_tree().get_root().get_node("Spookivice")
 # Local Nodes
 @onready var cryptid: Cryptid = $"../.."
 @onready var subtype: Node2D = $Subtype
 @onready var morph_timer: Timer = cryptid.get_node("Timers/Morph")
-@onready var spookivice: Control = get_tree().get_root().get_node("Spookivice")
 #------------------------------------------------------------------------------#
 # Functions
 # Ready Functions
