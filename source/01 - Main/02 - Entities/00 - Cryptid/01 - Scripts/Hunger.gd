@@ -19,10 +19,9 @@ extends Node2D
 	"Full"
 ) var stage: int = 6: 
 	set(new_stage):
-		stage = new_stage
-		if subtype != null: subtype.update_path()
-		spookivice.moodifier.add_mood("Hunger", stage, 10)
-		print("Hunger: ", stage)
+		var increase: bool = true if new_stage > stage else false
+		stage = max(new_stage, 0)
+		if is_node_ready(): side_effects(increase)
 # OnReady Variables
 # Main Nodes
 @onready var spookivice: Control = get_tree().get_root().get_node("Spookivice")
@@ -34,4 +33,13 @@ extends Node2D
 # Signaled Functions
 func _on_hunger_timeout() -> void:
 	if stage > 0: stage -= 1
+	else: cryptid.health.hunger_sickness = true # Ill if Starving
+	if stage <= 2: cryptid.happiness.stage -= 1 # At Famished or Below
 	hunger_timer.start()
+#------------------------------------------------------------------------------#
+# Custom Functions
+func side_effects(increase):
+	if subtype != null: subtype.update_path()
+	if spookivice != null: spookivice.moodifier.add_mood("Hunger", stage, 10)
+	if increase: cryptid.health.hunger_sickness = false
+	print("Hunger: ", stage)

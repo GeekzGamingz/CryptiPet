@@ -135,10 +135,10 @@ script = ExtResource("5_o7kha")
 
 [node name="Happiness" type="Node2D" parent="Scripts" unique_id=1773535689]
 script = ExtResource("5_dm4q3")
-stage = 0
 
 [node name="Hunger" type="Node2D" parent="Scripts" unique_id=2143901435]
 script = ExtResource("4_o7kha")
+stage = 2
 
 [node name="Health" type="Node2D" parent="Scripts" unique_id=288772941]
 script = ExtResource("9_f6ol5")

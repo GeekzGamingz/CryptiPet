@@ -9,7 +9,7 @@ const MOODIFICATION = preload("uid://rfx52shse0d1")
 #------------------------------------------------------------------------------#
 # Custom Functions
 # Add Mood
-func add_mood(mood, stage, timeout):
+func add_mood(mood, stage, timeout) -> void:
 	for moodification in moodifications.get_children():
 		if moodification.mood == mood: moodification.queue_free()
 	var mood_scene = MOODIFICATION.instantiate()
@@ -19,5 +19,5 @@ func add_mood(mood, stage, timeout):
 	mood_scene.free_timer.wait_time = timeout
 	mood_scene.free_timer.start()
 # Clear Moods
-func clear_moods():
-	for mood in moodifications: mood.queue_free()
+func clear_moods() -> void:
+	for mood in moodifications.get_children(): mood.queue_free()

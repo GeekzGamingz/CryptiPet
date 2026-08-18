@@ -52,7 +52,9 @@ func transitions(delta):
 		states.food_select:
 			if !outputs.powered_on: return states.powering_off
 			if !outputs.food_select: return states.idle
-		states.bartering: if !outputs.bartering: return states.idle
+		states.bartering:
+			if !outputs.powered_on: return states.powering_off
+			if !outputs.bartering: return states.idle
 		states.game_select:
 			if !outputs.powered_on: return states.powering_off
 			if !outputs.game_select: return states.idle
@@ -94,6 +96,7 @@ func state_enter(new_state, old_state):
 			outputs.top_screen.info.shop_container.show()
 			outputs.top_screen.info.text_bottom.text = ""
 			outputs.bottom_screen.scroll_container.show()
+			spookivice.moodifier.clear_moods()
 			emit_signal("start_shop_select")
 		states.game_select:
 			outputs.top_screen.button_time.button_pressed = true
@@ -101,6 +104,7 @@ func state_enter(new_state, old_state):
 			outputs.disable_menu(true)
 			outputs.bottom_screen.scroll_container.show()
 			outputs.orphanage.sleep()
+			spookivice.moodifier.clear_moods()
 			emit_signal("start_game_select")
 		states.game_active:
 			outputs.top_screen.menu_container.hide()
@@ -113,6 +117,7 @@ func state_enter(new_state, old_state):
 		states.off:
 			outputs.top_screen.location = "Off"
 			outputs.bottom_screen.phase = "Off"
+			spookivice.moodifier.clear_moods()
 			await get_tree().create_timer(1).timeout
 			get_tree().quit()
 	state_label.text = str(states.keys()[new_state])

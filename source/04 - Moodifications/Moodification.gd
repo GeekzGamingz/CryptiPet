@@ -19,8 +19,9 @@ const HUNGER = preload("uid://dm2gdchbnnort")
 func _on_timer_timeout() -> void: queue_free()
 #------------------------------------------------------------------------------#
 # Custom Functions
-func switch_texture(new_mood):
+func switch_texture(new_mood) -> void:
 	match(new_mood):
 		"Happiness": mood_sprite.texture = HAPPY
 		"Health": mood_sprite.texture = HEALTH
 		"Hunger": mood_sprite.texture = HUNGER
+	mood_sprite.hframes = floor(mood_sprite.texture.get_width() / 18.0)
