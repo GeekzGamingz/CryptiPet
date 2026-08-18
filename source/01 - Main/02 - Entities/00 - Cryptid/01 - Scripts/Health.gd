@@ -21,10 +21,13 @@ var hunger_sickness: bool = false:
 # Main Nodes
 @onready var spookivice: Control = get_tree().get_root().get_node("Spookivice")
 # Local Nodes
+@onready var cryptid: Cryptid = $"../.."
 @onready var subtype: Node2D = $"../Concept/Subtype"
 #------------------------------------------------------------------------------#
 # Custom Functions
 func side_effects() -> void:
-	if subtype != null: subtype.update_path()
+	if cryptid != null:
+		subtype.update_path()
+		if !fit: cryptid.happiness.stage -= 1
 	if spookivice != null: spookivice.moodifier.add_mood("Health", fit, 10)
 	print("Fit: ", fit)

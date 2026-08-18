@@ -153,6 +153,7 @@ func show_outcome(outcome: String, doubles: bool):
 			spookivice.top_screen.texture = _BITE
 			Shop.CURRENCY -= current_bet
 			if Shop.CURRENCY <= 0: Shop.CURRENCY = 0
+			Globals.HEALTH = false
 			outcome_string = "[color=e92719][pulse]You Lost![/pulse][/color]"
 			wait_time = 1.7
 	spookivice.top_screen.texture.current_frame = 0
