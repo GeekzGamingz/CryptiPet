@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://3afn3ier01sj" path="res://source/04 - Moodifications/Moodification.gd" id="1_ekd55"]
 [ext_resource type="Texture2D" uid="uid://dm2gdchbnnort" path="res://assets/03 - Entities/01 - Emotes/Hunger.png" id="1_tmi3r"]
+[ext_resource type="Shader" uid="uid://dfeg6qg7vwd43" path="res://assets/05 - Shaders/Dissolve.gdshader" id="2_q42iu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aitbh"]
+shader = ExtResource("2_q42iu")
+shader_parameter/progress = 0.0
+shader_parameter/block_size = 1.0
 
 [node name="Moodification" type="MarginContainer" unique_id=1424993205]
 theme_override_constants/margin_left = 9
@@ -11,6 +17,7 @@ theme_override_constants/margin_bottom = 9
 script = ExtResource("1_ekd55")
 
 [node name="MoodSprite" type="Sprite2D" parent="." unique_id=351047323]
+material = SubResource("ShaderMaterial_aitbh")
 texture = ExtResource("1_tmi3r")
 centered = false
 hframes = 8
