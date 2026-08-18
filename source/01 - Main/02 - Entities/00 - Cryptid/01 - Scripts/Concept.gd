@@ -4,7 +4,7 @@ extends Node2D
 ## This node manages the [Cryptid]'s Concept and how strong it has become.
 #------------------------------------------------------------------------------#
 # Variables
-var time_transitioning: bool = false
+#var time_transitioning: bool = false
 # Exported Variables
 @export var base_time: float
 # Exported Enums
@@ -54,7 +54,7 @@ func _on_morph_timeout() -> void:
 #------------------------------------------------------------------------------#
 func metamorph():
 	if spookivice.outputs.waiting:
-		time_transitioning = true
+		#time_transitioning = true
 		match(stage):
 			"Essence":
 				Globals.CONCEPT = "Rumor"

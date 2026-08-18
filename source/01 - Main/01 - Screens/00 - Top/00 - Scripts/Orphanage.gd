@@ -60,11 +60,11 @@ func sleep():
 	Globals.PATH = cryptid.concept.subtype.current_path
 	Globals.GLIMPSE = cryptid.concept.subtype.subtype_glimpse
 	# Check Time Transition
-	if !cryptid.concept.time_transitioning:
-		if cryptid.concept.morph_timer.time_left > 0.0:
-			Globals.CONCEPT_TIME = snappedf(cryptid.concept.morph_timer.time_left, 0.01)
-			cryptid.concept.morph_timer.stop()
-	else: print("Metamorphosis Detected! Skipping Time Check!")
+	#if !cryptid.concept.time_transitioning:
+	if cryptid.concept.morph_timer.time_left > 0.0:
+		Globals.CONCEPT_TIME = snappedf(cryptid.concept.morph_timer.time_left, 0.01)
+		cryptid.concept.morph_timer.stop()
+	#else: print("Metamorphosis Detected! Skipping Time Check!")
 	# Await Animation, Free, & Signal
 	await cryptid.sprite_player.animation_finished
 	cryptid.queue_free()
