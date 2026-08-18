@@ -53,7 +53,7 @@ func transitions(delta):
 			if !outputs.powered_on: return states.powering_off
 			if !outputs.food_select: return states.idle
 		states.bartering:
-			if !outputs.powered_on: return states.powering_off
+			if outputs.food_select: return states.food_select
 			if !outputs.bartering: return states.idle
 		states.game_select:
 			if !outputs.powered_on: return states.powering_off
@@ -78,8 +78,7 @@ func state_enter(new_state, old_state):
 			outputs.top_screen.button_time.button_pressed = false
 			outputs.bottom_screen.texture = outputs.bottom_screen._BOTTOM_ON
 		states.waiting:
-			outputs.disable_buttons(true)
-			outputs.disable_choice(false)
+			outputs.disable_buttons(true, ["Cross", "Circle"])
 			spookivice.texture_player.play("alert")
 		states.food_select:
 			outputs.top_screen.button_time.button_pressed = true
@@ -92,6 +91,7 @@ func state_enter(new_state, old_state):
 			outputs.bottom_screen.scroll_container.show()
 			emit_signal("start_food_select")
 		states.bartering:
+			outputs.disable_menu(true, "Time")
 			outputs.top_screen.info.show()
 			outputs.top_screen.info.shop_container.show()
 			outputs.top_screen.info.text_bottom.text = ""
@@ -99,9 +99,9 @@ func state_enter(new_state, old_state):
 			spookivice.moodifier.clear_moods()
 			emit_signal("start_shop_select")
 		states.game_select:
+			outputs.disable_menu(true)
 			outputs.top_screen.button_time.button_pressed = true
 			outputs.top_screen.menu_container.hide()
-			outputs.disable_menu(true)
 			outputs.bottom_screen.scroll_container.show()
 			outputs.orphanage.sleep()
 			spookivice.moodifier.clear_moods()
@@ -135,15 +135,16 @@ func state_exit(old_state, new_state):
 			outputs.disable_buttons(false)
 			spookivice.texture_player.play("standby")
 		states.bartering:
+			outputs.disable_menu(false)
 			outputs.top_screen.info.hide()
 			outputs.bottom_screen.scroll_container.hide()
 		states.game_select, states.food_select:
+			outputs.disable_menu(false)
 			outputs.top_screen.menu_container.show()
 			outputs.top_screen.info.hide()
-			outputs.disable_menu(false)
 			outputs.bottom_screen.scroll_container.hide()
 		states.game_active:
-			outputs.top_screen.menu_container.show()
 			outputs.disable_menu(false)
+			outputs.top_screen.menu_container.show()
 			outputs.bottom_screen.scroll_container.hide()
 		states.idle: pass

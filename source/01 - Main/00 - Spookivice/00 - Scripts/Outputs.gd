@@ -23,18 +23,19 @@ func _ready() -> void:
 #------------------------------------------------------------------------------#
 # Custom Functions
 # Disable Buttons
-func disable_buttons(disabled: bool) -> void:
-	for button in spookivice.buttons.get_children(): button.disabled = disabled
+func disable_buttons(disabled: bool, excluded: Array = []) -> void:
+	for button in spookivice.buttons.get_children():
+		if !excluded.has(button.name): button.disabled = disabled
 	disable_menu(disabled)
 # Disable Menu
-func disable_menu(disabled: bool) -> void:
+func disable_menu(disabled: bool, excluded: String = "") -> void:
 	for button in top_screen.menu_container.get_children():
-		button.disabled = disabled
+		if button.name != excluded: button.disabled = disabled
 		if button.has_focus: button.release_focus()
-# Enable Choice
-func disable_choice(disabled: bool) -> void:
-	spookivice.buttons.cross.disabled = disabled
-	spookivice.buttons.circle.disabled = disabled
+## Enable Choice
+#func disable_choice(disabled: bool) -> void:
+	#spookivice.buttons.cross.disabled = disabled
+	#spookivice.buttons.circle.disabled = disabled
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
 # Power Toggle
