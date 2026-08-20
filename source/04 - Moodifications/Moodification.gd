@@ -6,6 +6,8 @@ const HEALTH = preload("uid://c7yl7qh6gry3e")
 const HUNGER = preload("uid://dm2gdchbnnort")
 #------------------------------------------------------------------------------#
 # Variables
+# Bools
+var is_dissolving: bool = false
 # Exported Enumerations
 @export_enum("Happiness", "Health", "Hunger") var mood = "":
 	set(new_mood):
@@ -15,8 +17,14 @@ const HUNGER = preload("uid://dm2gdchbnnort")
 @onready var mood_sprite: Sprite2D = $MoodSprite
 @onready var free_timer: Timer = $FreeTimer
 #------------------------------------------------------------------------------#
+# Functions
+# Process
+func _process(delta: float) -> void:
+	if is_dissolving:
+		if Globals.DISSOLVE(mood_sprite.material, false, delta): print("Finished Dissolving!")
+#------------------------------------------------------------------------------#
 # Signaled Functions
-func _on_timer_timeout() -> void: queue_free()
+func _on_timer_timeout() -> void: is_dissolving = true
 #------------------------------------------------------------------------------#
 # Custom Functions
 func switch_texture(new_mood) -> void:

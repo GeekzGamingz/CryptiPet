@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://dfeg6qg7vwd43" path="res://assets/05 - Shaders/Dissolve.gdshader" id="2_ra5qr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ha128"]
+resource_local_to_scene = true
 shader = ExtResource("2_ra5qr")
 shader_parameter/progress = 1.0
 shader_parameter/block_size = 1.0
@@ -68,5 +69,4 @@ autoplay = &"idle"
 one_shot = true
 autostart = true
 
-[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="timeout" from="Merchant/Appearance" to="." method="_on_appearance_timeout"]

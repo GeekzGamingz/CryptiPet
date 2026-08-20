@@ -32,10 +32,6 @@ func disable_menu(disabled: bool, excluded: String = "") -> void:
 	for button in top_screen.menu_container.get_children():
 		if button.name != excluded: button.disabled = disabled
 		if button.has_focus: button.release_focus()
-## Enable Choice
-#func disable_choice(disabled: bool) -> void:
-	#spookivice.buttons.cross.disabled = disabled
-	#spookivice.buttons.circle.disabled = disabled
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
 # Power Toggle

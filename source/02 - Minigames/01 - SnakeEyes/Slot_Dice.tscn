@@ -13,6 +13,7 @@ shader_parameter/progress = 0.0
 shader_parameter/block_size = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jmrfd"]
+resource_local_to_scene = true
 shader = ExtResource("1_jmrfd")
 shader_parameter/progress = 0.0
 shader_parameter/block_size = 1.0

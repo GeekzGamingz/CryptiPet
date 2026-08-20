@@ -2,10 +2,30 @@
 
 [ext_resource type="Script" uid="uid://3afn3ier01sj" path="res://source/04 - Moodifications/Moodification.gd" id="1_ekd55"]
 [ext_resource type="Texture2D" uid="uid://dm2gdchbnnort" path="res://assets/03 - Entities/01 - Emotes/Hunger.png" id="1_tmi3r"]
-[ext_resource type="Shader" uid="uid://dfeg6qg7vwd43" path="res://assets/05 - Shaders/Dissolve.gdshader" id="2_q42iu"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_aitbh"]
-shader = ExtResource("2_q42iu")
+[sub_resource type="Shader" id="Shader_ekd55"]
+code = "shader_type canvas_item;
+//----------------------------------------------------------------------------//
+// Variables
+// Uniforms
+uniform float progress : hint_range(0, 1);
+uniform float block_size = 1;
+// Random Variable
+float random(vec2 uv) {
+    return fract(sin(dot(uv, vec2(12.9898, 78.233))) * 438.5453);
+}
+//----------------------------------------------------------------------------//
+// Fragment
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	vec2 uv_snapped = floor(UV / TEXTURE_PIXEL_SIZE / vec2(block_size));
+	color.a *= step(progress, random(uv_snapped));
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q42iu"]
+resource_local_to_scene = true
+shader = SubResource("Shader_ekd55")
 shader_parameter/progress = 0.0
 shader_parameter/block_size = 1.0
 
@@ -17,7 +37,7 @@ theme_override_constants/margin_bottom = 9
 script = ExtResource("1_ekd55")
 
 [node name="MoodSprite" type="Sprite2D" parent="." unique_id=351047323]
-material = SubResource("ShaderMaterial_aitbh")
+material = SubResource("ShaderMaterial_q42iu")
 texture = ExtResource("1_tmi3r")
 centered = false
 hframes = 8
