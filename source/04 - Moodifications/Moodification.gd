@@ -21,7 +21,9 @@ var is_dissolving: bool = false
 # Process
 func _process(delta: float) -> void:
 	if is_dissolving:
-		if Globals.DISSOLVE(mood_sprite.material, false, delta): print("Finished Dissolving!")
+		if Globals.DISSOLVE(mood_sprite.material, false, delta):
+			print("[%s] Finished Dissolving!" % name)
+			queue_free()
 #------------------------------------------------------------------------------#
 # Signaled Functions
 func _on_timer_timeout() -> void: is_dissolving = true

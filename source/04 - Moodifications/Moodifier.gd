@@ -15,6 +15,7 @@ func add_mood(mood, stage, timeout) -> void:
 	var mood_scene = MOODIFICATION.instantiate()
 	moodifications.add_child(mood_scene)
 	mood_scene.mood = mood
+	mood_scene.name = mood
 	mood_scene.mood_sprite.frame = stage
 	mood_scene.free_timer.wait_time = timeout
 	mood_scene.free_timer.start()

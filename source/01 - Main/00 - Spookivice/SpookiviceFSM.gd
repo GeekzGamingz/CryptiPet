@@ -53,6 +53,7 @@ func transitions(delta):
 			if !outputs.powered_on: return states.powering_off
 			if !outputs.food_select: return states.idle
 		states.bartering:
+			if !outputs.powered_on: return states.powering_off
 			if outputs.food_select: return states.food_select
 			if !outputs.bartering: return states.idle
 		states.game_select:

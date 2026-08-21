@@ -27,6 +27,11 @@ var ICONS: Dictionary = {
 	"Meat": Food.ICONS["Meat"],
 	"Valuables": Food.ICONS["Valuables"],
 	# Potions
+	"Antidote": preload("uid://nwcq41qyhuml"),
+	"Cleanse": preload("uid://cxo7l37ghs4re"),
+	"Hate": preload("uid://ctxne63wyxm51"),
+	"Love": preload("uid://dlg1a1dakm2g8"),
+	"Poison": preload("uid://dscds0t3n4hre")
 }
 var ICONS_DISABLED: Dictionary = {
 	# Food
@@ -39,11 +44,19 @@ var ICONS_DISABLED: Dictionary = {
 	"Meat": Food.ICONS_DISABLED["Meat"],
 	"Valuables": Food.ICONS_DISABLED["Valuables"],
 	# Potions
+	"Antidote": preload("uid://b3g821yk3e37a"),
+	"Cleanse": preload("uid://ccasjoa0ffofo"),
+	"Hate": preload("uid://dxk5id14t7w8x"),
+	"Love": preload("uid://wa4al8v0coj3"),
+	"Poison": preload("uid://bbwqab0tw2s04")
 }
 # Quantities
 var QUANTITIES: Dictionary = {
+	# Food
 	"Blood": 0, "Book": 0, "Brains": 0, "Energy": 0,
-	"Goat": 0, "Leaf": 0, "Meat": 0, "Valuables": 0
+	"Goat": 0, "Leaf": 0, "Meat": 0, "Valuables": 0,
+	# Potions
+	"Antidote": 0, "Cleanse": 0, "Hate": 0, "Love": 0, "Poison": 0
 }
 #------------------------------------------------------------------------------#
 # Custom Global Functions
@@ -51,9 +64,9 @@ var QUANTITIES: Dictionary = {
 func GET_DESCRIPTION(item: String) -> Array:
 	var cost: int = 5
 	match(item):
-		"Book": cost += 2
-		"Brains", "Goat": cost += 3
-		"Energy", "Leaf": cost -= 2
+		"Brains", "Goat", "Love": cost += 3
+		"Book", "Hate", "Cleanse": cost += 2
+		"Energy", "Leaf", "Poison", "Antidote": cost -= 2
 		"Valuables": cost = 0
 		_: pass
 	var description: Array = ["Cost: %sv | Owned: %s" % [str(cost), QUANTITIES[item]], cost]

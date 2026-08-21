@@ -43,7 +43,7 @@ centered = false
 hframes = 8
 
 [node name="FreeTimer" type="Timer" parent="." unique_id=861576332]
-wait_time = 10.0
+wait_time = 5.0
 one_shot = true
 
 [connection signal="timeout" from="FreeTimer" to="." method="_on_timer_timeout"]
