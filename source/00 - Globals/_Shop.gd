@@ -27,11 +27,11 @@ var ICONS: Dictionary = {
 	"Meat": Food.ICONS["Meat"],
 	"Valuables": Food.ICONS["Valuables"],
 	# Potions
-	"Antidote": preload("uid://nwcq41qyhuml"),
-	"Cleanse": preload("uid://cxo7l37ghs4re"),
-	"Hate": preload("uid://ctxne63wyxm51"),
-	"Love": preload("uid://dlg1a1dakm2g8"),
-	"Poison": preload("uid://dscds0t3n4hre")
+	"Antidote": Potions.ICONS["Antidote"],
+	"Cleanse": Potions.ICONS["Cleanse"],
+	"Hate": Potions.ICONS["Hate"],
+	"Love": Potions.ICONS["Love"],
+	"Poison": Potions.ICONS["Poison"]
 }
 var ICONS_DISABLED: Dictionary = {
 	# Food
@@ -44,11 +44,11 @@ var ICONS_DISABLED: Dictionary = {
 	"Meat": Food.ICONS_DISABLED["Meat"],
 	"Valuables": Food.ICONS_DISABLED["Valuables"],
 	# Potions
-	"Antidote": preload("uid://b3g821yk3e37a"),
-	"Cleanse": preload("uid://ccasjoa0ffofo"),
-	"Hate": preload("uid://dxk5id14t7w8x"),
-	"Love": preload("uid://wa4al8v0coj3"),
-	"Poison": preload("uid://bbwqab0tw2s04")
+	"Antidote": Potions.ICONS_DISABLED["Antidote"],
+	"Cleanse": Potions.ICONS_DISABLED["Cleanse"],
+	"Hate": Potions.ICONS_DISABLED["Hate"],
+	"Love": Potions.ICONS_DISABLED["Love"],
+	"Poison": Potions.ICONS_DISABLED["Poison"]
 }
 # Quantities
 var QUANTITIES: Dictionary = {

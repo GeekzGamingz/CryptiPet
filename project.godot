@@ -19,9 +19,10 @@ config/icon="uid://p4l3hqej3rl4"
 
 Globals="*uid://bs3dwb3rwi8ot"
 Textures="*uid://cxjhrtlktcr7y"
-Games="*uid://c1vanjeg55xek"
 Locations="*uid://b5ehsvgo4lt8r"
+Games="*uid://c1vanjeg55xek"
 Food="*uid://gqeuy8kgdiao"
+Potions="*uid://ds6463h1vuupw"
 Shop="*uid://cn75x41hpb7so"
 
 [display]
