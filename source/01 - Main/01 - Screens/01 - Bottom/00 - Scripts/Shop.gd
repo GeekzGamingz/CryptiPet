@@ -18,7 +18,10 @@ func _ready() -> void:
 func spawn_shop(to_spawn: bool) -> void:
 	var slot_container = bottom_screen.slot_container
 	if to_spawn:
-		for item in Shop.ICONS:
+		var shop_items: Array = []
+		shop_items.append_array(Food.ICONS.keys())
+		shop_items.append_array(Potions.ICONS.keys())
+		for item in shop_items:
 			# Instantiate/Add Slots
 			var item_slot = Shop.SLOT.instantiate()
 			item_slot.item = item

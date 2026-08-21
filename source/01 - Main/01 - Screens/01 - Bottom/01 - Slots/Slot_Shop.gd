@@ -13,8 +13,8 @@ var bottom_screen: TextureRect
 func _ready() -> void:
 	Shop.connect("currency_changed", currency_changed)
 	if item != "":
-		slot_button.texture_normal = Shop.ICONS[item]
-		slot_button.texture_disabled = Shop.ICONS_DISABLED[item]
+		slot_button.texture_normal = get_autoload().ICONS[item]
+		slot_button.texture_disabled = get_autoload().ICONS_DISABLED[item]
 	var item_data: Array = Shop.GET_DESCRIPTION(item)
 	cost = item_data[1]
 	currency_changed(Shop.CURRENCY)
@@ -25,7 +25,7 @@ func _on_button_focus_entered() -> void:
 	top_screen.spookivice.notifier.add_message(
 		"[color=853a4c]X[/color] = Back | Buy = [color=18372a]O[/color]", 1, false
 	)
-	top_screen.info.item.texture = Shop.ICONS[item]
+	top_screen.info.item.texture = get_autoload().ICONS[item]
 	var item_data: Array = Shop.GET_DESCRIPTION(item)
 	top_screen.info.title_shop.text = "[wave]%s[/wave]" % item
 	top_screen.info.text_shop.text = item_data[0]
@@ -40,7 +40,8 @@ func _on_slot_button_up() -> void:
 	_on_button_focus_entered()
 #------------------------------------------------------------------------------#
 # Custom Signaled Functions
+# Autoload Helper
+func get_autoload() -> Node:
+	return (Food as Node) if Food.ICONS.has(item) else (Potions as Node)
 # Currency Changed
-func currency_changed(currency: int):
-	if currency < cost: slot_button.set_deferred("disabled", true)
-	else: slot_button.set_deferred("disabled", false)
+func currency_changed(currency: int): slot_button.disabled = currency < cost
