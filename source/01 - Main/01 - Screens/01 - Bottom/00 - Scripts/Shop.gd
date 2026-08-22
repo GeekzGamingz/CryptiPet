@@ -53,4 +53,3 @@ func circle_pressed() -> void:
 		get_viewport().gui_get_focus_owner().emit_signal("button_up")
 # Switch Time
 func switch_time(time: String) -> void: if time == "Night": spawn_shop(false)
-#------------------------------------------------------------------------------#

@@ -44,4 +44,4 @@ func _on_slot_button_up() -> void:
 func get_autoload() -> Node:
 	return (Food as Node) if Food.ICONS.has(item) else (Potions as Node)
 # Currency Changed
-func currency_changed(currency: int): slot_button.disabled = currency < cost
+func currency_changed(currency: int) -> void: slot_button.disabled = currency < cost

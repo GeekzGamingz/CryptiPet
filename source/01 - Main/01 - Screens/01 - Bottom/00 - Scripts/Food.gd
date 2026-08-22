@@ -19,7 +19,7 @@ func spawn_food(to_spawn: bool) -> void:
 		for food in Food.ICONS:
 			# Instantiate/Add Slots
 			var food_slot = Food.SLOT.instantiate()
-			food_slot.food = food
+			food_slot.item = food
 			food_slot.top_screen = bottom_screen.spookivice.top_screen
 			food_slot.bottom_screen = bottom_screen
 			slot_container.add_child(food_slot)
